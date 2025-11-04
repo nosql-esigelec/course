@@ -11,7 +11,9 @@ Cette formation vous permettra de :
 - Pratiquer avec Docker et Jupyter notebooks
 - Choisir la bonne base de données selon vos besoins
 
-## 📚 Nouveau dans le développement ?
+## 📚 Pour bien démarrer
+
+### 🎓 Nouveau dans le développement ?
 
 **👉 Lisez d'abord le [Guide de l'Étudiant](./GUIDE-ETUDIANT.md) !**
 
@@ -24,6 +26,18 @@ Ce guide explique en détail :
 - Comment résoudre les problèmes courants
 
 Même si vous avez déjà de l'expérience, jetez-y un œil pour comprendre comment nous allons travailler ensemble !
+
+### 📋 Besoin d'une référence rapide ?
+
+**💡 Consultez l'[Aide-mémoire](./AIDE-MEMOIRE.md) pendant le cours !**
+
+Commandes essentielles pour :
+- Git (clone, commit, push, branches)
+- Docker (up, down, logs, restart)
+- Jupyter (raccourcis clavier)
+- MongoDB (CRUD, requêtes)
+- Neo4j (Cypher de base)
+- URLs et résolution de problèmes
 
 ## ⏰ Programme de la journée (7 heures)
 
