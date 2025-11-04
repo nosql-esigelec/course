@@ -11,6 +11,20 @@ Cette formation vous permettra de :
 - Pratiquer avec Docker et Jupyter notebooks
 - Choisir la bonne base de données selon vos besoins
 
+## 📚 Nouveau dans le développement ?
+
+**👉 Lisez d'abord le [Guide de l'Étudiant](./GUIDE-ETUDIANT.md) !**
+
+Ce guide explique en détail :
+- Ce qu'est un README et comment l'utiliser
+- Comment utiliser Git et GitHub
+- Le fonctionnement de GitHub Classroom
+- Les bases de Docker et Jupyter
+- Les bonnes pratiques pour travailler en équipe
+- Comment résoudre les problèmes courants
+
+Même si vous avez déjà de l'expérience, jetez-y un œil pour comprendre comment nous allons travailler ensemble !
+
 ## ⏰ Programme de la journée (7 heures)
 
 ### Matin (9h00 - 12h00) - 3 heures
