@@ -101,7 +101,7 @@ nosql/
     │   └── README.md              # (utilise https://console.neo4j.org/)
     └── tds/                       # Travaux dirigés avec Docker
         ├── README.md              # Guide d'installation
-        ├── docker-compose.yml     # Configuration Docker
+        ├── docker compose.yml     # Configuration Docker
         ├── mongodb.ipynb          # Notebook MongoDB
         ├── neo4j.ipynb            # Notebook Neo4j
         ├── mongo-data/            # Données d'exemple MongoDB
@@ -138,20 +138,20 @@ cd nosql
 cd exercices/tds
 
 # Lancer MongoDB + Jupyter
-docker-compose up -d mongo-server jupyter
+docker compose up -d mongo-server jupyter
 
 # Ou lancer Neo4j + Jupyter
-docker-compose up -d neo4j jupyter
+docker compose up -d neo4j jupyter
 
 # Ou lancer tous les services
-docker-compose up -d
+docker compose up -d
 ```
 
 **Accéder à Jupyter :**
 
 ```bash
 # Récupérer le token d'accès
-docker-compose logs jupyter
+docker compose logs jupyter
 
 # Ouvrir dans le navigateur
 # http://localhost:8888/lab?token=<token>
@@ -236,9 +236,9 @@ Ce matériel de formation est fourni à des fins éducatives.
 ## 👨‍🏫 Intervenant
 
 **Brice FOTZO**
-- Tech Lead Data @ HephIA
+- Tech Lead Data @ Servier
 - MUG Leader Paris @ MongoDB
-- Intervenant @ ESIGELEC Rouen
+- Intervenant @ ESIGELEC Rouen & Poitiers
 
 ---
 

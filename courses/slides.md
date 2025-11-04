@@ -28,8 +28,8 @@ layout: two-cols-header
 - Analytics Engineer - **Apprenti** @ Renault
 - Data Enigneer - CDI @ Starclay
 - Tech Lead Data - CDI @ HephIA
-- Intervenant - CDD @ ESIGELEC Rouen
-- Founder @ CVSurMesure
+- Tech Lead Data - CDI @ Servier
+- Intervenant - CDD @ ESIGELEC Rouen/Poitiers
 
 > Engagements Communautaires
 - Data Engineer - **Volunteer** @ Validalab(DFG)
@@ -45,33 +45,35 @@ layout: default
 ## Faisons connaissance
 
 ---
-layout: default
+layout: two-cols-header
 ---
 
 # Plan du module
 
-**Formation NoSQL** (1 journée - 7h)
 
-- **Introduction au NoSQL** - 1h
+::left::
+- **Introduction au NoSQL** 
   - Pourquoi NoSQL ?
   - Théorème CAP
   - Types de bases NoSQL
   - Comparaison SQL vs NoSQL
 
-- **MongoDB** - 2h30
+- **MongoDB** 
   - Introduction et concepts
   - Structure des données
   - Opérations CRUD
   - Requêtes avancées
   - Indexation et modélisation
 
-- **Neo4j** - 2h30
+::right::
+
+- **Neo4j** 
   - Base de données orientée graphe
   - Langage Cypher
   - Modélisation de graphes
   - Cas d'utilisation
 
-- **Travaux Pratiques** - 1h
+- **Travaux Pratiques** - 
   - Exercices MongoDB
   - Exercices Neo4j
   - Mise en pratique
@@ -135,6 +137,86 @@ background: https://source.unsplash.com/collection/94734566/1920x1080
 
 # Introduction au NoSQL
 ## Au-delà du relationnel
+
+---
+layout: two-cols-header
+---
+
+# Qu'est-ce que le NoSQL ?
+
+::left::
+
+<div class="mb-6">
+
+### Origine
+**11 juin 2009** à San Francisco
+- Meetup organisé par Johan Oskarsson
+- Émergence d'un nouveau paradigme
+
+</div>
+
+<div>
+
+### Définitions
+- **No SQL** : N'utilisent pas un modèle relationnel (ni le langage SQL)
+- **Not only SQL** : Bases non relationnelles complémentaires
+
+</div>
+
+::right::
+
+<div>
+
+### Caractéristiques principales
+- ✅ Open source
+- ✅ Conçus pour des clusters puissants
+- ✅ Basés sur les besoins du web au 21ème siècle
+- ✅ Pas de schéma fixe
+- ✅ Permet l'ajout de champs sans contrôles
+
+</div>
+
+---
+layout: default
+---
+
+# Évolution historique
+
+<div class="grid grid-cols-3 gap-4">
+
+<div>
+
+### 1970-2000
+**Ère des SGBD traditionnels**
+- Domination des bases relationnelles
+- SQL comme standard
+- Oracle, MySQL, PostgreSQL
+
+</div>
+
+<div>
+
+### 2000-2010
+**Émergence du NoSQL**
+- Bulle internet
+- Papiers de recherche (Google, Facebook, IBM)
+- BDD open source (MongoDB, CouchDB, Neo4j, Redis, Cassandra, HBase, Riak)
+
+</div>
+
+<div>
+
+### 2010-Aujourd'hui
+**Ère du Cloud DBaaS**
+- MongoDB Atlas
+- AWS DynamoDB
+- Google Cloud Firestore
+- Azure Cosmos DB
+- Cloudant
+
+</div>
+
+</div>
 
 ---
 layout: two-cols-header
@@ -303,54 +385,78 @@ CREATE (u)-[:AUTHORED]->(p)
 layout: two-cols-header
 ---
 
-# Caractéristiques NoSQL
+# Caractéristiques des BDD NoSQL
 
 ::left::
 
 <div class="mb-4">
 
-### Cloud et coûts
-- Utilisent des architecture Cloud
-- Très souvent Pay as you go
-- Licences gratuites car Open Source
+### 🌐 Communautés impliquées et actives
+- Proviennent de l'Open Source ou ont une version Open Source
+- Support des communautés fondamental pour la croissance
+- **Exemples** :
+  - MongoDB : 635 contributeurs
+  - Cassandra : 377 contributeurs
+  - Redis : 630 contributeurs
 
-### Open Source
-- Open source, donc facilement modifiable et extensible.
-- Contributeurs et communautés très actives
+</div>
 
+<div class="mb-4">
 
-### Flexibilité
-- Modélisation à l'écriture
-- Pas de schéma prédéfini
-- Dénormalisation acceptée
-- Attention celà n'exclue pas une modélisation rigoureuse
+### 📊 Passage à l'échelle (Scalabilité)
+
+**Scalabilité Horizontale** ✅
+- Ajout de serveurs de même capacité
+- Ex: 8 serveurs 2vCPUs/4Go
+- Approche privilégiée par NoSQL
+
+**Scalabilité Verticale** ❌
+- Augmentation de la puissance d'un serveur
+- Plus coûteuse et limitée
 
 </div>
 
 ::right::
 
-<div class="col-md-6">
+<div class="mb-4">
 
+### ✅ Disponibilité garantie
+- Serveur unique : Point de défaillance unique
+- Cluster de serveurs : Réplication des données
+- Haute disponibilité native
 
-### Scalabilité
-- Support pour des données volumineuses
-- Capacité à scaler horizontalement(sauf Graphes)
+</div>
 
-### Disponibilité
-- Tolérant aux interruptions de réseau
-- Assure la continuité de service
+<div class="mb-4">
 
+### ☁️ Cloud Ready et coûts réduits
+- Architectures Cloud natives
+- Paradigme Cloud intégré
+- Serveurs standards, open source
+- Implémentation peu coûteuse
+
+**Exemple de coût** :
+- MongoDB Enterprise : **0$**
+- Oracle RAC : **$47,500** par unité
+
+</div>
+
+<div class="mb-4">
+
+### ⚡ Hautes performances
+- ⏱️ Réponse rapide
+- 👥 Haute concurrence
+- Nombreux utilisateurs simultanés
 
 </div>
 
 <div>
 
-### Patterns courants
-- Embedded Documents
-- References
-- Buckets
-- Extended Reference
-- Subset Pattern
+### 🔄 Flexibilité
+- Schéma flexible : Modification à la volée
+- Types de données variés
+- Indexage spécifique
+- Dénormalisation acceptée
 
 </div>
 
@@ -451,7 +557,7 @@ graph TB
 
 ---
 layout: iframe
-url: https://app.wooclap.com/IERLNE/questionnaires/678858c2ab98a0451c9acab1
+url: https://app.wooclap.com/NFMFFF/questionnaires/690a8cebb1bf86ff9eac1762
 ---
 
 ---
@@ -756,7 +862,7 @@ layout: two-cols-header
 
 ---
 layout: iframe
-url: https://app.wooclap.com/IERLNE/questionnaires/6788bc78c2c45244acd9d297
+url: https://app.wooclap.com/NFMFFF/questionnaires/690a8cebb1bf86ff9eac1763
 ---
 ---
 layout: cover
@@ -1086,7 +1192,7 @@ RETURN chemin
 ```
 ---
 layout: iframe
-url: https://app.wooclap.com/IERLNE/questionnaires/6788bec9c2c45244acdce4c2
+url: https://app.wooclap.com/NFMFFF/questionnaires/690a8cebb1bf86ff9eac1764
 ---
 
 ---

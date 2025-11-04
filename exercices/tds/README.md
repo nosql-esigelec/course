@@ -20,7 +20,7 @@ cd exercices/tds
 
 2. Lancer MongoDB et Jupyter :
 ```bash
-docker-compose up -d mongo-server jupyter
+docker compose up -d mongo-server jupyter
 ```
 
 3. Ouvrir Jupyter (même procédure que pour PostgreSQL) 
@@ -50,7 +50,7 @@ cd exercices/tds
 2. Charger les données dump (important) :
 ```bash
 # S'assurer que Neo4j est arrêté
-docker-compose stop neo4j
+docker compose stop neo4j
 rm -rf ./neo4j/data/* #pour Linux et MacOS
 Remove-Item -Recurse -Force ./neo4j/data/* #pour Windows
 
@@ -78,7 +78,7 @@ docker run --interactive --tty --rm \
 
 3. Lancer Neo4j et Jupyter :
 ```bash
-docker-compose up -d neo4j jupyter
+docker compose up -d neo4j jupyter
 ```
 
 4. Ouvrir Jupyter (même procédure que pour PostgreSQL)
@@ -102,16 +102,16 @@ Si vous avez bien suivi les étapes, vous devriez être prêt à commencer les e
 
 - Pour voir les logs d'un service :
 ```bash
-docker-compose logs [service]
+docker compose logs [service]
 ```
 
 - Pour redémarrer un service :
 ```bash
-docker-compose restart [service]
+docker compose restart [service]
 ```
 
 - Pour tout réinitialiser :
 ```bash
-docker-compose down
-docker-compose up -d [services-necessaires]
+docker compose down
+docker compose up -d [services-necessaires]
 ```

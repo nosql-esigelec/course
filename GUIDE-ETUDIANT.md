@@ -306,37 +306,37 @@ Imaginez une **boîte de transport maritime** :
 
 #### 🎼 Docker Compose
 - **Outil** pour gérer plusieurs conteneurs
-- Définit les services dans un fichier `docker-compose.yml`
+- Définit les services dans un fichier `docker compose.yml`
 - Permet de lancer tout un environnement en une commande
 
 ### 🚀 Commandes Docker essentielles
 
 ```bash
 # Lancer les services
-docker-compose up -d
+docker compose up -d
 
 # Voir les conteneurs en cours d'exécution
-docker-compose ps
+docker compose ps
 # ou
 docker ps
 
 # Voir les logs d'un service
-docker-compose logs <service>
-docker-compose logs jupyter
+docker compose logs <service>
+docker compose logs jupyter
 
 # Arrêter les services
-docker-compose stop
+docker compose stop
 
 # Arrêter et supprimer les conteneurs
-docker-compose down
+docker compose down
 
 # Redémarrer un service
-docker-compose restart <service>
+docker compose restart <service>
 ```
 
 ### 💡 Dans notre cours
 
-Notre `docker-compose.yml` définit plusieurs services :
+Notre `docker compose.yml` définit plusieurs services :
 
 ```yaml
 services:
@@ -597,18 +597,18 @@ git push
 #### Problème : "Port already in use"
 ```bash
 # Solution : Un autre service utilise le port
-docker-compose down
-# Ou changer le port dans docker-compose.yml
+docker compose down
+# Ou changer le port dans docker compose.yml
 ```
 
 #### Problème : Conteneur qui ne démarre pas
 ```bash
 # Voir les logs pour comprendre l'erreur
-docker-compose logs <service>
+docker compose logs <service>
 
 # Redémarrer proprement
-docker-compose down
-docker-compose up -d
+docker compose down
+docker compose up -d
 ```
 
 ### 🐛 Git
@@ -638,14 +638,14 @@ git push
 #### Problème : "Kernel not found"
 ```bash
 # Solution : Redémarrer Jupyter
-docker-compose restart jupyter
+docker compose restart jupyter
 # Recharger la page dans le navigateur
 ```
 
 #### Problème : Token ne fonctionne pas
 ```bash
 # Solution : Récupérer le nouveau token
-docker-compose logs jupyter
+docker compose logs jupyter
 # Chercher la ligne avec le token et copier l'URL complète
 ```
 
@@ -654,13 +654,13 @@ docker-compose logs jupyter
 #### Problème : "Connection refused"
 ```bash
 # Vérifier que le service est bien démarré
-docker-compose ps
+docker compose ps
 
 # Si le service est down
-docker-compose up -d <service>
+docker compose up -d <service>
 
 # Vérifier les logs
-docker-compose logs <service>
+docker compose logs <service>
 ```
 
 ---

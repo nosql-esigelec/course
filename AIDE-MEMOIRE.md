@@ -71,55 +71,55 @@ git diff
 
 ## 🐳 Docker - Commandes essentielles
 
-### Gestion des services (avec docker-compose.yml)
+### Gestion des services (avec docker compose.yml)
 
 ```bash
 # Lancer tous les services
-docker-compose up -d
+docker compose up -d
 
 # Lancer des services spécifiques
-docker-compose up -d mongo-server jupyter
-docker-compose up -d neo4j jupyter
+docker compose up -d mongo-server jupyter
+docker compose up -d neo4j jupyter
 
 # Voir les services en cours d'exécution
-docker-compose ps
+docker compose ps
 # ou
 docker ps
 
 # Arrêter les services
-docker-compose stop
+docker compose stop
 
 # Arrêter et supprimer les conteneurs
-docker-compose down
+docker compose down
 
 # Redémarrer un service
-docker-compose restart <service>
-docker-compose restart jupyter
+docker compose restart <service>
+docker compose restart jupyter
 ```
 
 ### Logs et débogage
 
 ```bash
 # Voir les logs d'un service
-docker-compose logs <service>
-docker-compose logs jupyter
-docker-compose logs mongo-server
+docker compose logs <service>
+docker compose logs jupyter
+docker compose logs mongo-server
 
 # Suivre les logs en temps réel
-docker-compose logs -f <service>
+docker compose logs -f <service>
 
 # Voir les dernières lignes
-docker-compose logs --tail=50 <service>
+docker compose logs --tail=50 <service>
 ```
 
 ### Nettoyage
 
 ```bash
 # Supprimer tous les conteneurs arrêtés
-docker-compose down
+docker compose down
 
 # Supprimer les volumes aussi (⚠️ efface les données)
-docker-compose down -v
+docker compose down -v
 
 # Voir l'espace disque utilisé
 docker system df
@@ -319,7 +319,7 @@ ORDER BY nb_employes DESC
 ### Docker : "Port already in use"
 ```bash
 # Arrêter les services
-docker-compose down
+docker compose down
 
 # Si ça ne suffit pas, identifier le processus
 lsof -i :8888  # (remplacer 8888 par le port concerné)
@@ -328,16 +328,16 @@ lsof -i :8888  # (remplacer 8888 par le port concerné)
 ### Jupyter : Token ne fonctionne pas
 ```bash
 # Récupérer le nouveau token
-docker-compose logs jupyter | grep token
+docker compose logs jupyter | grep token
 ```
 
 ### MongoDB : Connection refused
 ```bash
 # Vérifier que le service est lancé
-docker-compose ps
+docker compose ps
 
 # Relancer si nécessaire
-docker-compose restart mongo-server
+docker compose restart mongo-server
 ```
 
 ---
