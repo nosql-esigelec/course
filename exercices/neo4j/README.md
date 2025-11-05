@@ -1,7 +1,6 @@
 # Exercices Neo4j
 
-Pour réaliser ces exercices, nous utiliserons:
-https://console.neo4j.org/
+Pour réaliser ces exercices, nous utiliserons: https://sandbox.neo4j.com/
 
 
 ### Exercice 1 : Réseau Social Simple
@@ -38,4 +37,5 @@ Points clés couverts :
 - Relations avec propriétés
 - Requêtes de base avec MATCH
 - Filtrage simple
+
 - Plusieurs types de nœuds et de relations
