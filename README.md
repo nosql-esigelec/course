@@ -39,47 +39,6 @@ Commandes essentielles pour :
 - Neo4j (Cypher de base)
 - URLs et résolution de problèmes
 
-## ⏰ Programme de la journée (7 heures)
-
-### Matin (9h00 - 12h00) - 3 heures
-
-| Horaire | Sujet | Durée |
-|---------|-------|-------|
-| 9h00 - 10h00 | **Introduction au NoSQL** | 1h |
-| | - Pourquoi NoSQL ? | |
-| | - Théorème CAP | |
-| | - Types de bases NoSQL | |
-| | - Comparaison SQL vs NoSQL | |
-| 10h00 - 10h15 | *Pause* | 15min |
-| 10h15 - 11h30 | **MongoDB - Théorie** | 1h15 |
-| | - Structure des données BSON | |
-| | - Opérations CRUD | |
-| | - Requêtes avancées | |
-| | - Indexation et modélisation | |
-| 11h30 - 12h00 | **Exercices MongoDB simples** | 30min |
-| | - Exercices en ligne (sans installation) | |
-
-### Après-midi (13h30 - 17h30) - 4 heures
-
-| Horaire | Sujet | Durée |
-|---------|-------|-------|
-| 13h30 - 14h30 | **Pratique MongoDB avec Docker** | 1h |
-| | - Setup de l'environnement | |
-| | - Notebooks Jupyter | |
-| | - Cas pratiques | |
-| 14h30 - 15h30 | **Neo4j - Théorie** | 1h |
-| | - Bases de données orientées graphe | |
-| | - Langage Cypher | |
-| | - Modélisation de graphes | |
-| | - Cas d'utilisation | |
-| 15h30 - 15h45 | *Pause* | 15min |
-| 15h45 - 16h30 | **Exercices Neo4j simples** | 45min |
-| | - Exercices en ligne (sans installation) | |
-| 16h30 - 17h30 | **Pratique Neo4j avec Docker** | 1h |
-| | - Setup de l'environnement | |
-| | - Notebooks Jupyter | |
-| | - Cas pratiques | |
-
 ## 📁 Structure du projet
 
 ```
