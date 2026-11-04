@@ -1,0 +1,1 @@
+var e=``+new URL(`../images/wooclap2.png`,import.meta.url).href;export{e as t};
