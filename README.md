@@ -2,6 +2,10 @@
 
 Bienvenue sur le dépôt central du module **Bases de Données NoSQL** (Dominante *Big Data pour la Transformation Numérique — BDTN*) à l'**ESIGELEC Rouen**.
 
+> ### 🚀 Inscription de votre Équipe (1 clic par groupe de 4)
+> Pour générer automatiquement votre dépôt privé d'équipe et recevoir vos accès, **un seul membre par groupe** clique sur le lien ci-dessous :  
+> 👉 **[Inscrire mon Équipe maintenant](https://github.com/nosql-esigelec/course/issues/new?template=inscription-equipe.yml)**
+
 ---
 
 ## 📅 Planning Officiel des Séances — Salle D1264

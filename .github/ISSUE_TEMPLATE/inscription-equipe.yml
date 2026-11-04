@@ -1,0 +1,43 @@
+name: "🚀 Inscription d'une Équipe (TP & Projet)"
+description: "Inscrivez votre groupe (3 à 4 étudiants) pour créer automatiquement votre dépôt GitHub privé."
+title: "[EQUIPE] "
+labels: ["inscription-equipe"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 👋 Bienvenue !
+        **Un seul membre par groupe (de 3 à 4 étudiants)** remplit ce formulaire.
+        Dès validation par l'enseignant en séance (`just enroll-apply`), votre dépôt privé d'équipe sera généré et vous recevrez un commentaire ici avec le lien direct vers votre dépôt.
+  - type: input
+    id: team_slug
+    attributes:
+      label: "Nom de votre équipe (sans espaces ni accents)"
+      description: "Utilisez uniquement des lettres minuscules, chiffres et tirets (ex: team-rocket, les-grapheurs, data-squad)."
+      placeholder: "les-grapheurs"
+    validations:
+      required: true
+  - type: textarea
+    id: github_usernames
+    attributes:
+      label: "Pseudos GitHub des membres de l'équipe"
+      description: "Indiquez les noms d'utilisateur GitHub des 3 ou 4 membres (séparés par des virgules ou un par ligne)."
+      placeholder: |
+        @alice-gh
+        @bob-gh
+        @charlie-gh
+        @david-gh
+    validations:
+      required: true
+  - type: textarea
+    id: student_names
+    attributes:
+      label: "Noms et Prénoms complets des membres"
+      description: "Pour la feuille d'émargement et le relevé de notes."
+      placeholder: |
+        Alice Martin
+        Bob Dupont
+        Charlie Durand
+        David Leroy
+    validations:
+      required: true
