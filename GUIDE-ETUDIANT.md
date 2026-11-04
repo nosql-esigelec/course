@@ -64,3 +64,16 @@ Le projet est découpé en **4 Sprints** progressifs documentés dans `TP_SESSIO
 
 ### Suivre votre note en direct sur GitHub
 À chaque `git push`, le workflow **GitHub Actions** exécute automatiquement les tests des 4 Sprints et affiche un **tableau récapitulatif de votre score sur 200 (et sur 20)** dans l'onglet **Actions** de votre dépôt GitHub !
+
+---
+
+## 5. Projet Final de Conception & Soutenance : Portfolio Polyglotte
+
+Une fois que vous maîtrisez l'architecture d'un backend multi-bases grâce au TP guidé **SmartCity Explorer**, vous passez à la vitesse supérieure avec le **Projet Final : Concevoir et Développer votre Portfolio d'Ingénieur Polyglotte** ([`courses/design/projet-portfolio-polyglotte.md`](./courses/design/projet-portfolio-polyglotte.md)) :
+
+1. **Phase 1 — Brainstorming, System Design & Soutenance d'Architecture (Équipe)** :
+   - Vous concevez votre propre répartition des données entre bases (Parcours + Projets détaillés + Graphe de compétences Neo4j), rédigez `ARCHITECTURE.md` et `API_ROUTES.md`, et défendez vos choix en soutenance.
+2. **Phase 2 — Backend Unifié FastAPI (Équipe)** :
+   - Votre équipe développe un backend orchestrateur commun capable de servir les profils, projets et graphes de compétences de tous les membres du groupe.
+3. **Phase 3 — Frontend Personnel & Vraies Données (Individuel)** :
+   - Chaque étudiant injecte ses vraies expériences, formations, compétences et projets ESIGELEC dans le seed et développe **son propre Frontend** (Next.js, React, Astro ou Streamlit). Vous repartez du module avec votre portfolio prêt à l'emploi !
