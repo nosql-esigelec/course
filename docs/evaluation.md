@@ -35,3 +35,13 @@ title: Évaluation
 ```bash
 git config --global user.email "email-de-votre-compte@github"
 ```
+
+## 🏆 Leaderboard (16 et 20 novembre)
+
+À chaque séance, le top 3 des équipes est affiché dans trois catégories :
+
+| Catégorie | Ce qui compte |
+| :--- | :--- |
+| 🚀 **La plus avancée** | Score des tests (SmartCity puis Portfolio), et à score égal, l'équipe qui l'a atteint en premier |
+| 💬 **La plus communicante** | Questions pertinentes, demandes d'aide, échanges avec l'enseignant (Teams, mail, Issues GitHub) |
+| 🤝 **La plus active** | Nombre de membres qui contribuent (commits sur `main`, Pull Requests), régularité du travail |

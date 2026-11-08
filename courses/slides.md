@@ -76,7 +76,6 @@ zoom: 0.92
   - Projet final : **Portfolio d'Ingénieur Polyglotte**
 
 - **5. Pour en savoir plus** *(en fin de support)*
-  - Historique, cas d'usage détaillés
   - Nouveautés fin 2026 : **MongoDB 9.0, IA & Vector Search, GraphRAG, Cypher 25**
 
 ---
@@ -90,12 +89,14 @@ layout: two-cols-header
   - **09h00 – 11h00 (2h CM)** : Panorama NoSQL, MongoDB & Neo4j
   - **11h00 – 12h00 (1h TP)** : Enrôlement GitHub & Setup Docker `SmartCity`
   - **13h30 – 17h30 (4h TP)** : Design & Sprints `SmartCity` *(Neo4j Browser & OneCompiler en sandbox)*
-  - **Intersession J1 -> J2** : Finir les 4 Sprints `SmartCity` (`200/200`)
+  - **Intersession J1 -> J2** : avancer les 4 Sprints `SmartCity` (`200/200`)
 
 ::right::
 
 **Jour 2 (Lun 16/11 : 9h-12h & 14h-17h — 100% TP)**
-  - **09h00 – 12h00** : System Design `Portfolio` (`ARCHITECTURE.md` & `API_ROUTES.md`)
+  - **09h00 – 09h30** : Bilan `SmartCity`, questions & pistes de déblocage
+  - **10h30** : **clôture `SmartCity`** (dernière chance)
+  - **09h30 – 12h00** : System Design `Portfolio` (`ARCHITECTURE.md` & `API_ROUTES.md`)
   - **14h00 – 15h30** : **Soutenances System Design** (Jalon 1 — 30%)
   - **15h30 – 17h00** : Dev Backend d'équipe & Frontends individuels
 
@@ -169,6 +170,48 @@ layout: two-cols-header
 - ✅ Basés sur les besoins du web au 21ème siècle
 - ✅ Pas de schéma fixe
 - ✅ Permet l'ajout de champs sans contrôles
+
+</div>
+
+---
+layout: default
+---
+
+# Évolution historique
+
+<div class="grid grid-cols-3 gap-4">
+
+<div>
+
+### 1970-2000
+**Ère des SGBD traditionnels**
+- Domination des bases relationnelles
+- SQL comme standard
+- Oracle, MySQL, PostgreSQL
+
+</div>
+
+<div>
+
+### 2000-2010
+**Émergence du NoSQL**
+- Bulle internet
+- Papiers de recherche (Google, Facebook, IBM)
+- BDD open source (MongoDB, CouchDB, Neo4j, Redis, Cassandra, HBase, Riak)
+
+</div>
+
+<div>
+
+### 2010-Aujourd'hui
+**Ère du Cloud DBaaS**
+- MongoDB Atlas
+- AWS DynamoDB
+- Google Cloud Firestore
+- Azure Cosmos DB
+- Cloudant
+
+</div>
 
 </div>
 
@@ -336,6 +379,89 @@ CREATE (u)-[:AUTHORED]->(p)
 </div>
 
 ---
+layout: two-cols-header
+zoom: 0.64
+---
+
+# Caractéristiques des BDD NoSQL
+
+::left::
+
+<div class="mb-4">
+
+### 🌐 Communautés impliquées et actives
+- Proviennent de l'Open Source ou ont une version Open Source
+- Support des communautés fondamental pour la croissance
+- **Exemples** :
+  - MongoDB : 858 contributeurs
+  - Cassandra : 472 contributeurs
+  - Redis : 775 contributeurs
+
+</div>
+
+<div class="mb-4">
+
+### 📊 Passage à l'échelle (Scalabilité)
+
+**Scalabilité Horizontale** ✅
+- Ajout de serveurs de même capacité
+- Ex: 8 serveurs 2vCPUs/4Go
+- Approche privilégiée par NoSQL
+
+**Scalabilité Verticale** ❌
+- Augmentation de la puissance d'un serveur
+- Plus coûteuse et limitée
+
+</div>
+
+::right::
+
+<div class="mb-4">
+
+### ✅ Disponibilité garantie
+- Serveur unique : Point de défaillance unique
+- Cluster de serveurs : Réplication des données
+- Haute disponibilité native
+
+</div>
+
+<div class="mb-4">
+
+### ☁️ Cloud Ready et coûts réduits
+- Architectures Cloud natives
+- Paradigme Cloud intégré
+- Serveurs standards, open source
+- Implémentation peu coûteuse
+
+**Exemple de coût** :
+- MongoDB Community Edition : **0$**
+- Oracle RAC : **$47,500** par unité
+
+</div>
+
+<div class="mb-4">
+
+### ⚡ Hautes performances
+- ⏱️ Réponse rapide
+- 👥 Haute concurrence
+- Nombreux utilisateurs simultanés
+
+</div>
+
+<div>
+
+### 🔄 Flexibilité
+- Schéma flexible : Modification à la volée
+- Types de données variés
+- Indexage spécifique
+- Dénormalisation acceptée
+
+</div>
+
+
+
+
+---
 layout: default
 zoom: 0.93
 ---
@@ -428,6 +554,82 @@ graph TB
     D --> I[CouchDB]
 ```
 
+---
+layout: two-cols-header
+zoom: 0.89
+---
+
+# Cas d'utilisation de MongoDB
+
+::left::
+
+### Idéal pour
+- Applications web modernes
+- Contenu varié et évolutif
+- Données semi-structurées
+- Besoin de scalabilité horizontale
+- Développement agile
+- Applications temps réel
+
+::right::
+
+### Exemples concrets
+1. **E-commerce**
+   - Catalogues de produits
+   - Paniers utilisateurs
+   - Historique des commandes
+
+2. **Applications mobiles**
+   - Profils utilisateurs
+   - Contenu généré par les utilisateurs
+   - Données de géolocalisation
+
+3. **Analytics**
+   - Logs d'événements
+   - Données IoT
+   - Métriques en temps réel
+
+---
+layout: default
+zoom: 0.69
+---
+
+# Cas d'utilisation de Neo4j
+
+### Idéal pour
+- Réseaux sociaux
+- Systèmes de recommandation
+- Détection de fraude
+- Graphes de connaissances
+- Gestion des identités
+- Analyse d'impact
+
+### Exemples concrets
+1. **Réseaux sociaux**
+```cypher
+// Trouver les amis des amis
+MATCH (p:Personne {nom:"Alice"})-[:CONNAIT]->(ami)-[:CONNAIT]->(amiDami)
+WHERE NOT (p)-[:CONNAIT]->(amiDami)
+RETURN DISTINCT amiDami.nom as suggestions
+```
+
+2. **Recommandations**
+```cypher
+// Produits fréquemment achetés ensemble
+MATCH (p:Produit)<-[:A_ACHETE]-(c:Client)-[:A_ACHETE]->(autreProduit:Produit)
+WHERE p.id = "123"
+RETURN autreProduit.nom, count(*) as frequence
+ORDER BY frequence DESC
+LIMIT 5
+```
+
+3. **Détection de fraude**
+```cypher
+// Identifier les cycles de transactions suspects
+MATCH chemin = (c:Compte)-[:TRANSFERT*3..5]->(c)
+WHERE ALL(r IN relationships(chemin) WHERE r.montant > 10000)
+RETURN chemin
+```
 ---
 layout: default
 ---
@@ -1104,7 +1306,7 @@ layout: default
 - **Sandbox & Aide** : Neo4j Browser (`localhost:7474`), OneCompiler MongoDB & l'aide-mémoire
 - 📘 **Toute la doc (planning, guide, sujets, évaluation)** : **[nosql-esigelec.github.io/course](https://nosql-esigelec.github.io/course/)**
 
-### Intersession (avant Dimanche 15 Nov — 23h59)
+### Intersession, puis clôture lundi 16 Nov à 10h30
 - Terminer les 4 Sprints (`200/200` sur GitHub Actions) — **Enseignant 100% joignable toute la semaine !**
 
 ---
@@ -1132,207 +1334,6 @@ layout: cover
 # Pour en savoir plus
 ## À explorer en séance ou après le cours
 
----
-layout: default
----
-
-# Évolution historique
-
-<div class="grid grid-cols-3 gap-4">
-
-<div>
-
-### 1970-2000
-**Ère des SGBD traditionnels**
-- Domination des bases relationnelles
-- SQL comme standard
-- Oracle, MySQL, PostgreSQL
-
-</div>
-
-<div>
-
-### 2000-2010
-**Émergence du NoSQL**
-- Bulle internet
-- Papiers de recherche (Google, Facebook, IBM)
-- BDD open source (MongoDB, CouchDB, Neo4j, Redis, Cassandra, HBase, Riak)
-
-</div>
-
-<div>
-
-### 2010-Aujourd'hui
-**Ère du Cloud DBaaS**
-- MongoDB Atlas
-- AWS DynamoDB
-- Google Cloud Firestore
-- Azure Cosmos DB
-- Cloudant
-
-</div>
-
-</div>
-
----
-layout: two-cols-header
-zoom: 0.64
----
-
-# Caractéristiques des BDD NoSQL
-
-::left::
-
-<div class="mb-4">
-
-### 🌐 Communautés impliquées et actives
-- Proviennent de l'Open Source ou ont une version Open Source
-- Support des communautés fondamental pour la croissance
-- **Exemples** :
-  - MongoDB : 858 contributeurs
-  - Cassandra : 472 contributeurs
-  - Redis : 775 contributeurs
-
-</div>
-
-<div class="mb-4">
-
-### 📊 Passage à l'échelle (Scalabilité)
-
-**Scalabilité Horizontale** ✅
-- Ajout de serveurs de même capacité
-- Ex: 8 serveurs 2vCPUs/4Go
-- Approche privilégiée par NoSQL
-
-**Scalabilité Verticale** ❌
-- Augmentation de la puissance d'un serveur
-- Plus coûteuse et limitée
-
-</div>
-
-::right::
-
-<div class="mb-4">
-
-### ✅ Disponibilité garantie
-- Serveur unique : Point de défaillance unique
-- Cluster de serveurs : Réplication des données
-- Haute disponibilité native
-
-</div>
-
-<div class="mb-4">
-
-### ☁️ Cloud Ready et coûts réduits
-- Architectures Cloud natives
-- Paradigme Cloud intégré
-- Serveurs standards, open source
-- Implémentation peu coûteuse
-
-**Exemple de coût** :
-- MongoDB Community Edition : **0$**
-- Oracle RAC : **$47,500** par unité
-
-</div>
-
-<div class="mb-4">
-
-### ⚡ Hautes performances
-- ⏱️ Réponse rapide
-- 👥 Haute concurrence
-- Nombreux utilisateurs simultanés
-
-</div>
-
-<div>
-
-### 🔄 Flexibilité
-- Schéma flexible : Modification à la volée
-- Types de données variés
-- Indexage spécifique
-- Dénormalisation acceptée
-
-</div>
-
-
-
-
----
-layout: two-cols-header
-zoom: 0.89
----
-
-# Cas d'utilisation de MongoDB
-
-::left::
-
-### Idéal pour
-- Applications web modernes
-- Contenu varié et évolutif
-- Données semi-structurées
-- Besoin de scalabilité horizontale
-- Développement agile
-- Applications temps réel
-
-::right::
-
-### Exemples concrets
-1. **E-commerce**
-   - Catalogues de produits
-   - Paniers utilisateurs
-   - Historique des commandes
-
-2. **Applications mobiles**
-   - Profils utilisateurs
-   - Contenu généré par les utilisateurs
-   - Données de géolocalisation
-
-3. **Analytics**
-   - Logs d'événements
-   - Données IoT
-   - Métriques en temps réel
-
----
-layout: default
-zoom: 0.69
----
-
-# Cas d'utilisation de Neo4j
-
-### Idéal pour
-- Réseaux sociaux
-- Systèmes de recommandation
-- Détection de fraude
-- Graphes de connaissances
-- Gestion des identités
-- Analyse d'impact
-
-### Exemples concrets
-1. **Réseaux sociaux**
-```cypher
-// Trouver les amis des amis
-MATCH (p:Personne {nom:"Alice"})-[:CONNAIT]->(ami)-[:CONNAIT]->(amiDami)
-WHERE NOT (p)-[:CONNAIT]->(amiDami)
-RETURN DISTINCT amiDami.nom as suggestions
-```
-
-2. **Recommandations**
-```cypher
-// Produits fréquemment achetés ensemble
-MATCH (p:Produit)<-[:A_ACHETE]-(c:Client)-[:A_ACHETE]->(autreProduit:Produit)
-WHERE p.id = "123"
-RETURN autreProduit.nom, count(*) as frequence
-ORDER BY frequence DESC
-LIMIT 5
-```
-
-3. **Détection de fraude**
-```cypher
-// Identifier les cycles de transactions suspects
-MATCH chemin = (c:Compte)-[:TRANSFERT*3..5]->(c)
-WHERE ALL(r IN relationships(chemin) WHERE r.montant > 10000)
-RETURN chemin
-```
 ---
 layout: cover
 ---
