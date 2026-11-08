@@ -2,7 +2,7 @@
 title: SmartCity Explorer
 ---
 
-# 🏙️ TP guidé — SmartCity Explorer (100 % NoSQL)
+# 🏙️ TP guidé - SmartCity Explorer (100 % NoSQL)
 
 Application FastAPI + Streamlit qui compare les villes françaises selon des critères de qualité de vie et recommande des villes similaires.
 Vous complétez les couches **`db/` → `scripts/seed_all.py` → `repositories/` → `services/`** ; les routes API et le frontend sont fournis.
@@ -46,10 +46,10 @@ Vérifiez que `docker compose ps` affiche `smartcity-mongo` et `smartcity-neo4j`
 
 | Sprint | Fichiers | Commande | Points |
 | :--- | :--- | :--- | :---: |
-| 1 — Connexions | `db/mongo.py`, `db/neo4j.py` | `uv run pytest -m sprint1 -v` | 25 |
-| 2 — Seed | `scripts/seed_all.py` | `uv run pytest -m sprint2 -v` puis `just seed` | 50 |
-| 3 — Repositories | `repositories/mongo_city_repo.py`, `mongo_repo.py`, `neo4j_repo.py` | `uv run pytest -m sprint3 -v` | 100 |
-| 4 — Services | `services/*.py` | `uv run pytest -m sprint4 -v` | 25 |
+| 1 - Connexions | `db/mongo.py`, `db/neo4j.py` | `uv run pytest -m sprint1 -v` | 25 |
+| 2 - Seed | `scripts/seed_all.py` | `uv run pytest -m sprint2 -v` puis `just seed` | 50 |
+| 3 - Repositories | `repositories/mongo_city_repo.py`, `mongo_repo.py`, `neo4j_repo.py` | `uv run pytest -m sprint3 -v` | 100 |
+| 4 - Services | `services/*.py` | `uv run pytest -m sprint4 -v` | 25 |
 
 Comment c'est noté : voir [Évaluation](../evaluation.md#smartcity).
 

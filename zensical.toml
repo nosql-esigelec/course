@@ -1,12 +1,12 @@
 [project]
-site_name = "NoSQL — ESIGELEC Rouen"
-site_description = "Module Bases de données NoSQL (MongoDB & Neo4j) — 3A BDTN, ESIGELEC Rouen"
+site_name = "NoSQL - ESIGELEC Rouen"
+site_description = "Module Bases de données NoSQL (MongoDB & Neo4j) - 3A BDTN, ESIGELEC Rouen"
 site_author = "Brice FOTZO"
 site_url = "https://nosql-esigelec.github.io/course/"
 repo_url = "https://github.com/nosql-esigelec/course"
 repo_name = "nosql-esigelec/course"
 edit_uri = "edit/main/docs/"
-copyright = "ESIGELEC Rouen — Brice FOTZO"
+copyright = "ESIGELEC Rouen - Brice FOTZO"
 
 nav = [
   { "Par où commencer ?" = "index.md" },

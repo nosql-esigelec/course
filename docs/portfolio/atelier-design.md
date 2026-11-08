@@ -62,7 +62,7 @@ Maintenant, on parle en langage **data engineer** :
 
 ---
 
-## ✍️ Exercice — Inventaire de données
+## ✍️ Exercice - Inventaire de données
 
 ### En binômes (2 min)
 Listez **10 choses** qui existent dans un portfolio.
@@ -115,7 +115,7 @@ Un bon modèle rend les **bonnes requêtes faciles**
 
 ---
 
-## ✍️ Exercice — Requêtes
+## ✍️ Exercice - Requêtes
 
 Partez des requêtes **R1 à R5** de `ARCHITECTURE.md`, puis chaque équipe en ajoute **3 à 5** en langage naturel
 
@@ -202,7 +202,7 @@ Avoir plusieurs bases = avoir des règles claires
 
 ---
 
-## ✍️ À produire — Gouvernance
+## ✍️ À produire - Gouvernance
 
 Dans votre Markdown :
 
@@ -229,7 +229,7 @@ Dans votre Markdown :
 
 ---
 
-## ✍️ À produire — Architecture
+## ✍️ À produire - Architecture
 
 ```text
 - Rôle du backend :

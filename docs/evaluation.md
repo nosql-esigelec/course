@@ -8,10 +8,10 @@ title: Évaluation
 
 | Composante | Mode | Comment c'est noté |
 | :--- | :---: | :--- |
-| **TP guidé SmartCity Explorer** | Équipe | Automatiquement, par les tests (`pytest`) à chaque `git push` — [détail](#smartcity) |
-| **Portfolio — Jalon 1 : System Design** | Équipe | Grille, 30 % de la note Portfolio — [grille](portfolio/grille.md) |
-| **Portfolio — Backend unifié** | Équipe | Grille, 40 % de la note Portfolio — [grille](portfolio/grille.md) |
-| **Portfolio — Frontend personnel** | **Individuel** | Grille, 30 % de la note Portfolio — [grille](portfolio/grille.md) |
+| **TP guidé SmartCity Explorer** | Équipe | Automatiquement, par les tests (`pytest`) à chaque `git push` - [détail](#smartcity) |
+| **Portfolio - Jalon 1 : System Design** | Équipe | Grille, 30 % de la note Portfolio - [grille](portfolio/grille.md) |
+| **Portfolio - Backend unifié** | Équipe | Grille, 40 % de la note Portfolio - [grille](portfolio/grille.md) |
+| **Portfolio - Frontend personnel** | **Individuel** | Grille, 30 % de la note Portfolio - [grille](portfolio/grille.md) |
 
 !!! note "Pondération finale"
     La pondération entre SmartCity, le Portfolio et un éventuel examen écrit sera précisée ici.

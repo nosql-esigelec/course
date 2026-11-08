@@ -34,7 +34,7 @@ Choisissez votre système :
     Ouvrez **PowerShell** (menu Démarrer → « PowerShell »). Pour l'étape WSL, ouvrez-le **en tant qu'administrateur** (clic droit).
 
     ```powershell
-    # a) WSL2 — nécessaire à Docker (PowerShell ADMINISTRATEUR), puis REDÉMARREZ le PC
+    # a) WSL2 - nécessaire à Docker (PowerShell ADMINISTRATEUR), puis REDÉMARREZ le PC
     wsl --install
     wsl --update
 

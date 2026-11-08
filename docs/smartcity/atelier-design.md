@@ -1,4 +1,4 @@
-# 🧠 Atelier Design (Parcours 100% NoSQL — BDTN Rouen)
+# 🧠 Atelier Design (Parcours 100% NoSQL - BDTN Rouen)
 
 ## Concevoir **SmartCity Explorer** (MongoDB & Neo4j)
 Un complément data-driven à ville-ideale.fr
@@ -34,29 +34,29 @@ Vous cherchez une ville où vivre ou investir en France. Vous voulez :
 
 ---
 
-## 🔑 Étape 1 — Vos Requêtes d'Abord (Query-First Design)
+## 🔑 Étape 1 - Vos Requêtes d'Abord (Query-First Design)
 
 En NoSQL, **le schéma découle des requêtes (Access Patterns)** :
 
-### Catégorie A — Catalogue Villes & Scores (Lecture fréquente, conjointe)
+### Catégorie A - Catalogue Villes & Scores (Lecture fréquente, conjointe)
 
 * **Q1** : « Rechercher les villes d'Auvergne-Rhône-Alpes de plus de 100 000 habitants, triées par `overall_score` décroissant (paginé). »
 * **Q2** : « Afficher la fiche complète d'une ville (`id = 1`) **avec ses 8 scores par catégorie**. »
 
-### Catégorie B — Avis Utilisateurs (Écriture continue, volume non borné)
+### Catégorie B - Avis Utilisateurs (Écriture continue, volume non borné)
 
 * **Q3** : « Afficher les 10 derniers avis publiés sur une ville (`city_id = 1`), triés par date décroissante. »
 * **Q4** : « Ajouter un nouvel avis utilisateur sur une ville. »
 * **Q5** : « Calculer la note moyenne des avis d'une ville via un pipeline d'agrégation (`$match` + `$group`). »
 
-### Catégorie C — Relations & Recommandations (Traversée de graphe)
+### Catégorie C - Relations & Recommandations (Traversée de graphe)
 
 * **Q6** : « Quels sont les points forts (`score >= 7.0`) d'une ville ? »
 * **Q7** : « Quelles sont les $K$ villes les plus similaires à Lyon et quels points forts partagent-elles ? »
 
 ---
 
-## 🧱 Étape 2 — Arbitrage MongoDB : Embedding vs Referencing
+## 🧱 Étape 2 - Arbitrage MongoDB : Embedding vs Referencing
 
 Dans MongoDB, nous devons stocker : **les Villes (`City`)**, **les Scores par catégorie (`Score`)**, et **les Avis utilisateurs (`Review`)**.
 
@@ -69,7 +69,7 @@ Dans MongoDB, nous devons stocker : **les Villes (`City`)**, **les Scores par ca
 
 ---
 
-## 🕸️ Étape 3 — Pourquoi Neo4j pour les Recommandations ?
+## 🕸️ Étape 3 - Pourquoi Neo4j pour les Recommandations ?
 
 Modèle de graphe cible :
 

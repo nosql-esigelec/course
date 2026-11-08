@@ -2,7 +2,7 @@
 title: Projet Portfolio Polyglotte
 ---
 
-# 🚀 Projet Final — Concevoir & Développer votre Portfolio d'Ingénieur Polyglotte
+# 🚀 Projet Final - Concevoir & Développer votre Portfolio d'Ingénieur Polyglotte
 
 > **De `SmartCity Explorer` à votre propre architecture data** : après avoir appris à structurer un backend multi-bases avec le TP guidé SmartCity, vous allez **concevoir de A à Z** l'architecture de données d'un portfolio d'ingénieur interactif, la **défendre en soutenance**, implémenter un **backend unifié en équipe**, puis créer **votre propre frontend** alimenté par vos vraies expériences et projets.
 
@@ -16,18 +16,18 @@ title: Projet Portfolio Polyglotte
 ```mermaid
 flowchart LR
     P0["🛠️ Prérequis<br/>TP SmartCity"] --> P1["🧠 Phase 1 · Équipe<br/>System Design"]
-    P1 --> J1{{"🎤 Jalon 1<br/>Soutenance — 30 %"}}
+    P1 --> J1{{"🎤 Jalon 1<br/>Soutenance - 30 %"}}
     J1 --> P2["⚙️ Phase 2 · Équipe<br/>Backend unifié"]
     J1 --> P3["🎨 Phase 3 · Individuel<br/>Frontend personnel"]
-    P2 --> J2{{"🏆 Jalon 2<br/>Démo — 40 % + 30 %"}}
+    P2 --> J2{{"🏆 Jalon 2<br/>Démo - 40 % + 30 %"}}
     P3 --> J2
 ```
 
 | Phase | Mode | Livrable | Évalué au | Poids |
 | :--- | :---: | :--- | :---: | :---: |
-| **1 — System Design** | Équipe | `ARCHITECTURE.md` + `API_ROUTES.md` + soutenance | Jalon 1 | **30 %** |
-| **2 — Backend unifié** | Équipe | API FastAPI + seed avec les vraies données de tous les membres | Jalon 2 | **40 %** |
-| **3 — Frontend personnel** | **Individuel** | `frontends/frontend-<pseudo>/` branché sur l'API d'équipe | Jalon 2 | **30 %** |
+| **1 - System Design** | Équipe | `ARCHITECTURE.md` + `API_ROUTES.md` + soutenance | Jalon 1 | **30 %** |
+| **2 - Backend unifié** | Équipe | API FastAPI + seed avec les vraies données de tous les membres | Jalon 2 | **40 %** |
+| **3 - Frontend personnel** | **Individuel** | `frontends/frontend-<pseudo>/` branché sur l'API d'équipe | Jalon 2 | **30 %** |
 
 - **Dates et échéances** : voir le [planning officiel](../planning.md) (seule source de référence).
 - **Critères et points** : voir la [grille d'évaluation](grille.md).
@@ -46,7 +46,7 @@ Un dépôt privé `nosql-esigelec/2026-2027-rouen-portfolio-<equipe>` est créé
 | `frontends/frontend-<pseudo>/` | **votre** dossier de frontend | 3 |
 | `CONTRIBUTING.md` | règles de travail à plusieurs : branches, Pull Requests, qui touche quoi | toutes |
 
-## 🧠 Phase 1 — System Design (équipe)
+## 🧠 Phase 1 - System Design (équipe)
 
 ### 1. Le besoin produit
 
@@ -65,13 +65,13 @@ Pour chaque entité (**Candidat, Expérience, Formation, Projet, Compétence, Do
 
 | Base / pattern | Données pressenties | Questions à défendre en soutenance |
 | :--- | :--- | :--- |
-| **MongoDB `candidats`** — *Embedding* | Profil + tableaux imbriqués `experiences[]` et `formations[]` | Pourquoi imbriquer ? (cardinalité `1:N` **bornée**, CV lu en **une seule requête**, mises à jour rares) |
-| **MongoDB `projets`** — *Referencing* | Fiches projets détaillées, reliées à leurs auteurs par `candidat_slugs[]` (un projet peut avoir plusieurs auteurs de l'équipe) | Pourquoi une collection dédiée plutôt qu'un tableau dans `candidats` ? Quel pipeline (`$match`, `$unwind`, `$group`) calcule les statistiques d'un candidat par compétence ? |
-| **Neo4j** — graphe | `(:Candidat)`, `(:Projet)`, `(:Competence)`, `(:Domaine)`, `(:Entreprise)` et leurs relations | Comment modéliser `(:Competence)-[:APPARTIENT_A]->(:Domaine)` ? Quelle traversée relie les projets et les membres de l'équipe qui partagent des compétences ? |
+| **MongoDB `candidats`** - *Embedding* | Profil + tableaux imbriqués `experiences[]` et `formations[]` | Pourquoi imbriquer ? (cardinalité `1:N` **bornée**, CV lu en **une seule requête**, mises à jour rares) |
+| **MongoDB `projets`** - *Referencing* | Fiches projets détaillées, reliées à leurs auteurs par `candidat_slugs[]` (un projet peut avoir plusieurs auteurs de l'équipe) | Pourquoi une collection dédiée plutôt qu'un tableau dans `candidats` ? Quel pipeline (`$match`, `$unwind`, `$group`) calcule les statistiques d'un candidat par compétence ? |
+| **Neo4j** - graphe | `(:Candidat)`, `(:Projet)`, `(:Competence)`, `(:Domaine)`, `(:Entreprise)` et leurs relations | Comment modéliser `(:Competence)-[:APPARTIENT_A]->(:Domaine)` ? Quelle traversée relie les projets et les membres de l'équipe qui partagent des compétences ? |
 
 > 💡 Support de l'atelier en salle : [Atelier design Portfolio](atelier-design.md).
 
-## 🎤 Jalon 1 — Soutenance de System Design (30 %)
+## 🎤 Jalon 1 - Soutenance de System Design (30 %)
 
 `ARCHITECTURE.md` et `API_ROUTES.md` doivent être **poussés sur `main`** avant l'échéance. Chaque équipe présente ensuite son architecture en **10 minutes** (5 min de présentation, 4 min de questions, 1 min de transition).
 
@@ -92,7 +92,7 @@ Pour chaque entité (**Candidat, Expérience, Formation, Projet, Compétence, Do
     - `GET /api/graph/projets/{slug}/similaires` : projets similaires (Neo4j) ;
     - `GET /api/graph/competences/{slug}` : graphe de compétences prêt à afficher (`nodes` + `links`).
 
-## ⚙️ Phase 2 — Backend unifié (équipe, 40 %)
+## ⚙️ Phase 2 - Backend unifié (équipe, 40 %)
 
 En reprenant l'architecture de **SmartCity Explorer**, l'équipe complète le squelette `backend/src/portfolio_api/` :
 
@@ -107,7 +107,7 @@ En reprenant l'architecture de **SmartCity Explorer**, l'équipe complète le sq
 
 Le `docker-compose.yml` (MongoDB + Neo4j avec `healthcheck`) est fourni : `just up` suffit.
 
-## 🎨 Phase 3 — Frontend personnel (individuel, 30 %)
+## 🎨 Phase 3 - Frontend personnel (individuel, 30 %)
 
 Chaque étudiant réalise **son propre frontend** dans **son** dossier `frontends/frontend-<pseudo-github>/`, branché sur l'API de l'équipe :
 
@@ -123,9 +123,9 @@ Chaque étudiant réalise **son propre frontend** dans **son** dossier `frontend
 
 | Composante | Mode | Poids (note Portfolio) |
 | :--- | :---: | :---: |
-| **Jalon 1 — System Design** (`ARCHITECTURE.md`, `API_ROUTES.md`, soutenance) | Équipe | **30 %** |
-| **Jalon 2 — Backend unifié & seed** | Équipe | **40 %** |
-| **Jalon 2 — Frontend personnel & vraies données** | **Individuel** | **30 %** |
+| **Jalon 1 - System Design** (`ARCHITECTURE.md`, `API_ROUTES.md`, soutenance) | Équipe | **30 %** |
+| **Jalon 2 - Backend unifié & seed** | Équipe | **40 %** |
+| **Jalon 2 - Frontend personnel & vraies données** | **Individuel** | **30 %** |
 
 👉 Critères et points détaillés : **[grille d'évaluation](grille.md)**.
 Le TP guidé SmartCity Explorer est noté séparément (tests automatiques, voir [Évaluation](../evaluation.md#smartcity)).

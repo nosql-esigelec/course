@@ -4,9 +4,9 @@ hide:
   - navigation
 ---
 
-# 🍃 Bases de Données NoSQL — MongoDB & Neo4j
+# 🍃 Bases de Données NoSQL - MongoDB & Neo4j
 
-**ESIGELEC Rouen · 3A BDTN · Promotion 2026-2027** — Intervenant : Brice FOTZO
+**ESIGELEC Rouen · 3A BDTN · Promotion 2026-2027** - Intervenant : Brice FOTZO
 
 !!! tip "Vous êtes perdu ? Suivez ces 5 étapes dans l'ordre"
 

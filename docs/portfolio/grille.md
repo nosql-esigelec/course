@@ -1,4 +1,4 @@
-# 📊 Grille d'évaluation — Projet Portfolio Polyglotte
+# 📊 Grille d'évaluation - Projet Portfolio Polyglotte
 
 > Grille **publique** : vous savez exactement sur quoi vous êtes évalués.
 > Note Portfolio /20 = **30 %** Jalon 1 (équipe) + **40 %** Backend (équipe) + **30 %** Frontend (individuel).
@@ -6,7 +6,7 @@
 
 ---
 
-## 🎤 Jalon 1 — System Design (équipe) — /20 — 30 %
+## 🎤 Jalon 1 - System Design (équipe) - /20 - 30 %
 
 Évalué sur `ARCHITECTURE.md` + `API_ROUTES.md` (état de `main` à l'échéance) et la soutenance (10 min : 5 min de présentation, 4 min de questions).
 
@@ -19,7 +19,7 @@
 | **J1.5** Index & performance | 2 | Index MongoDB et contraintes Neo4j reliés aux requêtes qu'ils servent. |
 | **J1.6** Soutenance | 1 | Présentation claire, réponses précises aux questions. |
 
-## ⚙️ Jalon 2 — Backend unifié (équipe) — /20 — 40 %
+## ⚙️ Jalon 2 - Backend unifié (équipe) - /20 - 40 %
 
 Évalué sur l'état de `main` à l'échéance et la démo d'équipe.
 
@@ -32,7 +32,7 @@
 | **B.5** Respect du contrat | 2 | Toutes les routes de `API_ROUTES.md` répondent avec le format annoncé ; Swagger (`/docs`) lisible. |
 | **B.6** Travail d'équipe Git | 2 | Pull Requests relues, commits répartis entre les membres, messages explicites, `main` toujours fonctionnel. |
 
-## 🎨 Jalon 2 — Frontend personnel (individuel) — /20 — 30 %
+## 🎨 Jalon 2 - Frontend personnel (individuel) - /20 - 30 %
 
 Évalué lors de votre démo (~2 min) et sur `frontends/frontend-<pseudo>/`.
 
