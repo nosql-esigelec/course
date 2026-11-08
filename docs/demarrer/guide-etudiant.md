@@ -1,98 +1,161 @@
-# 🎓 Guide de l'Étudiant — Cours & Projets Bases de Données (ESIGELEC)
-
-Bienvenue dans ce module ! Ce guide regroupe tout ce qu'il faut savoir pour travailler efficacement sur les Travaux Dirigés (TD) et le projet fil rouge **SmartCity Explorer**.
-
+---
+title: Avant le premier cours
 ---
 
-## 1. Vos Outils de Travail
+# 🧰 Avant le premier cours : préparer votre poste
 
-| Outil | Rôle | Vérification rapide |
-| :--- | :--- | :--- |
-| **Git** + compte **GitHub** + **clé SSH** | Cloner votre dépôt d'équipe (SSH) et pousser votre code | `ssh -T git@github.com` → *« Hi &lt;pseudo&gt;! »* |
-| **Docker Desktop** (+ WSL2 à jour sous Windows) | Lancer les bases de données locales (MongoDB, Neo4j) | `docker compose version` |
-| **`uv`** | Gestionnaire Python ultra-rapide (installe aussi Python 3.11+) | `uv --version` |
-| **`just`** | Lanceur de commandes du projet (`just seed`, `just dev-backend`…) — Windows : `winget install Casey.Just` · macOS : `brew install just` · Linux : `uv tool install rust-just` | `just --version` |
-| **VS Code** | Éditeur recommandé | `code --version` |
+!!! tip "Objectif : arriver lundi avec un poste prêt"
+    Comptez **45 min à 1 h**, une seule fois, **chez vous** (le Wi-Fi de la salle ne supportera pas 34 installations en même temps).
+    À la fin de cette page, la [checklist](#checklist) doit être entièrement verte. Rien d'autre n'est à préparer : le projet sera présenté en cours.
 
-### Configurer votre clé SSH GitHub (une seule fois, avant le premier cours)
+| # | Outil | À quoi il sert dans le module |
+|---|---|---|
+| 1 | **Compte GitHub** | héberger le code de votre équipe |
+| 2 | **Git** + **clé SSH** | récupérer et envoyer votre code |
+| 3 | **Docker Desktop** | faire tourner MongoDB et Neo4j sur votre machine |
+| 4 | **`uv`** | installer Python et les dépendances du projet |
+| 5 | **`just`** | lancer les commandes du projet en un mot |
+| 6 | **VS Code** | éditeur de code |
+
+!!! warning "Après chaque installation, **fermez et rouvrez votre terminal**"
+    Sinon la nouvelle commande ne sera pas trouvée (« commande introuvable » / « n'est pas reconnu »).
+
+## 1. Compte GitHub
+
+1. Créez un compte sur [github.com](https://github.com/signup) si vous n'en avez pas (de préférence avec votre adresse ESIGELEC).
+2. **Notez votre pseudo exact** : il servira à inscrire votre équipe.
+
+## 2. Installer les outils
+
+Choisissez votre système :
+
+=== "Windows 10 / 11"
+
+    Ouvrez **PowerShell** (menu Démarrer → « PowerShell »). Pour l'étape WSL, ouvrez-le **en tant qu'administrateur** (clic droit).
+
+    ```powershell
+    # a) WSL2 — nécessaire à Docker (PowerShell ADMINISTRATEUR), puis REDÉMARREZ le PC
+    wsl --install
+    wsl --update
+
+    # b) Les autres outils (PowerShell normal, après le redémarrage)
+    winget install --id Git.Git -e
+    winget install --id Docker.DockerDesktop -e
+    winget install --id astral-sh.uv -e
+    winget install --id Casey.Just -e
+    winget install --id Microsoft.VisualStudioCode -e
+    ```
+
+    Ensuite : **lancez Docker Desktop** une première fois, acceptez les conditions et attendez que l'icône de la baleine indique *Engine running*.
+
+    !!! note "`winget` introuvable ?"
+        Mettez à jour « App Installer » depuis le Microsoft Store, ou installez chaque outil depuis son site :
+        [Git](https://git-scm.com/download/win) · [Docker Desktop](https://www.docker.com/products/docker-desktop/) ·
+        [uv](https://docs.astral.sh/uv/getting-started/installation/) · [just](https://github.com/casey/just#installation) ·
+        [VS Code](https://code.visualstudio.com/).
+
+=== "macOS"
+
+    Installez d'abord [Homebrew](https://brew.sh/) si vous ne l'avez pas, puis dans le **Terminal** :
+
+    ```bash
+    brew install git uv just
+    brew install --cask docker visual-studio-code
+    ```
+
+    Ensuite : **lancez Docker Desktop** (Applications) une première fois et attendez *Engine running*.
+
+=== "Linux (Ubuntu / Debian)"
+
+    ```bash
+    sudo apt update && sudo apt install -y git curl
+    curl -LsSf https://astral.sh/uv/install.sh | sh       # uv
+    uv tool install rust-just                               # just
+    ```
+
+    - **Docker** : suivez [Docker Engine pour Ubuntu](https://docs.docker.com/engine/install/ubuntu/), puis `sudo usermod -aG docker $USER` et reconnectez-vous.
+    - **VS Code** : [code.visualstudio.com](https://code.visualstudio.com/) (paquet `.deb`).
+
+Puis, quel que soit votre système, installez Python via `uv` :
+
 ```bash
-# 1. Générer une clé (laisser l'emplacement par défaut, une passphrase est recommandée)
-ssh-keygen -t ed25519 -C "votre.email@groupe-esigelec.org"
-
-# 2. Afficher la clé publique et la copier
-cat ~/.ssh/id_ed25519.pub        # Windows PowerShell : Get-Content $HOME\.ssh\id_ed25519.pub
+uv python install 3.12
 ```
 
-3. Coller la clé dans **GitHub → Settings → SSH and GPG keys → New SSH key**.
-4. Vérifier : `ssh -T git@github.com` doit répondre *« Hi &lt;votre-pseudo&gt;! You've successfully authenticated »*.
+## 3. Configurer Git et votre clé SSH
 
-> Documentation officielle : [Connecting to GitHub with SSH](https://docs.github.com/fr/authentication/connecting-to-github-with-ssh).
-
----
-
-## 2. Fonctionnement du Projet Fil Rouge (SmartCity Explorer)
-
-### Accéder au dépôt de votre équipe
-Un dépôt privé dédié à votre équipe est créé dans l'organisation GitHub du cours dès l'inscription de l'équipe (voir la [page d'accueil](../index.md)) :
-`https://github.com/nosql-esigelec/2026-2027-rouen-smartcity-<votre-equipe>`
-
-> ⚠️ Acceptez d'abord l'invitation GitHub reçue par mail (ou sur `https://github.com/nosql-esigelec/<depot>/invitations`).
-
-### Démarrer en 4 commandes
 ```bash
-# 1. Cloner le dépôt de votre équipe (en SSH — clé configurée ci-dessus)
-git clone git@github.com:nosql-esigelec/<nom-du-depot>.git
-cd <nom-du-depot>
+# Votre identité : utilisez l'email de votre compte GitHub (sinon vos commits ne vous sont pas attribués)
+git config --global user.name "Prénom Nom"
+git config --global user.email "email-de-votre-compte-github"
 
-# 2. Configurer l'environnement et installer les dépendances
-cp .env.example .env
-uv sync --all-packages
-
-# 3. Démarrer les bases de données locales via Docker
-docker compose up -d
-
-# 4. Vérifier que les tests du Sprint 1 se lancent
-uv run pytest -m sprint1 -v
+# Générer une clé SSH (appuyez sur Entrée pour l'emplacement par défaut ; une passphrase est recommandée)
+ssh-keygen -t ed25519 -C "email-de-votre-compte-github"
 ```
 
----
+Copiez la **clé publique** :
 
-## 3. Organisation en Sprints & Évaluation Automatique
+=== "Windows (PowerShell)"
 
-Le projet est découpé en **4 Sprints** progressifs documentés dans `TP_SESSIONS.md` :
+    ```powershell
+    Get-Content $HOME\.ssh\id_ed25519.pub | Set-Clipboard
+    ```
 
-1. **Sprint 1 (25 pts)** — Connexions aux bases de données (`packages/backend/src/backend/db/`) :
-   ```bash
-   uv run pytest -m sprint1 -v
-   ```
+=== "macOS"
 
-2. **Sprint 2 (50 pts)** — Script de Seed / Ingestion des jeux de données (`packages/backend/src/backend/scripts/seed_all.py`) :
-   ```bash
-   uv run pytest -m sprint2 -v
-   ```
+    ```bash
+    pbcopy < ~/.ssh/id_ed25519.pub
+    ```
 
-3. **Sprint 3 (100 pts)** — Repositories CRUD & Agrégations (`packages/backend/src/backend/repositories/`) :
-   ```bash
-   uv run pytest -m sprint3 -v
-   ```
+=== "Linux"
 
-4. **Sprint 4 (25 pts)** — Services Métier (`packages/backend/src/backend/services/`) :
-   ```bash
-   uv run pytest -m sprint4 -v
-   ```
+    ```bash
+    cat ~/.ssh/id_ed25519.pub     # puis copiez la ligne affichée
+    ```
 
-### Suivre votre note en direct sur GitHub
-À chaque `git push`, le workflow **GitHub Actions** exécute automatiquement les tests des 4 Sprints et affiche un **tableau récapitulatif de votre score sur 200 (et sur 20)** dans l'onglet **Actions** de votre dépôt GitHub !
+Collez-la dans **GitHub → Settings → SSH and GPG keys → New SSH key**, puis testez :
 
----
+```bash
+ssh -T git@github.com
+```
 
-## 4. Projet Final de Conception & Soutenance : Portfolio Polyglotte
+Réponse attendue : *« Hi `<votre-pseudo>`! You've successfully authenticated… »* (à la première connexion, répondez `yes`).
 
-Une fois que vous maîtrisez l'architecture d'un backend multi-bases grâce au TP guidé **SmartCity Explorer**, vous passez à la vitesse supérieure avec le **Projet Final : Concevoir et Développer votre Portfolio d'Ingénieur Polyglotte** ([Projet Portfolio](../portfolio/index.md)) :
+## 4. Pré-télécharger les bases de données
 
-1. **Phase 1 — Brainstorming, System Design & Soutenance d'Architecture (Équipe)** :
-    - Vous concevez votre propre répartition des données entre bases (Parcours + Projets détaillés + Graphe de compétences Neo4j), rédigez `ARCHITECTURE.md` et `API_ROUTES.md`, et défendez vos choix en soutenance.
-2. **Phase 2 — Backend Unifié FastAPI (Équipe)** :
-    - Votre équipe développe un backend orchestrateur commun capable de servir les profils, projets et graphes de compétences de tous les membres du groupe.
-3. **Phase 3 — Frontend Personnel & Vraies Données (Individuel)** :
-    - Chaque étudiant injecte ses vraies expériences, formations, compétences et projets ESIGELEC dans le seed et développe **son propre Frontend** (Next.js, React, Astro ou Streamlit). Vous repartez du module avec votre portfolio prêt à l'emploi !
+À faire **chez vous**, Docker Desktop démarré (≈ 1 Go) :
+
+```bash
+docker pull mongo:7
+docker pull neo4j:5
+```
+
+## ✅ Checklist { #checklist }
+
+Dans un **nouveau** terminal, chaque commande doit répondre sans erreur :
+
+| Commande | Réponse attendue |
+|---|---|
+| `git --version` | `git version 2.x` |
+| `ssh -T git@github.com` | `Hi <votre-pseudo>! You've successfully authenticated` |
+| `docker run --rm hello-world` | `Hello from Docker!` |
+| `docker images` | les lignes `mongo 7` et `neo4j 5` |
+| `uv --version` | `uv 0.x` |
+| `uv python list --only-installed` | une ligne `cpython-3.12…` |
+| `just --version` | `just 1.x` |
+| `code --version` | un numéro de version |
+
+**Tout est vert ?** Vous êtes prêts pour lundi. Rien d'autre à préparer.
+
+## 🆘 Erreurs fréquentes
+
+| Symptôme | Solution |
+|---|---|
+| « commande introuvable » / « n'est pas reconnu… » | Fermez et rouvrez le terminal (voire la session Windows). |
+| Docker : *WSL 2 installation is incomplete* | `wsl --update` dans PowerShell, puis relancez Docker Desktop. |
+| Docker : *Virtualization not enabled* | Activez la virtualisation (Intel VT-x / AMD-V) dans le BIOS du PC. |
+| `Cannot connect to the Docker daemon` | Docker Desktop n'est pas démarré : lancez-le et attendez *Engine running*. |
+| `Permission denied (publickey)` | La clé n'est pas ajoutée sur GitHub, ou ce n'est pas la bonne : refaites l'étape 3. |
+| PC de l'école ou sans droits administrateur | Signalez-le **avant** le cours sur Teams. |
+
+Toujours bloqué ? Postez **la commande et le message d'erreur complet** (capture d'écran) dans le canal **Général** de l'équipe Teams du cours.

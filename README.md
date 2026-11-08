@@ -5,6 +5,7 @@
 
 | Je veux… | Lien |
 | :--- | :--- |
+| Préparer mon poste avant le 1er cours | [Avant le premier cours](https://nosql-esigelec.github.io/course/demarrer/guide-etudiant/) |
 | Savoir par où commencer | [Par où commencer ?](https://nosql-esigelec.github.io/course/) |
 | Connaître les dates et échéances | [Planning](https://nosql-esigelec.github.io/course/planning/) |
 | Inscrire mon équipe (1 membre par équipe) | [🚀 Inscrire mon équipe](https://github.com/nosql-esigelec/course/issues/new?template=inscription-equipe.yml) |
@@ -22,7 +23,7 @@ course/
 ├── docs/                 # 📘 Site de documentation (Zensical) — source unique du contenu
 │   ├── index.md          #    Par où commencer ?
 │   ├── planning.md       #    Planning & échéances (seule référence)
-│   ├── demarrer/         #    Guide de l'étudiant, aide-mémoire
+│   ├── demarrer/         #    Avant le premier cours (installations), aide-mémoire
 │   ├── smartcity/        #    TP guidé SmartCity Explorer
 │   ├── portfolio/        #    Projet Portfolio : sujet, atelier, grille
 │   ├── exercices/        #    Exercices d'entraînement

@@ -10,7 +10,7 @@ hide:
 
 !!! tip "Vous êtes perdu ? Suivez ces 5 étapes dans l'ordre"
 
-    1. **Installer les prérequis** (Git + clé SSH, Docker, `uv`, `just`, VS Code) → [Guide de l'étudiant](demarrer/guide-etudiant.md)
+    1. **Préparer votre poste avant le premier cours** (GitHub, Git + clé SSH, Docker, `uv`, `just`, VS Code) → [Avant le premier cours](demarrer/guide-etudiant.md)
     2. **Former votre équipe** (8 équipes : 6 de 4 et 2 de 5) et **l'inscrire en 1 clic** → [Inscrire mon équipe](https://github.com/nosql-esigelec/course/issues/new?template=inscription-equipe.yml)
     3. **Accepter l'invitation GitHub** reçue par mail, puis cloner votre dépôt `SmartCity` → [Démarrer SmartCity](smartcity/index.md#demarrer)
     4. **Valider les 4 Sprints** (200/200 sur GitHub Actions) avant l'échéance → [Planning](planning.md)

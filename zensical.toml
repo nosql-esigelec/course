@@ -12,7 +12,7 @@ nav = [
   { "Par où commencer ?" = "index.md" },
   { "Planning" = "planning.md" },
   { "Démarrer" = [
-    { "Guide de l'étudiant" = "demarrer/guide-etudiant.md" },
+    { "Avant le premier cours" = "demarrer/guide-etudiant.md" },
     { "Aide-mémoire" = "demarrer/aide-memoire.md" },
   ] },
   { "SmartCity" = [

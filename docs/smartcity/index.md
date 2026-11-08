@@ -16,7 +16,7 @@ Vous complétez les couches **`db/` → `scripts/seed_all.py` → `repositories/
 ## Démarrer { #demarrer }
 
 !!! warning "Avant de commencer"
-    Votre **clé SSH** est configurée et votre **invitation GitHub** est acceptée → [Guide de l'étudiant](../demarrer/guide-etudiant.md).
+    Votre **clé SSH** est configurée et votre **invitation GitHub** est acceptée → [Avant le premier cours](../demarrer/guide-etudiant.md).
 
 === "Windows (PowerShell / WSL)"
 
