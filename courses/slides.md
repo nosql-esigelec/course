@@ -1,6 +1,5 @@
 ---
 theme: dracula
-background: https://source.unsplash.com/collection/94734566/1920x1080
 class: text-center
 highlighter: shiki
 lineNumbers: false
@@ -26,7 +25,7 @@ layout: two-cols-header
 
 > Parcours Data & AI
 - Analytics Engineer - **Apprenti** @ Renault
-- Data Enigneer - CDI @ Starclay
+- Data Engineer - CDI @ Starclay
 - Tech Lead Data - CDI @ HephIA
 - Tech Lead Data - CDI @ Servier
 - Intervenant - CDD @ ESIGELEC Rouen/Poitiers
@@ -52,33 +51,28 @@ layout: two-cols-header
 
 # Plan du module
 
-
 ::left::
-- **Introduction au NoSQL** 
-  - Pourquoi NoSQL ?
-  - Théorème CAP
-  - Types de bases NoSQL
+- **1. Introduction au NoSQL**
+  - Pourquoi NoSQL & Théorème CAP
+  - Les 4 familles NoSQL & cas d'usage
   - Comparaison SQL vs NoSQL
 
-- **MongoDB** 
-  - Introduction et concepts
-  - Structure des données
-  - Opérations CRUD
-  - Requêtes avancées
-  - Indexation et modélisation
+- **2. MongoDB (Orienté Document)**
+  - Modèle BSON, CRUD & Opérateurs
+  - Pipeline d'Agrégation (`$match`, `$group`, `$avg`)
+  - Modélisation : *Embedding* vs *Referencing*
+  - Nouveautés : **MongoDB 8.2+, Voyage AI, Reranking & MCP**
 
 ::right::
 
-- **Neo4j** 
-  - Base de données orientée graphe
-  - Langage Cypher
-  - Modélisation de graphes
-  - Cas d'utilisation
+- **3. Neo4j (Orienté Graphe)**
+  - Property Graph Model (Nœuds, Relations, Propriétés)
+  - Langage Cypher (`MATCH`, `MERGE`, `collect()`, chemins)
+  - Nouveautés : **GraphRAG, Index Vectoriel HNSW & Cypher 25**
 
-- **Travaux Pratiques** - 
-  - Exercices MongoDB
-  - Exercices Neo4j
-  - Mise en pratique
+- **4. Architecture Polyglotte & Projets**
+  - Projet guidé : **SmartCity Explorer** (FastAPI + Mongo + Neo4j)
+  - Projet final : **Portfolio d'Ingénieur Polyglotte**
 
 ---
 layout: two-cols-header
@@ -112,26 +106,24 @@ layout: two-cols-header
 
 ::left::
 
-- **Compétences visées**:
-   - Maîtriser les différences entre SQL et NoSQL
-   - Choisir les BDD adaptées à un besoin
-   - Manipuler des BDD dans une app *Python*
-   - Déployer des bases de données NoSQL
-   - Modéliser efficacement en NoSQL
-
+- **Compétences visées** :
+   - Arbitrer entre **SQL**, **Document (MongoDB)** et **Graphe (Neo4j)**
+   - Modéliser en NoSQL (*Embedding* vs *Referencing*, Graphe de propriétés)
+   - Écrire des pipelines d'agrégation MQL et des traversées Cypher
+   - Concevoir une **Architecture Polyglotte** industrielle en Python
+   - Comprendre les usages IA modernes (**Vector Search, Voyage AI, MCP, GraphRAG**)
 
 ::right::
-- **Technologies et outils**:
-   - BDD: `MongoDB`, `Neo4j`
-   - Virtualization: `Docker`
-   - Code: `Python`
-   - Cloud: `MongoDB Atlas`, `Neo4j Aura`
+- **Stack technique du module** :
+   - Bases NoSQL : `MongoDB 7/8`, `Neo4j 5`
+   - Backend & API : `Python 3.11+`, `FastAPI`, `Pydantic`
+   - Drivers Async : `Motor / PyMongo`, `Neo4j Python Driver`
+   - Outillage & CI : `Docker Compose`, `uv`, `pytest`, `GitHub Actions`
 
 
 
 ---
 layout: cover
-background: https://source.unsplash.com/collection/94734566/1920x1080
 ---
 
 # Introduction au NoSQL
@@ -301,11 +293,11 @@ layout: default
 
 ```mermaid
 graph TD
-    C[Cohérence] --- CA[MongoDB]
-    C --- CP[Redis]
-    A[Disponibilité] --- CA
-    A --- AP[Cassandra]
-    P[Partitionnement] --- CP
+    C[Cohérence - C] --- CA[SGBD Relationnel Mono-Nœud : PostgreSQL]
+    C --- CP[CP : MongoDB / Redis / HBase]
+    A[Disponibilité - A] --- CA
+    A --- AP[AP : Cassandra / DynamoDB]
+    P[Tolérance au Partitionnement - P] --- CP
     P --- AP
 ```
 
@@ -435,7 +427,7 @@ layout: two-cols-header
 - Implémentation peu coûteuse
 
 **Exemple de coût** :
-- MongoDB Enterprise : **0$**
+- MongoDB Community Edition : **0$**
 - Oracle RAC : **$47,500** par unité
 
 </div>
@@ -703,30 +695,75 @@ db.clients.deleteMany({
 layout: default
 ---
 
-# Requêtes avancées
+# Requêtes avancées & Mises à jour riches
 
-### Opérateurs de comparaison
+::left::
+
+### Opérateurs de comparaison & regex
 ```javascript
-{
-  age: { $gt: 25 },        // plus grand que
-  prix: { $lte: 100 },     // plus petit ou égal
-  statut: { $ne: "inactif" }, // différent de
-  tags: { $in: ["VIP", "Premium"] } // dans la liste
-}
+db.cities.find({
+  population: { $gte: 100000 },       // >= 100 000
+  region: { $in: ["Normandie", "Bretagne"] },
+  name: { $regex: "^rou", $options: "i" } // insensible à la casse
+}).sort({ overall_score: -1 }).skip(0).limit(20)
 ```
 
-### Opérateurs logiques
+::right::
+
+### Opérateurs logiques & tableaux
 ```javascript
-{
-  $and: [
-    { age: { $gt: 25 } },
-    { ville: "Paris" }
-  ],
-  $or: [
-    { statut: "VIP" },
-    { points: { $gt: 100 } }
-  ]
-}
+// Mise à jour atomique ($set, $inc, $push)
+db.cities.updateOne(
+  { id: 1 },
+  {
+    $set: { region: "Normandie" },
+    $inc: { population: 500 },
+    $push: { scores: { category: "sport", score: 8.5 } }
+  }
+)
+```
+
+---
+layout: two-cols-header
+---
+
+# Pipeline d'Agrégation MongoDB (`aggregate`)
+
+::left::
+
+### Principe : traiter les documents par étapes (*stages*)
+1. **`$match`** : Filtrer les documents en entrée *(utilise les index !)*
+2. **`$group`** : Regrouper et calculer (`$avg`, `$sum`, `$min`, `$max`)
+3. **`$sort` / `$limit`** : Trier et limiter les résultats
+4. **`$project`** : Formater les champs en sortie
+
+```mermaid
+graph LR
+    A[Collection] --> B["$match"]
+    B --> C["$group ($avg)"]
+    C --> D["$sort"]
+    D --> E[Résultat]
+```
+
+::right::
+
+### Exemple concret (utilisé dans `SmartCity`)
+Calculer la note moyenne et le nombre d'avis par ville :
+
+```python
+pipeline = [
+    # 1. Filtrer les avis d'une ville
+    {"$match": {"city_id": city_id}},
+    # 2. Calculer la moyenne des notes
+    {
+        "$group": {
+            "_id": "$city_id",
+            "avg_rating": {"$avg": "$rating"},
+            "total_reviews": {"$sum": 1}
+        }
+    }
+]
+results = await db["reviews"].aggregate(pipeline).to_list(1)
 ```
 
 ---
@@ -822,47 +859,43 @@ layout: two-cols-header
 layout: two-cols-header
 ---
 
-# Modélisation des données
+# Modélisation : Embedding vs Referencing
 
 ::left::
 
-### Patterns de conception
-- Embedded Documents
-```javascript
+### 1. Embedding (Imbrication dans le même document)
+```json
 {
-  _id: 1,
-  item: "Xbox Series X",
-  manufacturer: {
-    name: "Microsoft",
-    address: "Redmond, WA",
-    phone: "123-456-7890"
-  }
+  "id": 1,
+  "name": "Rouen",
+  "scores": [
+    { "category": "transports", "score": 8.2 },
+    { "category": "cadre_de_vie", "score": 7.9 }
+  ]
 }
 ```
 
-- References
-```javascript
+### 2. Referencing (Collection séparée avec clé)
+```json
 {
-  _id: 1,
-  item: "Xbox Series X",
-  manufacturer_id: 123
+  "_id": "65f1a...",
+  "city_id": 1,
+  "author": "Alice",
+  "rating": 5,
+  "comment": "Super ville étudiante !"
 }
 ```
 
 ::right::
 
-### Bonnes pratiques
-- Privilégier l'embedding pour les relations 1:1
-- Utiliser les références pour les relations N:M
-- Dénormaliser stratégiquement
-- Limiter la taille des documents
-- Concevoir pour les cas d'utilisation
-
-### Anti-patterns
-- Jointures côté application excessive
-- Documents trop profonds
-- Arrays non bornés
-- Références en cascade
+### La Règle d'Or d'Arbitrage (Query-First Design)
+- ✅ **Embedding (`1:1` ou `1:N` borné)** :
+  - Les sous-éléments sont **peu nombreux** (ex: les 8 scores d'une ville, les expériences/formations d'un CV).
+  - Ils sont **toujours lus en même temps** que le document parent (1 seule lecture disque, zéro jointure).
+- ✅ **Referencing (`1:N` non borné ou `N:M`)** :
+  - Le nombre d'éléments **grossit indéfiniment** (ex: des milliers d'avis `reviews` sur une ville).
+  - Ou l'entité est **partagée / paginée indépendamment** (ex: `projets` communs à plusieurs étudiants).
+  - *Rappel :* Limite d'un document BSON = **16 Mo** (interdiction des tableaux non bornés !).
 ---
 layout: default
 ---
@@ -875,62 +908,51 @@ layout: default
 
 ---
 layout: cover
-background: https://source.unsplash.com/collection/94734566/1920x1080
 ---
 
-# MongoDB - Innovations 2025
-## Les dernières avancées qui transforment le NoSQL
+# MongoDB — Nouveautés Majeures & IA (2025 / 2026)
+## De la base orientée document à la plateforme IA unifiée
 
 ---
 layout: two-cols-header
 ---
 
-# MongoDB 8.2 - Dernière version
+# MongoDB 8.x, Voyage AI & Vector Search
 
 ::left::
 
-<div class="mb-4">
+<div class="mb-3">
 
-### 🚀 Version actuelle : **MongoDB 8.2**
-Sortie récente avec des fonctionnalités majeures
+### 🚀 1. Search & Vector Search « Run Anywhere »
+- **Vector Search & Atlas Search** désormais disponibles gratuitement dans **MongoDB Community Edition** (et en conteneur Docker local !).
+- **Hybrid Search natif** : stages `$rankFusion` et `$scoreFusion` combinant recherche lexicale (BM25) et sémantique (Vecteurs).
+- **Binary Quantization (`int8` / `int1`)** : réduit de **96 % la mémoire RAM** consommée par les vecteurs.
 
 </div>
 
-<div class="mb-4">
+<div>
 
-### Nouveautés principales
-
-**Search & Vector Search Community** 🔍
-- Recherche full-text native
-- Vector Search dans Community Edition
-- Capacités IA pour tous
-
-**Hybrid Search** 🔀
-- Stage `$scoreFusion` pour recherche hybride
-- Combinaison texte + vecteurs
-- Pertinence améliorée
+### 🔐 2. Performances & Queryable Encryption
+- **+32 % à +50 % de débit** sur les lectures/agrégations en série 8.x.
+- **Queryable Encryption** : recherche *prefix*, *suffix* et *substring* directement sur des champs chiffrés de bout en bout (`In-Use Encryption`).
 
 </div>
 
 ::right::
 
-<div class="mb-4">
+<div class="mb-3">
 
-**Queryable Encryption amélioré** 🔐
-- Requêtes prefix, suffix, substring
-- Champs chiffrés interrogeables
-- Sécurité maximale sans compromis
-
-**Améliorations techniques** ⚡
-- `$currentDate` avec aggregate()
-- Métriques disk usage standardisées
-- Performance optimisée
+### 🧠 3. Rachat & Intégration Native de **Voyage AI**
+MongoDB a acquis **Voyage AI** (leader des modèles d'embeddings et de reranking) pour l'intégrer au cœur de la base :
+- **Automated Embeddings** : plus besoin de pipeline externe ! MongoDB génère et synchronise automatiquement les vecteurs lors des `insert` / `update`.
+- **Stage `$rerank` natif** : réordonne les résultats RAG directement dans le pipeline d'agrégation (+30 % de précision).
+- **Modèles spécialisés** : `voyage-3`, `voyage-context-3` et `voyage-code-3`.
 
 </div>
 
-<div class="mt-4 p-4 bg-green-900 rounded">
+<div class="mt-2 p-3 bg-green-900 rounded text-sm">
 
-💡 **MongoDB 8.2** apporte des fonctionnalités Atlas vers les déploiements self-managed
+💡 **Zéro infra externe** : Document JSON + Recherche Full-Text + Vecteurs + Embeddings auto + Reranking dans une seule base.
 
 </div>
 
@@ -1060,24 +1082,21 @@ db.products.aggregate([
 layout: two-cols-header
 ---
 
-# Agents IA avec MongoDB
-## Memory & State Management
+# Agents IA & Serveur MCP Officiel MongoDB
+## Memory Store & Model Context Protocol (`mongodb-mcp-server`)
 
 ::left::
 
-<div class="mb-6">
+<div class="mb-4">
 
-### Architecture Agent-Database
-**Cycle de l'Agent**
-1. **Perceive** : Perception de l'environnement
-2. **Decide** : Prise de décision
-3. **Act** : Action et exécution
+### 1. Mémoire & État des Agents IA (LangGraph / CrewAI)
+- **Short-term Memory** : Checkpoints d'état et historique de conversation BSON.
+- **Long-term Memory** : Recherche épisodique et sémantique via `$vectorSearch`.
 
-**Rôle de MongoDB**
-- Memory & State persistant
-- Contexte et historique
-- Contraintes et règles
-- Capture des résultats
+### 2. Nouveau : **MongoDB MCP Server** officiel 🔌
+Le standard **Model Context Protocol (MCP)** connecte directement les agents IA (Claude, Cursor, Copilot, Agents custom) à MongoDB :
+- Inspection automatique des collections et schémas JSON.
+- Exécution sécurisée d'agrégations et de Vector Search par l'agent sans écrire de code *glue*.
 
 </div>
 
@@ -1247,34 +1266,29 @@ CREATE (p:Personne {
 layout: two-cols-header
 ---
 
-# Langage Cypher
+# Langage Cypher (CRUD & Idempotence)
 
 ::left::
 
-### Création de nœuds
+### Création (`CREATE` vs `MERGE`)
 ```cypher
-// Créer un nœud
-CREATE (p:Personne {
-  nom: "Alice",
-  age: 30
-})
+// CREATE : crée toujours (risque de doublon)
+CREATE (p:Personne {nom: "Alice", age: 30})
 
-// Créer une relation
-MATCH (a:Personne {nom: "Alice"})
-MATCH (b:Personne {nom: "Bob"})
-CREATE (a)-[r:CONNAIT]->(b)
+// MERGE : "get or create" sans doublon (idéal pour les seeds !)
+MERGE (c:City {city_id: 1})
+SET c.name = "Rouen", c.overall_score = 8.1
+
+// Relier deux nœuds existants sans doublon
+MATCH (c:City {city_id: 1}), (cr:Criterion {name: "Transports"})
+MERGE (c)-[:STRONG_IN]->(cr)
 ```
 
-### Lecture
+### Lecture (`MATCH` + `WHERE`)
 ```cypher
-// Trouver des nœuds
-MATCH (p:Personne)
-WHERE p.age > 25
-RETURN p
-
-// Avec relations
-MATCH (p:Personne)-[r:TRAVAILLE_POUR]->(e:Entreprise)
-RETURN p, r, e
+MATCH (c:City)-[:STRONG_IN]->(cr:Criterion)
+WHERE c.city_id = 1
+RETURN cr.name AS point_fort ORDER BY point_fort
 ```
 
 ::right::
@@ -1305,33 +1319,25 @@ DELETE r
 layout: default
 ---
 
-# Requêtes avancées
+# Requêtes Cypher Avancées (`WITH`, `collect`, Chemins)
 
-### Navigation dans le graphe
+### 1. Chemins de longueur variable & Plus court chemin
 ```cypher
-// Chemins de longueur variable
-MATCH (a:Personne {nom: "Alice"})-[*1..3]->(b)
-RETURN b
-
-// Plus court chemin
-MATCH p=shortestPath(
-  (a:Personne)-[*]->(b:Personne)
-)
-WHERE a.nom = "Alice" AND b.nom = "Charlie"
-RETURN p
+// Remonter toute une chaîne d'actionnariat (1 à N sauts)
+MATCH (m:Media {nom: "Le Monde"})<-[:OWNS*]-(owner)
+WHERE NOT (owner)<-[:OWNS]-()
+RETURN DISTINCT owner.nom
 ```
 
-### Agrégation et patterns complexes
+### 2. Chaînage `OPTIONAL MATCH`, `WITH` et agrégation `collect()` (utilisé dans `SmartCity`)
 ```cypher
-// Groupement et comptage
-MATCH (p:Personne)-[:TRAVAILLE_POUR]->(e:Entreprise)
-RETURN e.nom, count(p) as nb_employes
-ORDER BY nb_employes DESC
-
-// Pattern complexe
-MATCH (p1:Personne)-[:CONNAIT]->(p2:Personne)-[:TRAVAILLE_POUR]->(e:Entreprise)
-WHERE p1.nom = "Alice" AND e.secteur = "IT"
-RETURN DISTINCT p2.nom as contacts_it
+// Trouver les K villes similaires ET collecter leurs points forts communs en une seule requête
+MATCH (source:City {city_id: $city_id})-[r:SIMILAR_TO]->(target:City)
+OPTIONAL MATCH (source)-[:STRONG_IN]->(cr:Criterion)<-[:STRONG_IN]-(target)
+WITH target, r.score AS similarity_score, collect(cr.name) AS common_strengths
+ORDER BY similarity_score DESC
+LIMIT $k
+RETURN properties(target) AS city, similarity_score, common_strengths
 ```
 
 ---
@@ -1466,6 +1472,44 @@ WHERE ALL(r IN relationships(chemin) WHERE r.montant > 10000)
 RETURN chemin
 ```
 ---
+layout: two-cols-header
+---
+
+# Nouveautés Neo4j : GraphRAG, Vector Index & Cypher 25
+## Pourquoi les Graphes révolutionnent l'IA Générative
+
+::left::
+
+### Le problème du RAG Vectoriel classique
+- Les vecteurs seuls trouvent des paragraphes « ressemblants », mais échouent dès qu'il faut **relier des faits dispersés** sur plusieurs documents (*multi-hop reasoning*).
+
+### La réponse Neo4j : **GraphRAG** 🕸️ + 🧠
+1. **Index Vectoriel HNSW natif (avec filtrage *in-index*)** : trouve le nœud point d'entrée par similarité sémantique + filtres métiers.
+2. **Traversée Cypher en 1 requête** : explore immédiatement le voisinage du graphe (`-[:MENTIONS]->(:Entity)-[:RELATES_TO]->`) pour fournir un contexte structuré et exact au LLM.
+3. **Cypher 25 & Serveur MCP Neo4j** : nouvelle clause `SEARCH` native et serveur MCP officiel pour brancher les agents IA au graphe.
+
+::right::
+
+### Requête Hybride GraphRAG (Vecteur + Graphe)
+```cypher
+// 1. Entrée sémantique via l'index vectoriel HNSW
+CALL db.index.vector.queryNodes('doc_embeddings', 5, $queryVector)
+YIELD node AS doc, score
+
+// 2. Expansion du contexte par traversée du graphe
+MATCH (doc)-[:MENTIONS]->(e:Entity)-[r:IMPACTS]->(target:Entity)
+RETURN doc.text, score,
+       collect(e.name + ' -> ' + target.name) AS graph_context
+ORDER BY score DESC
+```
+
+<div class="mt-4 p-3 bg-purple-900 rounded text-sm">
+
+🔥 **Résultat** : Le LLM reçoit à la fois le texte pertinent **et** la structure exacte des relations (divise les hallucinations par 3).
+
+</div>
+
+---
 layout: iframe
 url: https://app.wooclap.com/NFMFFF/questionnaires/690a8cebb1bf86ff9eac1764
 ---
@@ -1474,9 +1518,43 @@ url: https://app.wooclap.com/NFMFFF/questionnaires/690a8cebb1bf86ff9eac1764
 layout: cover
 ---
 
+# Architecture Polyglotte & Projets
+## Faire cohabiter MongoDB & Neo4j derrière FastAPI
 
-# Travaux Pratiques
-## NoSQL en pratique - Mise en application
+---
+layout: two-cols-header
+---
+
+# Architecture Cible : `SmartCity` & `Portfolio`
+
+::left::
+
+### Pourquoi la Persistance Polyglotte ?
+Au lieu de forcer une seule base à tout faire mal, on confie chaque besoin au moteur optimal derrière une **API FastAPI unique** :
+- 🍃 **MongoDB (Document)** :
+  - `cities` + tableau `scores` en **Embedding** (`1:N` borné, lu d'un bloc)
+  - `reviews` en **Referencing** (`1:N` non borné, paginé + agrégation `$avg`)
+- 🕸️ **Neo4j (Graphe)** :
+  - Nœuds `(:City)` et `(:Criterion)` reliés par `[:STRONG_IN]` et `[:SIMILAR_TO]` pour la recommandation multi-critères.
+
+::right::
+
+### Découpage Industriel du Backend Python
+```mermaid
+graph TD
+    UI[Frontend Streamlit / React / Next.js] --> API[FastAPI Routes : api/]
+    API --> SVC[Services Métier : services/]
+    SVC --> MREPO[Mongo Repositories : repositories/mongo_*.py]
+    SVC --> NREPO[Neo4j Repository : repositories/neo4j_repo.py]
+    MREPO --> MONGO[(MongoDB : cities & reviews)]
+    NREPO --> NEO[(Neo4j : Graphe de similarité)]
+```
+
+<div class="mt-4 p-3 bg-blue-900 rounded text-sm">
+
+🔑 **Identifiant pivot** : Le champ `city_id` (ou `slug` dans votre Portfolio) assure la cohérence entre les documents MongoDB et les nœuds Neo4j !
+
+</div>
 
 ---
 layout: default
