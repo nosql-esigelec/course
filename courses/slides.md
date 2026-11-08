@@ -80,6 +80,7 @@ zoom: 0.92
 
 ---
 layout: two-cols-header
+zoom: 0.85
 ---
 
 # Organisation du module (3 Jours)
@@ -95,8 +96,8 @@ layout: two-cols-header
 
 **Jour 2 (Lun 16/11 : 9h-12h & 14h-17h — 100% TP)**
   - **09h00 – 09h30** : Bilan `SmartCity`, questions & pistes de déblocage
-  - **10h30** : **clôture `SmartCity`** (dernière chance)
   - **09h30 – 12h00** : System Design `Portfolio` (`ARCHITECTURE.md` & `API_ROUTES.md`)
+  - **10h30** : **clôture `SmartCity`** (dernière chance)
   - **14h00 – 15h30** : **Soutenances System Design** (Jalon 1 — 30%)
   - **15h30 – 17h00** : Dev Backend d'équipe & Frontends individuels
 
