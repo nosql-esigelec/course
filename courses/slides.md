@@ -7,6 +7,7 @@ drawings:
   persist: false
 transition: slide-left
 title: Bases de données NoSQL
+routerMode: hash
 ---
 
 # Bases de données NoSQL
