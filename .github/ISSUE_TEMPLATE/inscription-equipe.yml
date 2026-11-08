@@ -1,5 +1,5 @@
 name: "🚀 Inscription d'une Équipe (TP & Projet)"
-description: "Inscrivez votre groupe (3 à 4 étudiants) pour créer automatiquement votre dépôt GitHub privé."
+description: "Inscrivez votre équipe (4 ou 5 étudiants) pour créer automatiquement votre dépôt GitHub privé."
 title: "[EQUIPE] "
 labels: ["inscription-equipe"]
 body:
@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         ### 👋 Bienvenue !
-        **Un seul membre par groupe (de 3 à 4 étudiants)** remplit ce formulaire.
+        **Un seul membre par équipe (4 étudiants, ou 5 pour 2 équipes)** remplit ce formulaire.
         Dès validation par l'enseignant en séance (`just enroll-apply`), votre dépôt privé d'équipe sera généré et vous recevrez un commentaire ici avec le lien direct vers votre dépôt.
   - type: input
     id: team_slug
@@ -21,7 +21,7 @@ body:
     id: github_usernames
     attributes:
       label: "Pseudos GitHub des membres de l'équipe"
-      description: "Indiquez les noms d'utilisateur GitHub des 3 ou 4 membres (séparés par des virgules ou un par ligne)."
+      description: "Indiquez les noms d'utilisateur GitHub des 4 (ou 5) membres, un par ligne."
       placeholder: |
         @alice-gh
         @bob-gh

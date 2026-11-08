@@ -84,7 +84,7 @@ layout: two-cols-header
 **Jour 1 (Lun 09/11 : 9h-12h & 13h30-17h30)**
   - **09h00 – 11h00 (2h CM)** : Panorama NoSQL, MongoDB & Neo4j
   - **11h00 – 12h00 (1h TP)** : Enrôlement GitHub & Setup Docker `SmartCity`
-  - **13h30 – 17h30 (4h TP)** : Design & Sprints `SmartCity` *(Notebooks en sandbox)*
+  - **13h30 – 17h30 (4h TP)** : Design & Sprints `SmartCity` *(Neo4j Browser & OneCompiler en sandbox)*
   - **Intersession J1 -> J2** : Finir les 4 Sprints `SmartCity` (`200/200`)
 
 ::right::
@@ -1563,15 +1563,15 @@ layout: default
 # Place à la Pratique : SmartCity Explorer !
 
 ### Étape 1 (11h00 – 12h00) : Enrôlement & Setup Docker
-- Former **8 équipes de 4** et ouvrir une Issue d'inscription sur **`github.com/nosql-esigelec/course`**
+- Former **8 équipes (6 × 4 + 2 × 5)** et ouvrir une Issue d'inscription sur **`github.com/nosql-esigelec/course`**
 - Cloner le dépôt d'équipe `smartcity`, lancer `uv sync --all-packages` et `docker compose up -d`
 
 ### Étape 2 (13h30 – 17h30) : Design & Sprints 1 à 4
 - **Atelier Design** : Arbitrage *Embedding* (`cities` + `scores`) vs *Referencing* (`reviews`) + Graphe Neo4j
 - **Sprints 1 à 4** : Connexions DB -> Seed -> Repositories Mongo/Neo4j -> Services (`uv run pytest -v`)
-- **Sandbox & Aide** : Notebooks (`mongodb.ipynb`, `neo4j.ipynb`), `AIDE-MEMOIRE.md` & Neo4j Browser (`localhost:7474`)
+- **Sandbox & Aide** : Neo4j Browser (`localhost:7474`), OneCompiler MongoDB & `AIDE-MEMOIRE.md`
 
-### Intersession (d'ici Lundi 16 Nov)
+### Intersession (avant Dimanche 15 Nov — 23h59)
 - Terminer les 4 Sprints (`200/200` sur GitHub Actions) — **Enseignant 100% joignable toute la semaine !**
 
 ---

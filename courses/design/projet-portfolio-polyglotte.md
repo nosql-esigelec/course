@@ -20,20 +20,17 @@ flowchart LR
     P2 --> P3["🎨 Phase 3 (Individuel)\nFrontend Personnel\n& Vraies Données de CV/Projets"]
 ```
 
-### 📅 Calendrier d'exécution — Campus Rouen BDTN (Salle D1264)
+### 📅 Calendrier & Jalons
 
-| Créneau | Salle | Activité Projet | Livrable attendu |
-| :--- | :---: | :--- | :--- |
-| **Lundi 9 Nov (14h30 – 17h30)** | D1264 | **TP Guidé `SmartCity Explorer` (Sprints 1 & 2 — MongoDB)** : Maîtrise de l'architecture FastAPI + Motor (`cities` en *Embedding*, `reviews` en *Referencing* + Agrégation). | Tests `sprint1` et `sprint2` au vert sur GitHub Actions. |
-| **Lundi 16 Nov (10h00 – 12h00)** | D1264 | **TP Guidé `SmartCity Explorer` (Sprints 3 & 4 — Neo4j & Seed)** : Graphe de similarité Cypher, recommandations et seed complet. | Score **200/200** sur `SmartCity Explorer`. |
-| **Lundi 16 Nov (Après-midi — 2h)** | D1264 | **🚀 Lancement du Projet `Portfolio Polyglotte` — Phase 1 (Brainstorming & System Design)** : Définition des schémas MongoDB + Neo4j, rédaction de `ARCHITECTURE.md` et `API_ROUTES.md`, initialisation du dépôt Backend d'équipe. | `ARCHITECTURE.md` + `API_ROUTES.md` poussés sur GitHub. |
-| **Vendredi 20 Nov (09h00 – 10h00)** | D1264 | **🎤 Jalon 1 — Soutenances Flash de System Design** : Présentation par chaque équipe de ses choix de modélisation (MongoDB *Embedding/Referencing* + Graphe Neo4j) et de son contrat d'API. | Validation de l'architecture par l'enseignant. |
-| **Vendredi 20 Nov (10h00 – 12h00)** | D1264 | **⚙️ Phase 2 & 3 — Sprint Backend Unifié (Équipe) & Frontend (Individuel)** : Implémentation des routes FastAPI, du script `seed` multi-profils et branchement des Frontends individuels. | Backend fonctionnel sous Docker + Seed d'équipe. |
-| **Vendredi 20 Nov (Après-midi — 2h)** | D1264 | **🏆 Finalisation & Démonstration Live des Portfolios** : Démonstration du Backend unifié par l'équipe et présentation individuelle du **Frontend de Portfolio** de chaque étudiant avec ses vraies données. | Code final poussé sur GitHub + Démo live. |
+> 📌 **Dates, créneaux et échéances : voir le [planning officiel du README](../../README.md#-planning-officiel-des-séances--salle-d1264)** (seule source de référence).
+
+- **Prérequis** : TP guidé `SmartCity Explorer` terminé (200/200).
+- **Jalon 1 — System Design** : `ARCHITECTURE.md` + `API_ROUTES.md` poussés sur GitHub, puis soutenance d'équipe (30 %).
+- **Jalon 2 — Démo finale** : Backend unifié d'équipe (40 %) + Frontend individuel avec vos vraies données (30 %).
 
 ---
 
-## 🧠 Phase 1 — Brainstorming & System Design (En équipe de 3 à 4)
+## 🧠 Phase 1 — Brainstorming & System Design (En équipe de 4 ou 5)
 
 ### 1. Le Besoin Produit
 Un recruteur ou un Tech Lead visite votre portfolio. En moins de 60 secondes, il veut :
@@ -66,7 +63,7 @@ Pour chaque entité métier (**Candidat, Expérience Pro, Formation, Projet dét
 
 ## 🎤 Jalon 1 — Soutenance d'Architecture & System Design (30 % de la note)
 
-Avant d'écrire le code métier, chaque équipe présente son architecture (10 min de présentation + 5 min de questions) avec un document **`ARCHITECTURE.md`** et **`API_ROUTES.md`** à la racine de son dépôt GitHub contenant :
+Avant d'écrire le code métier, chaque équipe présente son architecture (10 min par équipe : 5 min de présentation + 4 min de questions + 1 min de transition) avec un document **`ARCHITECTURE.md`** et **`API_ROUTES.md`** à la racine de son dépôt GitHub contenant :
 1. **Diagramme d'architecture globale** (Mermaid) montrant le rôle de l'API Orchestrateur FastAPI et des bases de données.
 2. **Modèles de données détaillés** :
    - Schéma relationnel (PostgreSQL) et/ou Schéma des collections JSON (MongoDB : *Embedding* vs *Referencing*) + Index choisis.

@@ -8,24 +8,26 @@ Bienvenue dans ce module ! Ce guide regroupe tout ce qu'il faut savoir pour trav
 
 | Outil | Rôle | Vérification rapide |
 | :--- | :--- | :--- |
-| **Git & Clé SSH** | Cloner votre dépôt d'équipe et pousser votre code sur GitHub | `git --version` |
-| **Docker Desktop** | Lancer les bases de données locales (MongoDB, Neo4j, PostgreSQL) | `docker compose version` |
-| **`uv`** | Gestionnaire Python ultra-rapide (environnements & dépendances) | `uv --version` |
-| **`just`** | Lanceur de commandes du projet (`just test`, `just seed`, etc.) | `just --version` |
+| **Git** + compte **GitHub** | Cloner votre dépôt d'équipe (HTTPS) et pousser votre code | `git --version` |
+| **Docker Desktop** (+ WSL2 à jour sous Windows) | Lancer les bases de données locales (MongoDB, Neo4j) | `docker compose version` |
+| **`uv`** | Gestionnaire Python ultra-rapide (installe aussi Python 3.11+) | `uv --version` |
+| **`just`** | Lanceur de commandes du projet (`just seed`, `just dev-backend`…) — Windows : `winget install Casey.Just` · macOS : `brew install just` · Linux : `uv tool install rust-just` | `just --version` |
+| **VS Code** | Éditeur recommandé | `code --version` |
 
 ---
 
 ## 2. Fonctionnement du Projet Fil Rouge (SmartCity Explorer)
 
 ### Accéder au dépôt de votre équipe
-Un dépôt privé dédié à votre équipe est créé dans l'organisation GitHub du cours :
-* **ESIGELEC Rouen (BDTN — 100% NoSQL)** : `https://github.com/nosql-esigelec/<promo>-smartcity-<votre-equipe>`
-* **ESIGELEC Poitiers (SQL & NoSQL)** : `https://github.com/databases-esigelec/<promo>-smartcity-<votre-equipe>`
+Un dépôt privé dédié à votre équipe est créé dans l'organisation GitHub du cours dès l'inscription de l'équipe (voir le [README](./README.md)) :
+`https://github.com/nosql-esigelec/2026-2027-rouen-smartcity-<votre-equipe>`
+
+> ⚠️ Acceptez d'abord l'invitation GitHub reçue par mail (ou sur `https://github.com/nosql-esigelec/<depot>/invitations`).
 
 ### Démarrer en 4 commandes
 ```bash
-# 1. Cloner le dépôt de votre équipe (en SSH)
-git clone git@github.com:<organisation>/<nom-du-depot>.git
+# 1. Cloner le dépôt de votre équipe (en HTTPS — aucune clé SSH nécessaire)
+git clone https://github.com/nosql-esigelec/<nom-du-depot>.git
 cd <nom-du-depot>
 
 # 2. Configurer l'environnement et installer les dépendances
@@ -67,7 +69,7 @@ Le projet est découpé en **4 Sprints** progressifs documentés dans `TP_SESSIO
 
 ---
 
-## 5. Projet Final de Conception & Soutenance : Portfolio Polyglotte
+## 4. Projet Final de Conception & Soutenance : Portfolio Polyglotte
 
 Une fois que vous maîtrisez l'architecture d'un backend multi-bases grâce au TP guidé **SmartCity Explorer**, vous passez à la vitesse supérieure avec le **Projet Final : Concevoir et Développer votre Portfolio d'Ingénieur Polyglotte** ([`courses/design/projet-portfolio-polyglotte.md`](./courses/design/projet-portfolio-polyglotte.md)) :
 

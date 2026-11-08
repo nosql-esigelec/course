@@ -1,5 +1,8 @@
 # Guide rapide - TDs NoSQL
 
+> ⚠️ **Ces notebooks ne sont pas utilisés pendant le TP SmartCity** (ils nécessitent leur propre environnement Docker, en conflit de ports avec SmartCity).
+> Pendant le TP, testez vos requêtes avec **Neo4j Browser** (`http://localhost:7474`), [OneCompiler MongoDB](https://onecompiler.com/mongodb) et l'[Aide-Mémoire](../../AIDE-MEMOIRE.md).
+
 ## Préparation
 
 1. Cloner le dépôt et se placer dans le bon répertoire :
