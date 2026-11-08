@@ -8,16 +8,16 @@
 
 ## 🎤 Jalon 1 - System Design (équipe) - /20 - 30 %
 
-Évalué sur `ARCHITECTURE.md` + `API_ROUTES.md` (état de `main` à l'échéance) et la soutenance (10 min : 5 min de présentation, 4 min de questions).
+**Ce qui est attendu : un schéma et un contrat, pas du texte.** Évalué sur `ARCHITECTURE.md` + `API_ROUTES.md` (état de `main` à l'échéance) et sur la soutenance : **6 minutes de présentation maximum**, puis 3 minutes de questions.
 
 | Critère | Points | Attendu pour la note maximale |
 |---|:---:|---|
-| **J1.1** Modélisation MongoDB | 5 | Choix *Embedding* / *Referencing* justifiés **par les requêtes** (cardinalité bornée ou non, lecture atomique, fréquence d'écriture) ; documents d'exemple complets. |
-| **J1.2** Modélisation Neo4j | 5 | Labels, propriétés, relations **orientées** et justifiées ; hiérarchie de compétences ; 3 requêtes Cypher clés correctes. |
-| **J1.3** Cohérence inter-bases | 3 | Slugs pivots uniques et présents dans les deux bases ; stratégie de mise à jour / suppression expliquée. |
-| **J1.4** Contrat d'API | 4 | Toutes les routes du besoin (R1–R5) avec paramètres et **exemples JSON complets** permettant de coder un frontend sans le backend. |
-| **J1.5** Index & performance | 2 | Index MongoDB et contraintes Neo4j reliés aux requêtes qu'ils servent. |
-| **J1.6** Soutenance | 1 | Présentation claire, réponses précises aux questions. |
+| **J1.1** Schéma d'architecture | 5 | Un schéma lisible (API FastAPI, MongoDB, Neo4j, frontends) qui montre **qui stocke quoi** et **quels flux** ; expliqué clairement à l'oral. |
+| **J1.2** Choix MongoDB défendus | 4 | *Embedding* / *Referencing* justifiés **par les requêtes** (cardinalité bornée ou non, lecture en une requête) ; un document d'exemple par collection. |
+| **J1.3** Modèle Neo4j défendu | 4 | Schéma du graphe (nœuds, relations **orientées**) et **une** requête Cypher clé expliquée (projets similaires ou compétences communes). |
+| **J1.4** Contrat d'API minimal | 4 | Les **5 routes minimales** avec méthode, chemin et **exemple de réponse JSON**, présentées et reliées aux écrans des frontends. |
+| **J1.5** Cohérence inter-bases | 2 | Slugs pivots identiques dans MongoDB et Neo4j ; ce qui se passe à la suppression d'un projet. |
+| **J1.6** Soutenance | 1 | **6 minutes maximum respectées**, réponses précises aux questions. |
 
 ## ⚙️ Jalon 2 - Backend unifié (équipe) - /20 - 40 %
 
