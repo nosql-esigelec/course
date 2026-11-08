@@ -293,15 +293,18 @@ ORDER BY nb_employes DESC
 ## 🌐 URLs importantes
 
 ### Pendant le cours (avec Docker)
+
 - **Jupyter Lab**: http://localhost:8888 (voir logs pour le token)
 - **Mongo Express**: http://localhost:8081
 - **Neo4j Browser**: http://localhost:7474
 
 ### Exercices en ligne (sans installation)
+
 - **MongoDB**: https://onecompiler.com/mongodb
 - **Neo4j**: https://console.neo4j.org/
 
 ### Documentation
+
 - **MongoDB**: https://docs.mongodb.com/
 - **Neo4j**: https://neo4j.com/docs/
 - **Docker**: https://docs.docker.com/

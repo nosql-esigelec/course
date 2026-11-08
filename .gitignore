@@ -67,3 +67,4 @@ temp/
 
 # Zensical build output
 site/
+.cache/

@@ -1,8 +1,5 @@
 ---
-theme: default
-title: Atelier #1 — Concevoir un Portfolio Data-Driven
-subtitle: Design avant implémentation
-author: Brice Fotzo Talom
+title: Atelier design Portfolio
 ---
 
 # 🧠 Atelier #1  
@@ -22,9 +19,9 @@ author: Brice Fotzo Talom
 - identifier les **bonnes entités**
 - raisonner en **usages et requêtes**
 - décider **où vivent les données**
-- justifier vos choix SQL / MongoDB / Neo4j
+- justifier vos choix MongoDB (*Embedding* / *Referencing*) / Neo4j
 
-👉 Vous construisez la **spécification** du projet fil rouge.
+👉 Vous construisez la **spécification** du Portfolio : elle alimente directement `ARCHITECTURE.md` (Jalon 1).
 
 ---
 
@@ -73,6 +70,7 @@ Listez **10 choses** qui existent dans un portfolio.
 ### Puis mise en commun
 
 Posez-vous ces questions :
+
 - qu’est-ce qui a une date ?
 - qu’est-ce qui est une liste ?
 - qu’est-ce qui a des relations ?
@@ -101,7 +99,7 @@ MVP :
 - Entité 2
 - Entité 3
 - Entité 4
-````
+```
 
 Tout le reste = backlog.
 
@@ -119,7 +117,7 @@ Un bon modèle rend les **bonnes requêtes faciles**
 
 ## ✍️ Exercice — Requêtes
 
-Chaque groupe écrit **6 à 10 requêtes en langage naturel**
+Partez des requêtes **R1 à R5** de `ARCHITECTURE.md`, puis chaque équipe en ajoute **3 à 5** en langage naturel
 
 Exemples :
 
@@ -143,18 +141,18 @@ On va maintenant classer les données selon leur **nature**
 
 ### Trois catégories
 
-1. Structuré & stable
-2. Flexible & évolutif
-3. Relations & parcours
+1. **Borné, lu avec son parent** (ex. les formations d'un candidat)
+2. **Volumineux, autonome ou partagé** (ex. une fiche projet à plusieurs auteurs)
+3. **Relations & parcours** (ex. compétences communes, projets similaires)
 
 ---
 
 ## 🤔 Questions de tri
 
-* Est-ce que ça change souvent ?
-* Est-ce que le schéma est fixe ?
-* Est-ce qu’on veut des contraintes fortes ?
-* Est-ce que la valeur vient surtout des **liens** ?
+* Combien d'éléments au maximum ? (cardinalité **bornée** ou non)
+* Est-ce qu'on le lit **toujours avec son parent** ?
+* Est-ce qu'il est **partagé** entre plusieurs documents ?
+* Est-ce que la valeur vient surtout des **liens** (traversées sur plusieurs niveaux) ?
 
 ---
 
@@ -162,8 +160,8 @@ On va maintenant classer les données selon leur **nature**
 
 Sans encore décider :
 
-* Structuré & stable → **SQL**
-* Flexible & évolutif → **MongoDB**
+* Borné, lu avec son parent → **MongoDB, Embedding** (imbriqué dans le document parent)
+* Volumineux, autonome, partagé → **MongoDB, Referencing** (collection dédiée + slug)
 * Relations & parcours → **Neo4j**
 
 👉 La techno découle du besoin.
@@ -183,9 +181,9 @@ Maintenant, vous tranchez.
 
 ## ❓ Questions de challenge (à anticiper)
 
-* Pourquoi pas tout en SQL ?
-* Pourquoi pas tout en MongoDB ?
-* Pourquoi Neo4j plutôt que des tables de jointure ?
+* Pourquoi pas tout imbriqué dans `candidats` ? (limite de 16 Mo, projets partagés)
+* Pourquoi pas tout en MongoDB, avec `$lookup` / `$graphLookup` ?
+* Pourquoi pas tout dans Neo4j ?
 * Quel est le coût de cette architecture ?
 * Quel est le bénéfice fonctionnel concret ?
 
@@ -247,7 +245,7 @@ Chaque groupe (2 min) présente :
 
 * son MVP
 * 3 requêtes clés
-* sa répartition SQL / Mongo / Neo4j
+* sa répartition MongoDB (*Embedding* / *Referencing*) / Neo4j
 * 1 justification forte
 
 👉 On évalue le **raisonnement**, pas le design parfait.
@@ -256,12 +254,14 @@ Chaque groupe (2 min) présente :
 
 ## 📦 Livrable attendu
 
-Un **fichier Markdown unique** contenant :
+Vos notes alimentent directement les sections de **`ARCHITECTURE.md`** de votre dépôt Portfolio :
 
-1. MVP (4–6 entités)
-2. 6 requêtes clés
-3. Répartition SQL / MongoDB / Neo4j + justification
-4. Contrat de gouvernance
-5. Architecture globale
+1. MVP (4–6 entités) → §3 et §4
+2. Requêtes clés → §2
+3. Répartition MongoDB (*Embedding* / *Referencing*) / Neo4j + justification → §3 et §4
+4. Contrat de gouvernance (slugs pivots) → §5
+5. Architecture globale → §1
+
+Le contrat d'API correspondant se rédige ensuite dans **`API_ROUTES.md`**.
 
 ---

@@ -22,6 +22,7 @@ ssh-keygen -t ed25519 -C "votre.email@groupe-esigelec.org"
 # 2. Afficher la clé publique et la copier
 cat ~/.ssh/id_ed25519.pub        # Windows PowerShell : Get-Content $HOME\.ssh\id_ed25519.pub
 ```
+
 3. Coller la clé dans **GitHub → Settings → SSH and GPG keys → New SSH key**.
 4. Vérifier : `ssh -T git@github.com` doit répondre *« Hi &lt;votre-pseudo&gt;! You've successfully authenticated »*.
 
@@ -64,14 +65,17 @@ Le projet est découpé en **4 Sprints** progressifs documentés dans `TP_SESSIO
    ```bash
    uv run pytest -m sprint1 -v
    ```
+
 2. **Sprint 2 (50 pts)** — Script de Seed / Ingestion des jeux de données (`packages/backend/src/backend/scripts/seed_all.py`) :
    ```bash
    uv run pytest -m sprint2 -v
    ```
+
 3. **Sprint 3 (100 pts)** — Repositories CRUD & Agrégations (`packages/backend/src/backend/repositories/`) :
    ```bash
    uv run pytest -m sprint3 -v
    ```
+
 4. **Sprint 4 (25 pts)** — Services Métier (`packages/backend/src/backend/services/`) :
    ```bash
    uv run pytest -m sprint4 -v
@@ -87,8 +91,8 @@ Le projet est découpé en **4 Sprints** progressifs documentés dans `TP_SESSIO
 Une fois que vous maîtrisez l'architecture d'un backend multi-bases grâce au TP guidé **SmartCity Explorer**, vous passez à la vitesse supérieure avec le **Projet Final : Concevoir et Développer votre Portfolio d'Ingénieur Polyglotte** ([Projet Portfolio](../portfolio/index.md)) :
 
 1. **Phase 1 — Brainstorming, System Design & Soutenance d'Architecture (Équipe)** :
-   - Vous concevez votre propre répartition des données entre bases (Parcours + Projets détaillés + Graphe de compétences Neo4j), rédigez `ARCHITECTURE.md` et `API_ROUTES.md`, et défendez vos choix en soutenance.
+    - Vous concevez votre propre répartition des données entre bases (Parcours + Projets détaillés + Graphe de compétences Neo4j), rédigez `ARCHITECTURE.md` et `API_ROUTES.md`, et défendez vos choix en soutenance.
 2. **Phase 2 — Backend Unifié FastAPI (Équipe)** :
-   - Votre équipe développe un backend orchestrateur commun capable de servir les profils, projets et graphes de compétences de tous les membres du groupe.
+    - Votre équipe développe un backend orchestrateur commun capable de servir les profils, projets et graphes de compétences de tous les membres du groupe.
 3. **Phase 3 — Frontend Personnel & Vraies Données (Individuel)** :
-   - Chaque étudiant injecte ses vraies expériences, formations, compétences et projets ESIGELEC dans le seed et développe **son propre Frontend** (Next.js, React, Astro ou Streamlit). Vous repartez du module avec votre portfolio prêt à l'emploi !
+    - Chaque étudiant injecte ses vraies expériences, formations, compétences et projets ESIGELEC dans le seed et développe **son propre Frontend** (Next.js, React, Astro ou Streamlit). Vous repartez du module avec votre portfolio prêt à l'emploi !
