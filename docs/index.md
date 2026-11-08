@@ -32,7 +32,7 @@ hide:
 
     Version web interactive et PDF toujours à jour.
 
-    [:octicons-arrow-right-24: Slides](slides/){ target=_blank } · [PDF](cours-nosql-esigelec.pdf)
+    [:octicons-arrow-right-24: Slides](https://nosql-esigelec.github.io/course/slides/){ target=_blank } · [PDF](https://nosql-esigelec.github.io/course/cours-nosql-esigelec.pdf)
 
 -   :material-city: **TP guidé SmartCity Explorer**
 

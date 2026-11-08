@@ -1569,7 +1569,8 @@ layout: default
 ### Étape 2 (13h30 – 17h30) : Design & Sprints 1 à 4
 - **Atelier Design** : Arbitrage *Embedding* (`cities` + `scores`) vs *Referencing* (`reviews`) + Graphe Neo4j
 - **Sprints 1 à 4** : Connexions DB -> Seed -> Repositories Mongo/Neo4j -> Services (`uv run pytest -v`)
-- **Sandbox & Aide** : Neo4j Browser (`localhost:7474`), OneCompiler MongoDB & `AIDE-MEMOIRE.md`
+- **Sandbox & Aide** : Neo4j Browser (`localhost:7474`), OneCompiler MongoDB & l'aide-mémoire
+- 📘 **Toute la doc (planning, guide, sujets, évaluation)** : **[nosql-esigelec.github.io/course](https://nosql-esigelec.github.io/course/)**
 
 ### Intersession (avant Dimanche 15 Nov — 23h59)
 - Terminer les 4 Sprints (`200/200` sur GitHub Actions) — **Enseignant 100% joignable toute la semaine !**

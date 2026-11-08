@@ -11,7 +11,7 @@ title: Planning & échéances
 
 | Créneau | Format | Programme |
 | :--- | :---: | :--- |
-| **09h00 – 11h00** | CM | **Cours NoSQL, MongoDB & Neo4j** : théorème CAP, familles NoSQL, modélisation documentaire (*Embedding* vs *Referencing*), modélisation graphe et Cypher → [slides](slides/){ target=_blank } |
+| **09h00 – 11h00** | CM | **Cours NoSQL, MongoDB & Neo4j** : théorème CAP, familles NoSQL, modélisation documentaire (*Embedding* vs *Referencing*), modélisation graphe et Cypher → [slides](https://nosql-esigelec.github.io/course/slides/){ target=_blank } |
 | **11h00 – 12h00** | TP | **Inscription des équipes & setup** : [inscription](https://github.com/nosql-esigelec/course/issues/new?template=inscription-equipe.yml), invitation GitHub, clone, `uv sync`, `docker compose up -d` → [Démarrer SmartCity](smartcity/index.md#demarrer) |
 | **13h30 – 17h30** | TP | **Atelier design** ([support](smartcity/atelier-design.md)) puis **Sprints 1 à 4 de SmartCity** |
 

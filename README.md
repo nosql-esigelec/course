@@ -11,6 +11,10 @@
 | Voir les slides | [Slides en ligne](https://nosql-esigelec.github.io/course/slides/) · [PDF](https://nosql-esigelec.github.io/course/cours-nosql-esigelec.pdf) |
 | Savoir comment je suis noté | [Évaluation](https://nosql-esigelec.github.io/course/evaluation/) |
 
+## 📅 Planning Officiel des Séances — Salle D1264
+
+👉 **[Planning & échéances sur le site du cours](https://nosql-esigelec.github.io/course/planning/)** — c'est la seule référence pour les dates, créneaux et deadlines.
+
 ## 📁 Organisation du dépôt
 
 ```text
