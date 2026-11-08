@@ -27,6 +27,16 @@ flowchart LR
 - **Prérequis** : TP guidé `SmartCity Explorer` terminé (200/200).
 - **Jalon 1 — System Design** : `ARCHITECTURE.md` + `API_ROUTES.md` poussés sur GitHub, puis soutenance d'équipe (30 %).
 - **Jalon 2 — Démo finale** : Backend unifié d'équipe (40 %) + Frontend individuel avec vos vraies données (30 %).
+- **Grille détaillée (critères et points)** : [`grille-evaluation-portfolio.md`](./grille-evaluation-portfolio.md).
+
+### 📦 Votre dépôt d'équipe
+
+Un dépôt privé `nosql-esigelec/2026-2027-rouen-portfolio-<equipe>` est créé pour chaque équipe (mêmes équipes que SmartCity). Il contient déjà :
+- `ARCHITECTURE.md` et `API_ROUTES.md` **à compléter** (Jalon 1) ;
+- un squelette de backend FastAPI (`core/`, `db/`, `models/`, `repositories/`, `services/`, `api/`, `scripts/seed.py`) ;
+- `data/candidats/` et `data/projets/` pour **vos vraies données** (1 fichier par membre) ;
+- `frontends/frontend-<pseudo>/` : **votre** dossier de frontend ;
+- `CONTRIBUTING.md` : règles de travail à plusieurs (branches, Pull Requests).
 
 ---
 
@@ -79,7 +89,7 @@ Avant d'écrire le code métier, chaque équipe présente son architecture (10 m
 
 En vous inspirant directement de la structure industrielle de **`SmartCity Explorer`**, votre équipe implémente dans le dépôt d'équipe :
 - `docker-compose.yml` : Conteneurs des bases de données avec `healthcheck`.
-- `backend/db/` : Singletons de connexion asynchrones (`Motor`, `Neo4j AsyncDriver`, `SQLAlchemy Async`).
+- `backend/db/` : Singletons de connexion asynchrones (`PyMongo Async` ou `Motor` repris de SmartCity, `Neo4j AsyncDriver`).
 - `backend/models/` : Modèles Pydantic de validation des entrées/sorties.
 - `backend/repositories/` : Requêtes isolées par base de données (SQL, MongoDB CRUD + Agrégation, Cypher Neo4j).
 - `backend/services/` : Service orchestrateur capable d'interroger et de croiser les bases de données.
@@ -90,7 +100,7 @@ En vous inspirant directement de la structure industrielle de **`SmartCity Explo
 
 ## 🎨 Phase 3 — Frontend Individuel & Vraies Données (30 % de la note)
 
-Chaque étudiant de l'équipe réalise **son propre Frontend** (dans un sous-dossier `frontend-<prenom>/` ou sur sa branche/dépôt personnel) qui consomme l'API FastAPI du groupe :
+Chaque étudiant de l'équipe réalise **son propre Frontend** (dans **son** dossier `frontends/frontend-<pseudo-github>/` du dépôt d'équipe) qui consomme l'API FastAPI du groupe :
 - **Liberté technologique totale sur le Front** : Next.js / React (avec Tailwind, Three.js / ForceGraph pour le graphe de compétences), Astro, Vue, ou Streamlit.
 - **Vraies données personnelles** : Votre portfolio doit afficher **votre vrai CV** (formations ESIGELEC, stages, projets académiques et personnels, compétences réelles).
 - **Exploitation visible des bases** :
@@ -100,11 +110,13 @@ Chaque étudiant de l'équipe réalise **son propre Frontend** (dans un sous-dos
 
 ---
 
-## 📊 Grille d'Évaluation Récapitulative
+## 📊 Évaluation
 
-| Composante | Mode | Poids | Critères d'évaluation |
-| :--- | :---: | :---: | :--- |
-| **1. TP Guidé `SmartCity Explorer`** | Équipe | Contrôle continu | Passage des tests automatisés `pytest` (Sprints 1 à 4) sur GitHub Actions. |
-| **2. Soutenance System Design Portfolio** | Équipe | **30 %** | Pertinence du découpage entre BDDs, justification par les requêtes, qualité de `ARCHITECTURE.md` et `API_ROUTES.md`. |
-| **3. Backend Unifié Portfolio & Seed** | Équipe | **40 %** | Propreté de l'architecture FastAPI (`repositories`/`services`), richesse des requêtes (Agrégation Mongo, Cypher Neo4j), reproductibilité du `docker compose` + `seed`. |
-| **4. Frontend Personnel & Données réelles** | **Individuel** | **30 %** | Qualité de l'interface personnelle, intégration effective avec l'API du groupe (Parcours + Projets + Graphe Neo4j), richesse des vraies données de l'étudiant. |
+| Composante | Mode | Poids (note Portfolio) |
+| :--- | :---: | :---: |
+| **Jalon 1 — System Design** (`ARCHITECTURE.md`, `API_ROUTES.md`, soutenance) | Équipe | **30 %** |
+| **Jalon 2 — Backend unifié & Seed** | Équipe | **40 %** |
+| **Jalon 2 — Frontend personnel & vraies données** | **Individuel** | **30 %** |
+
+👉 Critères et points détaillés : **[`grille-evaluation-portfolio.md`](./grille-evaluation-portfolio.md)**.
+Le TP guidé `SmartCity Explorer` est noté séparément (tests automatiques, voir le README).

@@ -35,6 +35,7 @@ Bienvenue sur le dépôt central du module **Bases de Données NoSQL** (Dominant
 3. **🧠 Ateliers de Design & Sujets Projets** :
    - [Atelier Design — SmartCity Explorer (Édition 100 % NoSQL)](./courses/design/brainstorm-smartcity-nosql.md)
    - [Projet Final — Concevoir & Développer votre Portfolio d'Ingénieur Polyglotte](./courses/design/projet-portfolio-polyglotte.md)
+   - [Grille d'évaluation du Portfolio](./courses/design/grille-evaluation-portfolio.md)
 
 ---
 
@@ -50,7 +51,8 @@ course/
 │   └── design/
 │       ├── brainstorm-smartcity-nosql.md         # Atelier Design SmartCity (100% NoSQL)
 │       ├── brainstorm.md                         # Support d'atelier Design Portfolio
-│       └── projet-portfolio-polyglotte.md        # Sujet & Grille du Projet Final Portfolio
+│       ├── projet-portfolio-polyglotte.md        # Sujet du Projet Final Portfolio
+│       └── grille-evaluation-portfolio.md        # Grille d'évaluation détaillée (critères & points)
 └── exercices/
     ├── intro-nosql/                              # Étude de cas conceptuelle & théorème CAP
     ├── mongodb/                                  # Exercices CRUD & Agrégation MongoDB (sandbox)
