@@ -8,11 +8,24 @@ Bienvenue dans ce module ! Ce guide regroupe tout ce qu'il faut savoir pour trav
 
 | Outil | Rôle | Vérification rapide |
 | :--- | :--- | :--- |
-| **Git** + compte **GitHub** | Cloner votre dépôt d'équipe (HTTPS) et pousser votre code | `git --version` |
+| **Git** + compte **GitHub** + **clé SSH** | Cloner votre dépôt d'équipe (SSH) et pousser votre code | `ssh -T git@github.com` → *« Hi &lt;pseudo&gt;! »* |
 | **Docker Desktop** (+ WSL2 à jour sous Windows) | Lancer les bases de données locales (MongoDB, Neo4j) | `docker compose version` |
 | **`uv`** | Gestionnaire Python ultra-rapide (installe aussi Python 3.11+) | `uv --version` |
 | **`just`** | Lanceur de commandes du projet (`just seed`, `just dev-backend`…) — Windows : `winget install Casey.Just` · macOS : `brew install just` · Linux : `uv tool install rust-just` | `just --version` |
 | **VS Code** | Éditeur recommandé | `code --version` |
+
+### Configurer votre clé SSH GitHub (une seule fois, avant le premier cours)
+```bash
+# 1. Générer une clé (laisser l'emplacement par défaut, une passphrase est recommandée)
+ssh-keygen -t ed25519 -C "votre.email@groupe-esigelec.org"
+
+# 2. Afficher la clé publique et la copier
+cat ~/.ssh/id_ed25519.pub        # Windows PowerShell : Get-Content $HOME\.ssh\id_ed25519.pub
+```
+3. Coller la clé dans **GitHub → Settings → SSH and GPG keys → New SSH key**.
+4. Vérifier : `ssh -T git@github.com` doit répondre *« Hi &lt;votre-pseudo&gt;! You've successfully authenticated »*.
+
+> Documentation officielle : [Connecting to GitHub with SSH](https://docs.github.com/fr/authentication/connecting-to-github-with-ssh).
 
 ---
 
@@ -26,8 +39,8 @@ Un dépôt privé dédié à votre équipe est créé dans l'organisation GitHub
 
 ### Démarrer en 4 commandes
 ```bash
-# 1. Cloner le dépôt de votre équipe (en HTTPS — aucune clé SSH nécessaire)
-git clone https://github.com/nosql-esigelec/<nom-du-depot>.git
+# 1. Cloner le dépôt de votre équipe (en SSH — clé configurée ci-dessus)
+git clone git@github.com:nosql-esigelec/<nom-du-depot>.git
 cd <nom-du-depot>
 
 # 2. Configurer l'environnement et installer les dépendances
