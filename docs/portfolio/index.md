@@ -81,7 +81,7 @@ Ils doivent être **complets** : c'est votre spécification, celle sur laquelle 
 
 **`ARCHITECTURE.md`** (le modèle fourni guide chaque section) :
 
-1. **Le schéma d'architecture** : frontends, API FastAPI, MongoDB, Neo4j, ce que chaque base stocke et les flux.
+1. **Le schéma d'architecture** : frontends, API FastAPI, MongoDB, Neo4j, ce que chaque base stocke et les flux. Réalisé avec [Excalidraw](https://excalidraw.com) (recommandé, voir ci-dessous) ou Mermaid.
 2. **Les requêtes à servir** (R1 à R5 et les vôtres), et la base qui répond à chacune.
 3. **Le modèle MongoDB** : un document d'exemple complet par collection, la justification *Embedding* / *Referencing*, les **index**, et le pipeline d'agrégation clé.
 4. **Le modèle Neo4j** : schéma du graphe, labels, propriétés, relations **orientées**, contraintes, et les **3 requêtes Cypher clés**.
@@ -98,9 +98,17 @@ Ils doivent être **complets** : c'est votre spécification, celle sur laquelle 
 | `GET /api/graph/projets/{slug}/similaires` | projets similaires (Neo4j) |
 | `GET /api/graph/competences/{slug}` | graphe de compétences prêt à afficher, `nodes` + `links` (Neo4j) |
 
+!!! tip "Dessiner le schéma avec Excalidraw"
+    [Excalidraw](https://excalidraw.com) est un tableau blanc en ligne, gratuit et sans compte, au style « dessiné à la main ».
+    C'est l'outil idéal pour un schéma d'architecture que l'on **explique** plutôt qu'on ne le lit.
+
+    - **À plusieurs en direct** : bouton *Live collaboration*, partagez le lien avec votre équipe.
+    - **Dans le dépôt** : *Export image* → PNG ou SVG avec l'option **« Embed scene »** cochée, puis enregistrez-le dans `docs/architecture.excalidraw.png`. L'image s'affiche dans `ARCHITECTURE.md` **et** reste modifiable : il suffit de la rouvrir dans Excalidraw.
+    - **Dans VS Code** : l'extension *Excalidraw* (pomdtr.excalidraw-editor) ouvre et édite ces fichiers directement.
+
 ### 2. La soutenance : 5 à 6 minutes
 
-Créneau de 10 minutes par équipe : **5 à 6 min de présentation**, 3 min de questions, 1 min de transition. Pas de diapositives : vous projetez vos livrables depuis GitHub.
+Créneau de 10 minutes par équipe : **5 à 6 min de présentation**, 3 min de questions, 1 min de transition. **Pas besoin de diaporama** : l'an dernier, les présentations les plus claires montraient directement le schéma Excalidraw, puis `API_ROUTES.md` sur GitHub.
 
 Vous ne présentez **que les deux éléments clés**, en défendant vos choix :
 

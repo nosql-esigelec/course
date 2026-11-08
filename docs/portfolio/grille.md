@@ -14,7 +14,7 @@
 
 | Critère | Points | Attendu pour la note maximale |
 |---|:---:|---|
-| **J1.1** Schéma d'architecture | 3 | Schéma juste et lisible : frontends, API, MongoDB, Neo4j, qui stocke quoi, flux. |
+| **J1.1** Schéma d'architecture | 3 | Schéma juste et lisible (Excalidraw ou Mermaid) : frontends, API, MongoDB, Neo4j, qui stocke quoi, flux. |
 | **J1.2** Modèle MongoDB | 4 | *Embedding* / *Referencing* justifiés **par les requêtes** ; documents d'exemple complets ; index et pipeline d'agrégation clé. |
 | **J1.3** Modèle Neo4j | 4 | Labels, propriétés, relations **orientées** et justifiées ; contraintes ; 3 requêtes Cypher clés correctes. |
 | **J1.4** Contrat d'API | 4 | Toutes les routes nécessaires aux frontends (au moins les 5 du sujet), avec paramètres et **exemples JSON complets et réalistes**. |
@@ -22,7 +22,7 @@
 
 ### Soutenance - /4
 
-**5 à 6 minutes de présentation**, puis 3 minutes de questions.
+**5 à 6 minutes de présentation**, puis 3 minutes de questions. Support libre : le schéma Excalidraw et `API_ROUTES.md` suffisent, aucun diaporama n'est attendu.
 
 | Critère | Points | Attendu pour la note maximale |
 |---|:---:|---|

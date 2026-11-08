@@ -218,6 +218,8 @@ Dans votre Markdown :
 
 ## 🧠 Architecture globale
 
+> ✏️ Dessinez-la dès maintenant à plusieurs sur [Excalidraw](https://excalidraw.com) (*Live collaboration*) : ce schéma deviendra la section 1 de `ARCHITECTURE.md` et le cœur de votre soutenance.
+
 ### Question clé
 
 **Quel est le rôle du backend Python ?**
