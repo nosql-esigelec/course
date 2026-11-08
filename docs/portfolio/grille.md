@@ -8,16 +8,26 @@
 
 ## 🎤 Jalon 1 - System Design (équipe) - /20 - 30 %
 
-**Ce qui est attendu : un schéma et un contrat, pas du texte.** Évalué sur `ARCHITECTURE.md` + `API_ROUTES.md` (état de `main` à l'échéance) et sur la soutenance : **6 minutes de présentation maximum**, puis 3 minutes de questions.
+### Livrables - /16
+
+Évalués sur `ARCHITECTURE.md` et `API_ROUTES.md`, état de `main` à l'échéance. Ils doivent être **complets**.
 
 | Critère | Points | Attendu pour la note maximale |
 |---|:---:|---|
-| **J1.1** Schéma d'architecture | 5 | Un schéma lisible (API FastAPI, MongoDB, Neo4j, frontends) qui montre **qui stocke quoi** et **quels flux** ; expliqué clairement à l'oral. |
-| **J1.2** Choix MongoDB défendus | 4 | *Embedding* / *Referencing* justifiés **par les requêtes** (cardinalité bornée ou non, lecture en une requête) ; un document d'exemple par collection. |
-| **J1.3** Modèle Neo4j défendu | 4 | Schéma du graphe (nœuds, relations **orientées**) et **une** requête Cypher clé expliquée (projets similaires ou compétences communes). |
-| **J1.4** Contrat d'API minimal | 4 | Les **5 routes minimales** avec méthode, chemin et **exemple de réponse JSON**, présentées et reliées aux écrans des frontends. |
-| **J1.5** Cohérence inter-bases | 2 | Slugs pivots identiques dans MongoDB et Neo4j ; ce qui se passe à la suppression d'un projet. |
-| **J1.6** Soutenance | 1 | **6 minutes maximum respectées**, réponses précises aux questions. |
+| **J1.1** Schéma d'architecture | 3 | Schéma juste et lisible : frontends, API, MongoDB, Neo4j, qui stocke quoi, flux. |
+| **J1.2** Modèle MongoDB | 4 | *Embedding* / *Referencing* justifiés **par les requêtes** ; documents d'exemple complets ; index et pipeline d'agrégation clé. |
+| **J1.3** Modèle Neo4j | 4 | Labels, propriétés, relations **orientées** et justifiées ; contraintes ; 3 requêtes Cypher clés correctes. |
+| **J1.4** Contrat d'API | 4 | Toutes les routes nécessaires aux frontends (au moins les 5 du sujet), avec paramètres et **exemples JSON complets et réalistes**. |
+| **J1.5** Cohérence inter-bases | 1 | Slugs pivots identiques dans les deux bases ; stratégie de suppression. |
+
+### Soutenance - /4
+
+**5 à 6 minutes de présentation**, puis 3 minutes de questions.
+
+| Critère | Points | Attendu pour la note maximale |
+|---|:---:|---|
+| **J1.6** Schéma et contrat présentés et défendus | 3 | Le schéma et le contrat d'API sont expliqués clairement ; les choix d'architecture sont défendus ; réponses précises aux questions. |
+| **J1.7** Format | 1 | 5 à 6 minutes respectées, centrées sur les deux éléments clés. |
 
 ## ⚙️ Jalon 2 - Backend unifié (équipe) - /20 - 40 %
 

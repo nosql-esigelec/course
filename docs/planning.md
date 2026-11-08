@@ -24,7 +24,7 @@ title: Planning & échéances
 | Créneau | Format | Programme |
 | :--- | :---: | :--- |
 | **09h00 – 12h00** | TD/TP | **Portfolio - Phase 1 : System Design** en équipe → rédiger `ARCHITECTURE.md` et `API_ROUTES.md` ([sujet](portfolio/index.md), [atelier](portfolio/atelier-design.md)) |
-| **14h00 – 15h30** | Soutenance | **Jalon 1 - Soutenances de System Design** : **6 min de présentation max** (schéma + contrat d'API) puis 3 min de questions, par équipe |
+| **14h00 – 15h30** | Soutenance | **Jalon 1 - Soutenances de System Design** : **5 à 6 min de présentation** (schéma d'architecture + contrat d'API) puis 3 min de questions, par équipe |
 | **15h30 – 17h00** | TP | Démarrage du backend d'équipe et des frontends individuels |
 
 !!! warning "Échéance Jalon 1 - lundi 16 novembre, 12h00"

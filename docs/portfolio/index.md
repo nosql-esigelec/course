@@ -16,7 +16,7 @@ title: Projet Portfolio Polyglotte
 ```mermaid
 flowchart LR
     P0["🛠️ Prérequis<br/>TP SmartCity"] --> P1["🧠 Phase 1 · Équipe<br/>System Design"]
-    P1 --> J1{{"🎤 Jalon 1<br/>Schéma + contrat d'API<br/>6 min - 30 %"}}
+    P1 --> J1{{"🎤 Jalon 1<br/>Livrables + soutenance<br/>30 %"}}
     J1 --> P2["⚙️ Phase 2 · Équipe<br/>Backend unifié"]
     J1 --> P3["🎨 Phase 3 · Individuel<br/>Frontend personnel"]
     P2 --> J2{{"🏆 Jalon 2<br/>Démo - 40 % + 30 %"}}
@@ -25,7 +25,7 @@ flowchart LR
 
 | Phase | Mode | Livrable | Évalué au | Poids |
 | :--- | :---: | :--- | :---: | :---: |
-| **1 - System Design** | Équipe | schéma d'architecture + contrat d'API minimal, défendus en 6 min | Jalon 1 | **30 %** |
+| **1 - System Design** | Équipe | `ARCHITECTURE.md` + `API_ROUTES.md` complets, soutenance de 5-6 min (schéma + contrat) | Jalon 1 | **30 %** |
 | **2 - Backend unifié** | Équipe | API FastAPI + seed avec les vraies données de tous les membres | Jalon 2 | **40 %** |
 | **3 - Frontend personnel** | **Individuel** | `frontends/frontend-<pseudo>/` branché sur l'API d'équipe | Jalon 2 | **30 %** |
 
@@ -71,20 +71,24 @@ Pour chaque entité (**Candidat, Expérience, Formation, Projet, Compétence, Do
 
 > 💡 Support de l'atelier en salle : [Atelier design Portfolio](atelier-design.md).
 
-## 🎤 Jalon 1 - Soutenance de System Design (30 %)
+## 🎤 Jalon 1 - System Design (30 %)
 
-!!! tip "Un schéma et un contrat, pas du texte"
-    Ce qui est évalué, c'est votre **schéma d'architecture**, votre **contrat d'API minimal** et votre capacité à **défendre vos choix**.
-    Le reste des livrables est un plus, pas une obligation.
+Le Jalon 1 a **deux volets** : des **livrables solides** dans le dépôt, puis une **soutenance courte** qui en présente l'essentiel.
 
-### Le minimum attendu dans le dépôt (sur `main` avant l'échéance)
+### 1. Les livrables (sur `main` avant l'échéance)
 
-| Fichier | Minimum attendu |
-| :--- | :--- |
-| `ARCHITECTURE.md` | **1.** le **schéma d'architecture** (Mermaid ou image) : API, MongoDB, Neo4j, frontends, et ce que chaque base stocke ; **2.** le **tableau des choix** : chaque entité, où elle vit, pourquoi (une ligne) ; **3.** le **schéma du graphe** Neo4j et **une** requête Cypher clé ; **4.** les **slugs pivots**. |
-| `API_ROUTES.md` | **Le contrat minimal : 5 routes** avec méthode, chemin et un exemple de réponse JSON (voir ci-dessous). |
+Ils doivent être **complets** : c'est votre spécification, celle sur laquelle toute l'équipe va coder.
 
-Les 5 routes du contrat minimal :
+**`ARCHITECTURE.md`** (le modèle fourni guide chaque section) :
+
+1. **Le schéma d'architecture** : frontends, API FastAPI, MongoDB, Neo4j, ce que chaque base stocke et les flux.
+2. **Les requêtes à servir** (R1 à R5 et les vôtres), et la base qui répond à chacune.
+3. **Le modèle MongoDB** : un document d'exemple complet par collection, la justification *Embedding* / *Referencing*, les **index**, et le pipeline d'agrégation clé.
+4. **Le modèle Neo4j** : schéma du graphe, labels, propriétés, relations **orientées**, contraintes, et les **3 requêtes Cypher clés**.
+5. **La cohérence entre les bases** : les **slugs pivots** (`candidat_slug: "alice-martin"`, `projet_slug: "smartcity-explorer"`, `skill_slug: "mongodb"`) et ce qui se passe à la suppression d'un projet.
+6. **La répartition du travail** entre les membres.
+
+**`API_ROUTES.md`** (le contrat entre le backend et les frontends) : **toutes** les routes dont vos frontends ont besoin, avec leurs paramètres et un **exemple de réponse JSON complet et réaliste**. Au minimum :
 
 | Route | Sert à |
 | :--- | :--- |
@@ -94,17 +98,16 @@ Les 5 routes du contrat minimal :
 | `GET /api/graph/projets/{slug}/similaires` | projets similaires (Neo4j) |
 | `GET /api/graph/competences/{slug}` | graphe de compétences prêt à afficher, `nodes` + `links` (Neo4j) |
 
-Pour aller plus loin (facultatif) : documents d'exemple complets, index, pipeline d'agrégation détaillé, routes supplémentaires, répartition du travail.
+### 2. La soutenance : 5 à 6 minutes
 
-### La soutenance : 6 minutes maximum
+Créneau de 10 minutes par équipe : **5 à 6 min de présentation**, 3 min de questions, 1 min de transition. Pas de diapositives : vous projetez vos livrables depuis GitHub.
 
-Créneau de 10 minutes par équipe : **6 min de présentation au maximum**, 3 min de questions, 1 min de transition. Pas de diapositives : vous projetez directement `ARCHITECTURE.md` et `API_ROUTES.md` depuis GitHub.
+Vous ne présentez **que les deux éléments clés**, en défendant vos choix :
 
-| Temps | Ce que vous montrez |
+| Temps | Élément présenté |
 | :--- | :--- |
-| ~2 min | **Le schéma d'architecture** : qui stocke quoi, pourquoi deux bases, comment elles sont reliées (slugs) |
-| ~2 min | **Vos choix défendus** : *Embedding* ou *Referencing* et pourquoi, le graphe Neo4j et sa requête clé |
-| ~2 min | **Le contrat d'API** : les 5 routes, et quelle route alimente quel écran des frontends |
+| ~3 min | **Le schéma d'architecture** : qui stocke quoi, pourquoi *Embedding* ou *Referencing*, pourquoi Neo4j, comment les bases sont reliées (slugs) |
+| ~3 min | **Le contrat d'API** : les routes clés, ce qu'elles renvoient, et quel écran des frontends chacune alimente |
 
 Questions types : *« Pourquoi avoir imbriqué les formations mais séparé les projets ? »*, *« Quel identifiant relie un projet MongoDB à son nœud Neo4j ? »*, *« Quelle route affiche le graphe, et que renvoie-t-elle ? »*
 
