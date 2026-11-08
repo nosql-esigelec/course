@@ -3,9 +3,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build",
-    "dev": "slidev --open",
-    "export": "slidev export"
+    "build": "slidev build slides.md --download",
+    "dev": "slidev slides.md --open",
+    "export": "slidev export slides.md --output cours-nosql-esigelec.pdf"
   },
   "dependencies": {
     "@slidev/cli": "^0.50.0",

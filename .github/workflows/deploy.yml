@@ -1,25 +1,65 @@
-name: Deploy pages
-on: push
+name: Deploy Slides & Auto-Export PDF
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    # Exécution automatique tous les 2 jours à 06h00 UTC pour garantir un PDF toujours à jour
+    - cron: '0 6 */2 * *'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-and-pdf
+  cancel-in-progress: false
+
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install dependencies
-        run: cd courses && npm install
-      - name: Install slidev
-        run:  cd courses && npm i -g @slidev/cli
-      - name: Install for PDF
-        run: cd courses && npm i -D playwright-chromium
-      - name: Build
-        run: cd courses && slidev build --base ./ # Change this line
-      - name: Deploy pages
-        uses: crazy-max/ghaction-github-pages@v2
+
+      - name: Install dependencies & Playwright Chromium
+        working-directory: courses
+        run: |
+          npm install
+          npx playwright install --with-deps chromium
+
+      - name: Build Slidev SPA (with embedded PDF download button)
+        working-directory: courses
+        run: |
+          npx slidev build slides.md --base /course/ --download --wait-until domcontentloaded --timeout 90000 --out dist
+
+      - name: Ensure standalone PDF (cours-nosql-esigelec.pdf) is present
+        working-directory: courses
+        run: |
+          if [ -f dist/slidev-exported.pdf ]; then
+            cp dist/slidev-exported.pdf dist/cours-nosql-esigelec.pdf
+          else
+            npx slidev export slides.md --output dist/cours-nosql-esigelec.pdf --wait-until domcontentloaded --timeout 90000
+          fi
+          ls -lh dist/*.pdf
+
+      - name: Upload PDF as GitHub Actions Artifact
+        uses: actions/upload-artifact@v4
         with:
-          build_dir: courses/dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: cours-nosql-esigelec-pdf
+          path: courses/dist/cours-nosql-esigelec.pdf
+          retention-days: 90
+
+      - name: Deploy Slides + PDF to GitHub Pages (gh-pages branch)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: courses/dist
+          force_orphan: true
