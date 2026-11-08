@@ -1,4 +1,4 @@
-name: Deploy Slides & Auto-Export PDF
+name: Deploy Site (Zensical) + Slides & PDF
 
 on:
   push:
@@ -24,6 +24,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build documentation site (Zensical) -> site/
+        run: |
+          pip install "zensical==0.1.0"
+          zensical build --clean
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -38,7 +48,7 @@ jobs:
       - name: Build Slidev SPA (with embedded PDF download button)
         working-directory: courses
         run: |
-          npx slidev build slides.md --base /course/ --download --wait-until domcontentloaded --timeout 90000 --out dist
+          npx slidev build slides.md --base /course/slides/ --download --wait-until domcontentloaded --timeout 90000 --out dist
 
       - name: Ensure standalone PDF (cours-nosql-esigelec.pdf) is present
         working-directory: courses
@@ -49,6 +59,12 @@ jobs:
             npx slidev export slides.md --output dist/cours-nosql-esigelec.pdf --wait-until domcontentloaded --timeout 90000
           fi
           ls -lh dist/*.pdf
+
+      - name: Assemble site (docs at /course/, slides at /course/slides/, PDF URL unchanged)
+        run: |
+          mkdir -p site/slides
+          cp -r courses/dist/. site/slides/
+          cp courses/dist/cours-nosql-esigelec.pdf site/cours-nosql-esigelec.pdf
 
       - name: Upload PDF as GitHub Actions Artifact
         uses: actions/upload-artifact@v4
@@ -61,5 +77,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: courses/dist
+          publish_dir: site
           force_orphan: true

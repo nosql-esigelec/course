@@ -384,7 +384,7 @@ display(var1, var2, var3)
 
 ## 📚 Pour aller plus loin
 
-Consultez le [Guide de l'Étudiant](./GUIDE-ETUDIANT.md) pour des explications détaillées sur tous ces concepts.
+Consultez le [Guide de l'Étudiant](guide-etudiant.md) pour des explications détaillées sur tous ces concepts.
 
 ---
 

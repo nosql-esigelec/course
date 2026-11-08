@@ -22,12 +22,12 @@ flowchart LR
 
 ### 📅 Calendrier & Jalons
 
-> 📌 **Dates, créneaux et échéances : voir le [planning officiel du README](../../README.md#-planning-officiel-des-séances--salle-d1264)** (seule source de référence).
+> 📌 **Dates, créneaux et échéances : voir le [planning officiel](../planning.md)** (seule source de référence).
 
 - **Prérequis** : TP guidé `SmartCity Explorer` terminé (200/200).
 - **Jalon 1 — System Design** : `ARCHITECTURE.md` + `API_ROUTES.md` poussés sur GitHub, puis soutenance d'équipe (30 %).
 - **Jalon 2 — Démo finale** : Backend unifié d'équipe (40 %) + Frontend individuel avec vos vraies données (30 %).
-- **Grille détaillée (critères et points)** : [`grille-evaluation-portfolio.md`](./grille-evaluation-portfolio.md).
+- **Grille détaillée (critères et points)** : [grille d'évaluation](grille.md).
 
 ### 📦 Votre dépôt d'équipe
 
@@ -118,5 +118,5 @@ Chaque étudiant de l'équipe réalise **son propre Frontend** (dans **son** dos
 | **Jalon 2 — Backend unifié & Seed** | Équipe | **40 %** |
 | **Jalon 2 — Frontend personnel & vraies données** | **Individuel** | **30 %** |
 
-👉 Critères et points détaillés : **[`grille-evaluation-portfolio.md`](./grille-evaluation-portfolio.md)**.
-Le TP guidé `SmartCity Explorer` est noté séparément (tests automatiques, voir le README).
+👉 Critères et points détaillés : **[grille d'évaluation](grille.md)**.
+Le TP guidé `SmartCity Explorer` est noté séparément (tests automatiques, voir [Évaluation](../evaluation.md#smartcity)).

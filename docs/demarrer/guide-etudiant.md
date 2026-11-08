@@ -32,7 +32,7 @@ cat ~/.ssh/id_ed25519.pub        # Windows PowerShell : Get-Content $HOME\.ssh\i
 ## 2. Fonctionnement du Projet Fil Rouge (SmartCity Explorer)
 
 ### Accéder au dépôt de votre équipe
-Un dépôt privé dédié à votre équipe est créé dans l'organisation GitHub du cours dès l'inscription de l'équipe (voir le [README](./README.md)) :
+Un dépôt privé dédié à votre équipe est créé dans l'organisation GitHub du cours dès l'inscription de l'équipe (voir la [page d'accueil](../index.md)) :
 `https://github.com/nosql-esigelec/2026-2027-rouen-smartcity-<votre-equipe>`
 
 > ⚠️ Acceptez d'abord l'invitation GitHub reçue par mail (ou sur `https://github.com/nosql-esigelec/<depot>/invitations`).
@@ -84,7 +84,7 @@ Le projet est découpé en **4 Sprints** progressifs documentés dans `TP_SESSIO
 
 ## 4. Projet Final de Conception & Soutenance : Portfolio Polyglotte
 
-Une fois que vous maîtrisez l'architecture d'un backend multi-bases grâce au TP guidé **SmartCity Explorer**, vous passez à la vitesse supérieure avec le **Projet Final : Concevoir et Développer votre Portfolio d'Ingénieur Polyglotte** ([`courses/design/projet-portfolio-polyglotte.md`](./courses/design/projet-portfolio-polyglotte.md)) :
+Une fois que vous maîtrisez l'architecture d'un backend multi-bases grâce au TP guidé **SmartCity Explorer**, vous passez à la vitesse supérieure avec le **Projet Final : Concevoir et Développer votre Portfolio d'Ingénieur Polyglotte** ([Projet Portfolio](../portfolio/index.md)) :
 
 1. **Phase 1 — Brainstorming, System Design & Soutenance d'Architecture (Équipe)** :
    - Vous concevez votre propre répartition des données entre bases (Parcours + Projets détaillés + Graphe de compétences Neo4j), rédigez `ARCHITECTURE.md` et `API_ROUTES.md`, et défendez vos choix en soutenance.

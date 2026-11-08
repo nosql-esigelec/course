@@ -2,7 +2,7 @@
 
 > Grille **publique** : vous savez exactement sur quoi vous êtes évalués.
 > Note Portfolio /20 = **30 %** Jalon 1 (équipe) + **40 %** Backend (équipe) + **30 %** Frontend (individuel).
-> Dates des jalons : voir le [planning officiel du README](../../README.md#-planning-officiel-des-séances--salle-d1264).
+> Dates des jalons : voir le [planning officiel](../planning.md).
 
 ---
 

@@ -1,0 +1,100 @@
+[project]
+site_name = "NoSQL — ESIGELEC Rouen"
+site_description = "Module Bases de données NoSQL (MongoDB & Neo4j) — 3A BDTN, ESIGELEC Rouen"
+site_author = "Brice FOTZO"
+site_url = "https://nosql-esigelec.github.io/course/"
+repo_url = "https://github.com/nosql-esigelec/course"
+repo_name = "nosql-esigelec/course"
+edit_uri = "edit/main/docs/"
+copyright = "ESIGELEC Rouen — Brice FOTZO"
+
+nav = [
+  { "Par où commencer ?" = "index.md" },
+  { "Planning" = "planning.md" },
+  { "Démarrer" = [
+    { "Guide de l'étudiant" = "demarrer/guide-etudiant.md" },
+    { "Aide-mémoire" = "demarrer/aide-memoire.md" },
+  ] },
+  { "SmartCity" = [
+    "smartcity/index.md",
+    { "Atelier design" = "smartcity/atelier-design.md" },
+  ] },
+  { "Portfolio" = [
+    "portfolio/index.md",
+    { "Atelier design" = "portfolio/atelier-design.md" },
+    { "Grille d'évaluation" = "portfolio/grille.md" },
+  ] },
+  { "Exercices" = [
+    "exercices/index.md",
+    { "Introduction au NoSQL" = "exercices/intro-nosql.md" },
+    { "MongoDB" = "exercices/mongodb.md" },
+    { "Neo4j" = "exercices/neo4j.md" },
+  ] },
+  { "Évaluation" = "evaluation.md" },
+]
+
+[project.theme]
+language = "fr"
+features = [
+  "announce.dismiss",
+  "content.action.edit",
+  "content.code.annotate",
+  "content.code.copy",
+  "content.tabs.link",
+  "content.tooltips",
+  "navigation.footer",
+  "navigation.indexes",
+  "navigation.instant",
+  "navigation.path",
+  "navigation.sections",
+  "navigation.tabs",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+  "toc.follow",
+]
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "green"
+accent = "teal"
+toggle.icon = "lucide/moon"
+toggle.name = "Passer en mode sombre"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "green"
+accent = "teal"
+toggle.icon = "lucide/sun"
+toggle.name = "Passer en mode clair"
+
+[project.markdown_extensions]
+abbr = {}
+admonition = {}
+attr_list = {}
+def_list = {}
+footnotes = {}
+md_in_html = {}
+toc.permalink = true
+pymdownx.betterem = {}
+pymdownx.caret = {}
+pymdownx.details = {}
+pymdownx.emoji.emoji_generator = "zensical.extensions.emoji.to_svg"
+pymdownx.emoji.emoji_index = "zensical.extensions.emoji.twemoji"
+pymdownx.highlight.anchor_linenums = true
+pymdownx.highlight.line_spans = "__span"
+pymdownx.highlight.pygments_lang_class = true
+pymdownx.inlinehilite = {}
+pymdownx.keys = {}
+pymdownx.magiclink = {}
+pymdownx.mark = {}
+pymdownx.smartsymbols = {}
+pymdownx.superfences.custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
+pymdownx.tabbed.alternate_style = true
+pymdownx.tabbed.combine_header_slug = true
+pymdownx.tasklist.custom_checkbox = true
+pymdownx.tilde = {}

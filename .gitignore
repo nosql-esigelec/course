@@ -64,3 +64,6 @@ Thumbs.db
 *.temp
 tmp/
 temp/
+
+# Zensical build output
+site/
