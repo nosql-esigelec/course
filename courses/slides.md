@@ -84,28 +84,25 @@ layout: two-cols-header
 layout: two-cols-header
 ---
 
-# Organisation de la journée
+# Organisation du module (3 Jours)
 
 ::left::
-**Matin (9h00 - 12h00) - 3h**
-  - Introduction NoSQL - 1h
-  - MongoDB théorie - 1h30
-  - Exercices MongoDB - 30min
-
-**Après-midi (13h30 - 17h30) - 4h**
-  - Pratique MongoDB - 1h
-  - Neo4j théorie - 1h30
-  - Exercices Neo4j - 30min
-  - Pratique Neo4j - 1h
+**Jour 1 (Lun 09/11 : 9h-12h & 13h30-17h30)**
+  - **09h00 – 11h00 (2h CM)** : Panorama NoSQL, MongoDB & Neo4j
+  - **11h00 – 12h00 (1h TP)** : Enrôlement GitHub & Setup Docker `SmartCity`
+  - **13h30 – 17h30 (4h TP)** : Design & Sprints `SmartCity` *(Notebooks en sandbox)*
+  - **Intersession J1 -> J2** : Finir les 4 Sprints `SmartCity` (`200/200`)
 
 ::right::
 
-**Ressources**
+**Jour 2 (Lun 16/11 : 9h-12h & 14h-17h — 100% TP)**
+  - **09h00 – 12h00** : System Design `Portfolio` (`ARCHITECTURE.md` & `API_ROUTES.md`)
+  - **14h00 – 15h30** : **Soutenances System Design** (Jalon 1 — 30%)
+  - **15h30 – 17h00** : Dev Backend d'équipe & Frontends individuels
 
-- Support de cours - Slides
-- Exercices - GitHub
-- Environnement Docker pour la pratique
-- Notebooks Jupyter pour les TDs
+**Jour 3 (Ven 20/11 : 9h-12h & 14h-17h — 100% TP)**
+  - **09h00 – 12h00** : Intégration finale Backend + 4 Frontends personnels
+  - **14h00 – 17h00** : **Démonstrations Live** des Portfolios (Jalon 2 — 70%)
 
 ---
 layout: two-cols-header
@@ -1485,24 +1482,19 @@ layout: cover
 layout: default
 ---
 
-# Organisation du TP
+# Place à la Pratique : SmartCity Explorer !
 
-### Durée totale : 2 heures
-- Exercices simples MongoDB : 30 minutes
-- Pratique MongoDB avec Docker : 30 minutes
-- Exercices simples Neo4j : 30 minutes
-- Pratique Neo4j avec Docker : 30 minutes
+### Étape 1 (11h00 – 12h00) : Enrôlement & Setup Docker
+- Former **8 équipes de 4** et ouvrir une Issue d'inscription sur **`github.com/nosql-esigelec/course`**
+- Cloner le dépôt d'équipe `smartcity`, lancer `uv sync --all-packages` et `docker compose up -d`
 
-### Objectifs
-- Mettre en pratique les concepts vus en cours
-- Développer des compétences pratiques sur MongoDB et Neo4j
-- Comprendre les cas d'usage spécifiques
-- Utiliser les outils en ligne et Docker
+### Étape 2 (13h30 – 17h30) : Design & Sprints 1 à 4
+- **Atelier Design** : Arbitrage *Embedding* (`cities` + `scores`) vs *Referencing* (`reviews`) + Graphe Neo4j
+- **Sprints 1 à 4** : Connexions DB -> Seed -> Repositories Mongo/Neo4j -> Services (`uv run pytest -v`)
+- **Sandbox & Aide** : Notebooks (`mongodb.ipynb`, `neo4j.ipynb`), `AIDE-MEMOIRE.md` & Neo4j Browser (`localhost:7474`)
 
-### Ressources
-- Exercices en ligne (sans installation)
-- Environnement Docker pour pratique avancée
-- Notebooks Jupyter pour l'intégration Python
+### Intersession (d'ici Lundi 16 Nov)
+- Terminer les 4 Sprints (`200/200` sur GitHub Actions) — **Enseignant 100% joignable toute la semaine !**
 
 ---
 layout: default
@@ -1515,7 +1507,7 @@ layout: default
 **Ressources**
 - Documentation MongoDB: https://docs.mongodb.com
 - Documentation Neo4j: https://neo4j.com/docs
-- Repository GitHub: [lien vers le repo]
+- Repository GitHub: https://github.com/nosql-esigelec/course
 
 **Contact**
 - Email: brice.fotzo@hotmail.com
