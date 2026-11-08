@@ -15,6 +15,7 @@ routerMode: hash
 
 ---
 layout: two-cols-header
+zoom: 0.94
 ---
 
 
@@ -48,6 +49,7 @@ layout: default
 </div>
 ---
 layout: two-cols-header
+zoom: 0.92
 ---
 
 # Plan du module
@@ -62,18 +64,20 @@ layout: two-cols-header
   - Modèle BSON, CRUD & Opérateurs
   - Pipeline d'Agrégation (`$match`, `$group`, `$avg`)
   - Modélisation : *Embedding* vs *Referencing*
-  - Nouveautés : **MongoDB 8.2+, Voyage AI, Reranking & MCP**
 
 ::right::
 
 - **3. Neo4j (Orienté Graphe)**
   - Property Graph Model (Nœuds, Relations, Propriétés)
   - Langage Cypher (`MATCH`, `MERGE`, `collect()`, chemins)
-  - Nouveautés : **GraphRAG, Index Vectoriel HNSW & Cypher 25**
 
 - **4. Architecture Polyglotte & Projets**
   - Projet guidé : **SmartCity Explorer** (FastAPI + Mongo + Neo4j)
   - Projet final : **Portfolio d'Ingénieur Polyglotte**
+
+- **5. Pour en savoir plus** *(en fin de support)*
+  - Historique, cas d'usage détaillés
+  - Nouveautés fin 2026 : **MongoDB 9.0, IA & Vector Search, GraphRAG, Cypher 25**
 
 ---
 layout: two-cols-header
@@ -108,17 +112,17 @@ layout: two-cols-header
 ::left::
 
 - **Compétences visées** :
-   - Arbitrer entre **SQL**, **Document (MongoDB)** et **Graphe (Neo4j)**
+   - Arbitrer entre modèle **relationnel**, **document (MongoDB)** et **graphe (Neo4j)**
    - Modéliser en NoSQL (*Embedding* vs *Referencing*, Graphe de propriétés)
    - Écrire des pipelines d'agrégation MQL et des traversées Cypher
    - Concevoir une **Architecture Polyglotte** industrielle en Python
-   - Comprendre les usages IA modernes (**Vector Search, Voyage AI, MCP, GraphRAG**)
+   - *Pour en savoir plus* : usages IA (**Vector Search, Voyage AI, MCP, GraphRAG**)
 
 ::right::
 - **Stack technique du module** :
-   - Bases NoSQL : `MongoDB 7/8`, `Neo4j 5`
+   - Bases NoSQL : `MongoDB 7` et `Neo4j 5` (Docker, TP)
    - Backend & API : `Python 3.11+`, `FastAPI`, `Pydantic`
-   - Drivers Async : `Motor / PyMongo`, `Neo4j Python Driver`
+   - Drivers Async : `Motor` / `PyMongo Async`, `Neo4j Python Driver`
    - Outillage & CI : `Docker Compose`, `uv`, `pytest`, `GitHub Actions`
 
 
@@ -165,48 +169,6 @@ layout: two-cols-header
 - ✅ Basés sur les besoins du web au 21ème siècle
 - ✅ Pas de schéma fixe
 - ✅ Permet l'ajout de champs sans contrôles
-
-</div>
-
----
-layout: default
----
-
-# Évolution historique
-
-<div class="grid grid-cols-3 gap-4">
-
-<div>
-
-### 1970-2000
-**Ère des SGBD traditionnels**
-- Domination des bases relationnelles
-- SQL comme standard
-- Oracle, MySQL, PostgreSQL
-
-</div>
-
-<div>
-
-### 2000-2010
-**Émergence du NoSQL**
-- Bulle internet
-- Papiers de recherche (Google, Facebook, IBM)
-- BDD open source (MongoDB, CouchDB, Neo4j, Redis, Cassandra, HBase, Riak)
-
-</div>
-
-<div>
-
-### 2010-Aujourd'hui
-**Ère du Cloud DBaaS**
-- MongoDB Atlas
-- AWS DynamoDB
-- Google Cloud Firestore
-- Azure Cosmos DB
-- Cloudant
-
-</div>
 
 </div>
 
@@ -374,89 +336,8 @@ CREATE (u)-[:AUTHORED]->(p)
 </div>
 
 ---
-layout: two-cols-header
----
-
-# Caractéristiques des BDD NoSQL
-
-::left::
-
-<div class="mb-4">
-
-### 🌐 Communautés impliquées et actives
-- Proviennent de l'Open Source ou ont une version Open Source
-- Support des communautés fondamental pour la croissance
-- **Exemples** :
-  - MongoDB : 858 contributeurs
-  - Cassandra : 472 contributeurs
-  - Redis : 775 contributeurs
-
-</div>
-
-<div class="mb-4">
-
-### 📊 Passage à l'échelle (Scalabilité)
-
-**Scalabilité Horizontale** ✅
-- Ajout de serveurs de même capacité
-- Ex: 8 serveurs 2vCPUs/4Go
-- Approche privilégiée par NoSQL
-
-**Scalabilité Verticale** ❌
-- Augmentation de la puissance d'un serveur
-- Plus coûteuse et limitée
-
-</div>
-
-::right::
-
-<div class="mb-4">
-
-### ✅ Disponibilité garantie
-- Serveur unique : Point de défaillance unique
-- Cluster de serveurs : Réplication des données
-- Haute disponibilité native
-
-</div>
-
-<div class="mb-4">
-
-### ☁️ Cloud Ready et coûts réduits
-- Architectures Cloud natives
-- Paradigme Cloud intégré
-- Serveurs standards, open source
-- Implémentation peu coûteuse
-
-**Exemple de coût** :
-- MongoDB Community Edition : **0$**
-- Oracle RAC : **$47,500** par unité
-
-</div>
-
-<div class="mb-4">
-
-### ⚡ Hautes performances
-- ⏱️ Réponse rapide
-- 👥 Haute concurrence
-- Nombreux utilisateurs simultanés
-
-</div>
-
-<div>
-
-### 🔄 Flexibilité
-- Schéma flexible : Modification à la volée
-- Types de données variés
-- Indexage spécifique
-- Dénormalisation acceptée
-
-</div>
-
-
-
-
----
 layout: default
+zoom: 0.93
 ---
 
 # Comparaison SQL vs NoSQL
@@ -554,7 +435,7 @@ layout: default
 # Testons nous un peu
 ## Connectez-vous à ce wooclap
 <div class="mr-4 mt-6">
-  <img src="/images/wooclap2.png"/>
+  <img src="/images/wooclap2.png" style="max-height: 340px; margin: 0 auto"/>
 </div>
 
 ---
@@ -630,6 +511,7 @@ layout: two-cols-header
 
 ---
 layout: two-cols-header
+zoom: 0.93
 ---
 
 # Opérations CRUD
@@ -693,7 +575,7 @@ db.clients.deleteMany({
 ```
 
 ---
-layout: default
+layout: two-cols-header
 ---
 
 # Requêtes avancées & Mises à jour riches
@@ -702,18 +584,22 @@ layout: default
 
 ### Opérateurs de comparaison & regex
 ```javascript
+// >= 100 000 hab., en Normandie ou Bretagne,
+// nom commençant par "rou" (insensible à la casse)
 db.cities.find({
-  population: { $gte: 100000 },       // >= 100 000
+  population: { $gte: 100000 },
   region: { $in: ["Normandie", "Bretagne"] },
-  name: { $regex: "^rou", $options: "i" } // insensible à la casse
-}).sort({ overall_score: -1 }).skip(0).limit(20)
+  name: { $regex: "^rou", $options: "i" }
+})
+  .sort({ overall_score: -1 })
+  .skip(0)
+  .limit(20)
 ```
 
 ::right::
 
-### Opérateurs logiques & tableaux
+### Mises à jour atomiques ($set, $inc, $push)
 ```javascript
-// Mise à jour atomique ($set, $inc, $push)
 db.cities.updateOne(
   { id: 1 },
   {
@@ -769,6 +655,7 @@ results = await db["reviews"].aggregate(pipeline).to_list(1)
 
 ---
 layout: two-cols-header
+zoom: 0.92
 ---
 
 # Indexation avec MongoDB
@@ -824,40 +711,7 @@ db.clients.stats()
 
 ---
 layout: two-cols-header
----
-
-# Cas d'utilisation de MongoDB
-
-::left::
-
-### Idéal pour
-- Applications web modernes
-- Contenu varié et évolutif
-- Données semi-structurées
-- Besoin de scalabilité horizontale
-- Développement agile
-- Applications temps réel
-
-::right::
-
-### Exemples concrets
-1. **E-commerce**
-   - Catalogues de produits
-   - Paniers utilisateurs
-   - Historique des commandes
-
-2. **Applications mobiles**
-   - Profils utilisateurs
-   - Contenu généré par les utilisateurs
-   - Données de géolocalisation
-
-3. **Analytics**
-   - Logs d'événements
-   - Données IoT
-   - Métriques en temps réel
-
----
-layout: two-cols-header
+zoom: 0.9
 ---
 
 # Modélisation : Embedding vs Referencing
@@ -904,255 +758,7 @@ layout: default
 # Testons nous un peu
 ## Connectez-vous à ce wooclap
 <div class="mr-4 mt-6">
-  <img src="/images/wooclap2.png"/>
-</div>
-
----
-layout: cover
----
-
-# MongoDB — Nouveautés Majeures & IA (2025 / 2026)
-## De la base orientée document à la plateforme IA unifiée
-
----
-layout: two-cols-header
----
-
-# MongoDB 8.x, Voyage AI & Vector Search
-
-::left::
-
-<div class="mb-3">
-
-### 🚀 1. Search & Vector Search « Run Anywhere »
-- **Vector Search & Atlas Search** désormais disponibles gratuitement dans **MongoDB Community Edition** (et en conteneur Docker local !).
-- **Hybrid Search natif** : stages `$rankFusion` et `$scoreFusion` combinant recherche lexicale (BM25) et sémantique (Vecteurs).
-- **Binary Quantization (`int8` / `int1`)** : réduit de **96 % la mémoire RAM** consommée par les vecteurs.
-
-</div>
-
-<div>
-
-### 🔐 2. Performances & Queryable Encryption
-- **+32 % à +50 % de débit** sur les lectures/agrégations en série 8.x.
-- **Queryable Encryption** : recherche *prefix*, *suffix* et *substring* directement sur des champs chiffrés de bout en bout (`In-Use Encryption`).
-
-</div>
-
-::right::
-
-<div class="mb-3">
-
-### 🧠 3. Rachat & Intégration Native de **Voyage AI**
-MongoDB a acquis **Voyage AI** (leader des modèles d'embeddings et de reranking) pour l'intégrer au cœur de la base :
-- **Automated Embeddings** : plus besoin de pipeline externe ! MongoDB génère et synchronise automatiquement les vecteurs lors des `insert` / `update`.
-- **Stage `$rerank` natif** : réordonne les résultats RAG directement dans le pipeline d'agrégation (+30 % de précision).
-- **Modèles spécialisés** : `voyage-3`, `voyage-context-3` et `voyage-code-3`.
-
-</div>
-
-<div class="mt-2 p-3 bg-green-900 rounded text-sm">
-
-💡 **Zéro infra externe** : Document JSON + Recherche Full-Text + Vecteurs + Embeddings auto + Reranking dans une seule base.
-
-</div>
-
----
-layout: two-cols-header
----
-
-# Queryable Encryption
-## Sécurité maximale des données
-
-::left::
-
-<div class="mb-4">
-
-### Chiffrement interrogeable
-- **At rest** : Données chiffrées au repos
-- **In transit** : Données chiffrées en transit
-- **In use** : Données utilisables chiffrées
-
-</div>
-
-<div>
-
-### Cas d'usage
-- Données médicales (HIPAA)
-- Informations bancaires (PCI-DSS)
-- Données personnelles (RGPD)
-- Secteur public et défense
-
-### Nouveauté 8.2
-```javascript
-// Recherche sur champs chiffrés
-db.patients.find({
-  nom: { $regex: "^Dup" }  // Prefix search
-})
-```
-
-</div>
-
-::right::
-
-<div class="flex items-center justify-center h-full">
-  <img src="/images/encryption.png" class="rounded-lg shadow-lg"/>
-</div>
-
----
-layout: two-cols-header
----
-
-# Vector Search & RAG
-## MongoDB et l'Intelligence Artificielle
-
-::left::
-
-<div class="mb-6">
-
-### Architecture RAG complète
-- **Vector Search** : Recherche sémantique
-- **Embeddings** : Vectorisation de données
-- **Reranking** : Optimisation des résultats
-- **LLM Integration** : Intégration modèles IA
-
-</div>
-
-<div>
-
-### Cas d'usage IA
-- Chatbots intelligents
-- Moteurs de recommandation
-- Recherche sémantique
-- Assistants virtuels
-- Analyse de documents
-
-</div>
-
-::right::
-
-<div class="flex items-center justify-center h-full">
-  <img src="/images/pipeline.png" class="rounded-lg shadow-lg"/>
-</div>
-
----
-layout: default
----
-
-# Vector Search en pratique
-
-### Créer un index vectoriel
-```javascript
-db.products.createSearchIndex({
-  name: "vector_index",
-  type: "vectorSearch",
-  definition: {
-    fields: [{
-      type: "vector",
-      path: "embedding",
-      numDimensions: 1536,
-      similarity: "cosine"
-    }]
-  }
-})
-```
-
-### Recherche vectorielle
-```javascript
-db.products.aggregate([
-  {
-    $vectorSearch: {
-      index: "vector_index",
-      path: "embedding",
-      queryVector: [0.123, 0.456, ...], // 1536 dimensions
-      numCandidates: 100,
-      limit: 10
-    }
-  },
-  {
-    $project: {
-      name: 1,
-      description: 1,
-      score: { $meta: "vectorSearchScore" }
-    }
-  }
-])
-```
-
----
-layout: two-cols-header
----
-
-# Agents IA & Serveur MCP Officiel MongoDB
-## Memory Store & Model Context Protocol (`mongodb-mcp-server`)
-
-::left::
-
-<div class="mb-4">
-
-### 1. Mémoire & État des Agents IA (LangGraph / CrewAI)
-- **Short-term Memory** : Checkpoints d'état et historique de conversation BSON.
-- **Long-term Memory** : Recherche épisodique et sémantique via `$vectorSearch`.
-
-### 2. Nouveau : **MongoDB MCP Server** officiel 🔌
-Le standard **Model Context Protocol (MCP)** connecte directement les agents IA (Claude, Cursor, Copilot, Agents custom) à MongoDB :
-- Inspection automatique des collections et schémas JSON.
-- Exécution sécurisée d'agrégations et de Vector Search par l'agent sans écrire de code *glue*.
-
-</div>
-
-::right::
-
-<div class="flex items-center justify-center h-full">
-  <img src="/images/agents.png" class="rounded-lg shadow-lg"/>
-</div>
-
----
-layout: default
----
-
-# Pourquoi MongoDB pour l'IA ?
-
-<div class="grid grid-cols-2 gap-6">
-
-<div>
-
-### Avantages techniques
-- **Schéma flexible** : Adaptation rapide aux données IA
-- **Vector Search natif** : Pas besoin de base vectorielle séparée
-- **Performance** : Requêtes vectorielles rapides
-- **Scalabilité** : Gestion de millions de vecteurs
-- **Unified Platform** : Données + Vecteurs + Métadonnées
-
-</div>
-
-<div>
-
-### Use cases concrets
-1. **RAG (Retrieval-Augmented Generation)**
-   - Documentation technique
-   - Support client automatisé
-
-2. **Agents autonomes**
-   - Memory à long terme
-   - Context management
-
-3. **Recommandation**
-   - Similar items
-   - Personnalisation
-
-4. **Analyse sémantique**
-   - Clustering de documents
-   - Classification automatique
-
-</div>
-
-</div>
-
-<div class="mt-6 p-4 bg-blue-900 rounded">
-
-🔥 **MongoDB se positionne comme la base de données de référence pour l'IA moderne**
-
+  <img src="/images/wooclap2.png" style="max-height: 340px; margin: 0 auto"/>
 </div>
 
 ---
@@ -1199,8 +805,8 @@ layout: default
 
 
 
-<div class="mr-4 mt-6">
-  <img src="/images/penser.png"/>
+<div class="mt-4 flex justify-center">
+  <img src="/images/penser.png" class="max-h-[78%] object-contain" style="max-height: 400px"/>
 </div>
 
 ---
@@ -1343,6 +949,7 @@ RETURN properties(target) AS city, similarity_score, common_strengths
 
 ---
 layout: two-cols-header
+zoom: 0.76
 ---
 
 # Modélisation avec Neo4j
@@ -1384,6 +991,7 @@ graph TD
 
 ---
 layout: two-cols-header
+zoom: 0.93
 ---
 
 # Indexation et Performances
@@ -1433,84 +1041,6 @@ ON EACH [p.nom, p.description]
    - Cache hits/misses
 
 ---
-layout: default
----
-
-# Cas d'utilisation de Neo4j
-
-### Idéal pour
-- Réseaux sociaux
-- Systèmes de recommandation
-- Détection de fraude
-- Graphes de connaissances
-- Gestion des identités
-- Analyse d'impact
-
-### Exemples concrets
-1. **Réseaux sociaux**
-```cypher
-// Trouver les amis des amis
-MATCH (p:Personne {nom:"Alice"})-[:CONNAIT]->(ami)-[:CONNAIT]->(amiDami)
-WHERE NOT (p)-[:CONNAIT]->(amiDami)
-RETURN DISTINCT amiDami.nom as suggestions
-```
-
-2. **Recommandations**
-```cypher
-// Produits fréquemment achetés ensemble
-MATCH (p:Produit)<-[:A_ACHETE]-(c:Client)-[:A_ACHETE]->(autreProduit:Produit)
-WHERE p.id = "123"
-RETURN autreProduit.nom, count(*) as frequence
-ORDER BY frequence DESC
-LIMIT 5
-```
-
-3. **Détection de fraude**
-```cypher
-// Identifier les cycles de transactions suspects
-MATCH chemin = (c:Compte)-[:TRANSFERT*3..5]->(c)
-WHERE ALL(r IN relationships(chemin) WHERE r.montant > 10000)
-RETURN chemin
-```
----
-layout: two-cols-header
----
-
-# Nouveautés Neo4j : GraphRAG, Vector Index & Cypher 25
-## Pourquoi les Graphes révolutionnent l'IA Générative
-
-::left::
-
-### Le problème du RAG Vectoriel classique
-- Les vecteurs seuls trouvent des paragraphes « ressemblants », mais échouent dès qu'il faut **relier des faits dispersés** sur plusieurs documents (*multi-hop reasoning*).
-
-### La réponse Neo4j : **GraphRAG** 🕸️ + 🧠
-1. **Index Vectoriel HNSW natif (avec filtrage *in-index*)** : trouve le nœud point d'entrée par similarité sémantique + filtres métiers.
-2. **Traversée Cypher en 1 requête** : explore immédiatement le voisinage du graphe (`-[:MENTIONS]->(:Entity)-[:RELATES_TO]->`) pour fournir un contexte structuré et exact au LLM.
-3. **Cypher 25 & Serveur MCP Neo4j** : nouvelle clause `SEARCH` native et serveur MCP officiel pour brancher les agents IA au graphe.
-
-::right::
-
-### Requête Hybride GraphRAG (Vecteur + Graphe)
-```cypher
-// 1. Entrée sémantique via l'index vectoriel HNSW
-CALL db.index.vector.queryNodes('doc_embeddings', 5, $queryVector)
-YIELD node AS doc, score
-
-// 2. Expansion du contexte par traversée du graphe
-MATCH (doc)-[:MENTIONS]->(e:Entity)-[r:IMPACTS]->(target:Entity)
-RETURN doc.text, score,
-       collect(e.name + ' -> ' + target.name) AS graph_context
-ORDER BY score DESC
-```
-
-<div class="mt-4 p-3 bg-purple-900 rounded text-sm">
-
-🔥 **Résultat** : Le LLM reçoit à la fois le texte pertinent **et** la structure exacte des relations (divise les hallucinations par 3).
-
-</div>
-
----
 layout: iframe
 url: https://app.wooclap.com/NFMFFF/questionnaires/690a8cebb1bf86ff9eac1764
 ---
@@ -1524,6 +1054,7 @@ layout: cover
 
 ---
 layout: two-cols-header
+zoom: 0.82
 ---
 
 # Architecture Cible : `SmartCity` & `Portfolio`
@@ -1541,7 +1072,7 @@ Au lieu de forcer une seule base à tout faire mal, on confie chaque besoin au m
 ::right::
 
 ### Découpage Industriel du Backend Python
-```mermaid
+```mermaid {scale: 0.7}
 graph TD
     UI[Frontend Streamlit / React / Next.js] --> API[FastAPI Routes : api/]
     API --> SVC[Services Métier : services/]
@@ -1587,8 +1118,541 @@ layout: default
 **Ressources**
 - Documentation MongoDB: https://docs.mongodb.com
 - Documentation Neo4j: https://neo4j.com/docs
-- Repository GitHub: https://github.com/nosql-esigelec/course
+- Site du cours : https://nosql-esigelec.github.io/course/
+- Dépôt GitHub : https://github.com/nosql-esigelec/course
 
 **Contact**
 - Email: brice.fotzo@hotmail.com
 - LinkedIn: Brice FOTZO
+
+---
+layout: cover
+---
+
+# Pour en savoir plus
+## À explorer en séance ou après le cours
+
+---
+layout: default
+---
+
+# Évolution historique
+
+<div class="grid grid-cols-3 gap-4">
+
+<div>
+
+### 1970-2000
+**Ère des SGBD traditionnels**
+- Domination des bases relationnelles
+- SQL comme standard
+- Oracle, MySQL, PostgreSQL
+
+</div>
+
+<div>
+
+### 2000-2010
+**Émergence du NoSQL**
+- Bulle internet
+- Papiers de recherche (Google, Facebook, IBM)
+- BDD open source (MongoDB, CouchDB, Neo4j, Redis, Cassandra, HBase, Riak)
+
+</div>
+
+<div>
+
+### 2010-Aujourd'hui
+**Ère du Cloud DBaaS**
+- MongoDB Atlas
+- AWS DynamoDB
+- Google Cloud Firestore
+- Azure Cosmos DB
+- Cloudant
+
+</div>
+
+</div>
+
+---
+layout: two-cols-header
+zoom: 0.64
+---
+
+# Caractéristiques des BDD NoSQL
+
+::left::
+
+<div class="mb-4">
+
+### 🌐 Communautés impliquées et actives
+- Proviennent de l'Open Source ou ont une version Open Source
+- Support des communautés fondamental pour la croissance
+- **Exemples** :
+  - MongoDB : 858 contributeurs
+  - Cassandra : 472 contributeurs
+  - Redis : 775 contributeurs
+
+</div>
+
+<div class="mb-4">
+
+### 📊 Passage à l'échelle (Scalabilité)
+
+**Scalabilité Horizontale** ✅
+- Ajout de serveurs de même capacité
+- Ex: 8 serveurs 2vCPUs/4Go
+- Approche privilégiée par NoSQL
+
+**Scalabilité Verticale** ❌
+- Augmentation de la puissance d'un serveur
+- Plus coûteuse et limitée
+
+</div>
+
+::right::
+
+<div class="mb-4">
+
+### ✅ Disponibilité garantie
+- Serveur unique : Point de défaillance unique
+- Cluster de serveurs : Réplication des données
+- Haute disponibilité native
+
+</div>
+
+<div class="mb-4">
+
+### ☁️ Cloud Ready et coûts réduits
+- Architectures Cloud natives
+- Paradigme Cloud intégré
+- Serveurs standards, open source
+- Implémentation peu coûteuse
+
+**Exemple de coût** :
+- MongoDB Community Edition : **0$**
+- Oracle RAC : **$47,500** par unité
+
+</div>
+
+<div class="mb-4">
+
+### ⚡ Hautes performances
+- ⏱️ Réponse rapide
+- 👥 Haute concurrence
+- Nombreux utilisateurs simultanés
+
+</div>
+
+<div>
+
+### 🔄 Flexibilité
+- Schéma flexible : Modification à la volée
+- Types de données variés
+- Indexage spécifique
+- Dénormalisation acceptée
+
+</div>
+
+
+
+
+---
+layout: two-cols-header
+zoom: 0.89
+---
+
+# Cas d'utilisation de MongoDB
+
+::left::
+
+### Idéal pour
+- Applications web modernes
+- Contenu varié et évolutif
+- Données semi-structurées
+- Besoin de scalabilité horizontale
+- Développement agile
+- Applications temps réel
+
+::right::
+
+### Exemples concrets
+1. **E-commerce**
+   - Catalogues de produits
+   - Paniers utilisateurs
+   - Historique des commandes
+
+2. **Applications mobiles**
+   - Profils utilisateurs
+   - Contenu généré par les utilisateurs
+   - Données de géolocalisation
+
+3. **Analytics**
+   - Logs d'événements
+   - Données IoT
+   - Métriques en temps réel
+
+---
+layout: default
+zoom: 0.69
+---
+
+# Cas d'utilisation de Neo4j
+
+### Idéal pour
+- Réseaux sociaux
+- Systèmes de recommandation
+- Détection de fraude
+- Graphes de connaissances
+- Gestion des identités
+- Analyse d'impact
+
+### Exemples concrets
+1. **Réseaux sociaux**
+```cypher
+// Trouver les amis des amis
+MATCH (p:Personne {nom:"Alice"})-[:CONNAIT]->(ami)-[:CONNAIT]->(amiDami)
+WHERE NOT (p)-[:CONNAIT]->(amiDami)
+RETURN DISTINCT amiDami.nom as suggestions
+```
+
+2. **Recommandations**
+```cypher
+// Produits fréquemment achetés ensemble
+MATCH (p:Produit)<-[:A_ACHETE]-(c:Client)-[:A_ACHETE]->(autreProduit:Produit)
+WHERE p.id = "123"
+RETURN autreProduit.nom, count(*) as frequence
+ORDER BY frequence DESC
+LIMIT 5
+```
+
+3. **Détection de fraude**
+```cypher
+// Identifier les cycles de transactions suspects
+MATCH chemin = (c:Compte)-[:TRANSFERT*3..5]->(c)
+WHERE ALL(r IN relationships(chemin) WHERE r.montant > 10000)
+RETURN chemin
+```
+---
+layout: cover
+---
+
+# MongoDB : nouveautés & IA (fin 2026)
+## De la base orientée document à la plateforme IA unifiée
+
+---
+layout: two-cols-header
+zoom: 0.97
+---
+
+# MongoDB : où en est-on fin 2026 ?
+
+::left::
+
+### Les versions
+| Version | Sortie | En bref |
+| :--- | :--- | :--- |
+| **8.0** (LTS) | 2024 | Performances, `bulkWrite` multi-collections |
+| **8.3** | mai 2026 | Recherche hybride `$scoreFusion` (GA), nouvelles expressions |
+| **9.0** | sept. 2026 | Version actuelle (9.0.x) |
+
+<div class="mt-4 p-3 bg-blue-900 rounded text-sm">
+
+ℹ️ Les TP utilisent `mongo:7` : tout ce qui est vu en cours (CRUD, agrégation, index, modélisation) fonctionne à l'identique.
+
+</div>
+
+::right::
+
+### Nouveautés de la 9.0
+- **Queryable Encryption** : *prefix*, *suffix*, *substring* sur champs chiffrés (GA)
+- **Limite mémoire par opération** (1 Go ou 20 % de la RAM par défaut)
+- **Query Knobs** & `maxTimeMS` par forme de requête
+- JavaScript côté serveur (`$function`, `$accumulator`, `$where`) **ré-autorisé** via un moteur WebAssembly
+- Nouveau niveau de validation de schéma : `constraint`
+
+<div class="mt-3 text-sm opacity-80">
+
+Source : notes de version officielles, mongodb.com/docs/manual/release-notes
+
+</div>
+
+---
+layout: two-cols-header
+zoom: 0.86
+---
+
+# MongoDB & IA : Vector Search et Voyage AI
+
+::left::
+
+<div class="mb-3">
+
+### 🚀 1. Search & Vector Search « Run Anywhere »
+- **Vector Search & Atlas Search** désormais disponibles gratuitement dans **MongoDB Community Edition** (et en conteneur Docker local !).
+- **Hybrid Search natif** : stages `$rankFusion` et `$scoreFusion` combinant recherche lexicale (BM25) et sémantique (Vecteurs).
+- **Binary Quantization (`int8` / `int1`)** : réduit de **96 % la mémoire RAM** consommée par les vecteurs.
+
+</div>
+
+
+::right::
+
+<div class="mb-3">
+
+### 🧠 2. Rachat & Intégration Native de **Voyage AI**
+MongoDB a acquis **Voyage AI** (leader des modèles d'embeddings et de reranking) pour l'intégrer au cœur de la base :
+- **Automated Embeddings** : plus besoin de pipeline externe ! MongoDB génère et synchronise automatiquement les vecteurs lors des `insert` / `update`.
+- **Stage `$rerank` natif** : réordonne les résultats RAG directement dans le pipeline d'agrégation (+30 % de précision).
+- **Modèles spécialisés** : `voyage-3`, `voyage-context-3` et `voyage-code-3`.
+
+</div>
+
+<div class="mt-2 p-3 bg-green-900 rounded text-sm">
+
+💡 **Zéro infra externe** : Document JSON + Recherche Full-Text + Vecteurs + Embeddings auto + Reranking dans une seule base.
+
+</div>
+
+---
+layout: two-cols-header
+zoom: 0.83
+---
+
+# Queryable Encryption
+## Sécurité maximale des données
+
+::left::
+
+<div class="mb-4">
+
+### Chiffrement interrogeable
+- **At rest** : Données chiffrées au repos
+- **In transit** : Données chiffrées en transit
+- **In use** : Données utilisables chiffrées
+
+</div>
+
+<div>
+
+### Cas d'usage
+- Données médicales (HIPAA)
+- Informations bancaires (PCI-DSS)
+- Données personnelles (RGPD)
+- Secteur public et défense
+
+### Où en est-on ?
+- Égalité et plages : disponibles depuis 7.0 / 8.0
+- **9.0 : recherches *prefix*, *suffix* et *substring* sur champs chiffrés (GA)**
+
+```javascript
+// Le champ "ssn" est chiffré côté client :
+// le serveur ne voit jamais la valeur en clair
+db.patients.find({ ssn: "123-45-6789" })
+```
+
+</div>
+
+::right::
+
+<div class="flex items-center justify-center h-full">
+  <img src="/images/encryption.png" class="rounded-lg shadow-lg"/>
+</div>
+
+---
+layout: two-cols-header
+---
+
+# Vector Search & RAG
+## MongoDB et l'Intelligence Artificielle
+
+::left::
+
+<div class="mb-6">
+
+### Architecture RAG complète
+- **Vector Search** : Recherche sémantique
+- **Embeddings** : Vectorisation de données
+- **Reranking** : Optimisation des résultats
+- **LLM Integration** : Intégration modèles IA
+
+</div>
+
+<div>
+
+### Cas d'usage IA
+- Chatbots intelligents
+- Moteurs de recommandation
+- Recherche sémantique
+- Assistants virtuels
+- Analyse de documents
+
+</div>
+
+::right::
+
+<div class="flex items-center justify-center h-full">
+  <img src="/images/pipeline.png" class="rounded-lg shadow-lg"/>
+</div>
+
+---
+layout: default
+zoom: 0.71
+---
+
+# Vector Search en pratique
+
+### Créer un index vectoriel
+```javascript
+db.products.createSearchIndex({
+  name: "vector_index",
+  type: "vectorSearch",
+  definition: {
+    fields: [{
+      type: "vector",
+      path: "embedding",
+      numDimensions: 1536,
+      similarity: "cosine"
+    }]
+  }
+})
+```
+
+### Recherche vectorielle
+```javascript
+db.products.aggregate([
+  {
+    $vectorSearch: {
+      index: "vector_index",
+      path: "embedding",
+      queryVector: [0.123, 0.456, ...], // 1536 dimensions
+      numCandidates: 100,
+      limit: 10
+    }
+  },
+  {
+    $project: {
+      name: 1,
+      description: 1,
+      score: { $meta: "vectorSearchScore" }
+    }
+  }
+])
+```
+
+---
+layout: two-cols-header
+zoom: 0.91
+---
+
+# Agents IA & Serveur MCP Officiel MongoDB
+## Memory Store & Model Context Protocol (`mongodb-mcp-server`)
+
+::left::
+
+<div class="mb-4">
+
+### 1. Mémoire & État des Agents IA (LangGraph / CrewAI)
+- **Short-term Memory** : Checkpoints d'état et historique de conversation BSON.
+- **Long-term Memory** : Recherche épisodique et sémantique via `$vectorSearch`.
+
+### 2. Nouveau : **MongoDB MCP Server** officiel 🔌
+Le standard **Model Context Protocol (MCP)** connecte directement les agents IA (Claude, Cursor, Copilot, Agents custom) à MongoDB :
+- Inspection automatique des collections et schémas JSON.
+- Exécution sécurisée d'agrégations et de Vector Search par l'agent sans écrire de code *glue*.
+
+</div>
+
+::right::
+
+<div class="flex items-center justify-center h-full">
+  <img src="/images/agents.png" class="rounded-lg shadow-lg"/>
+</div>
+
+---
+layout: default
+zoom: 0.74
+---
+
+# Pourquoi MongoDB pour l'IA ?
+
+<div class="grid grid-cols-2 gap-6">
+
+<div>
+
+### Avantages techniques
+- **Schéma flexible** : Adaptation rapide aux données IA
+- **Vector Search natif** : Pas besoin de base vectorielle séparée
+- **Performance** : Requêtes vectorielles rapides
+- **Scalabilité** : Gestion de millions de vecteurs
+- **Unified Platform** : Données + Vecteurs + Métadonnées
+
+</div>
+
+<div>
+
+### Use cases concrets
+1. **RAG (Retrieval-Augmented Generation)**
+   - Documentation technique
+   - Support client automatisé
+
+2. **Agents autonomes**
+   - Memory à long terme
+   - Context management
+
+3. **Recommandation**
+   - Similar items
+   - Personnalisation
+
+4. **Analyse sémantique**
+   - Clustering de documents
+   - Classification automatique
+
+</div>
+
+</div>
+
+<div class="mt-6 p-4 bg-blue-900 rounded">
+
+🔥 **MongoDB se positionne comme la base de données de référence pour l'IA moderne**
+
+</div>
+
+---
+layout: two-cols-header
+zoom: 0.82
+---
+
+# Nouveautés Neo4j : GraphRAG, Vector Index & Cypher 25
+## Versions fin 2026 : Neo4j **2026.10** (numérotation calendaire), **Cypher 25** par défaut depuis 2026.02
+
+::left::
+
+### Le problème du RAG Vectoriel classique
+- Les vecteurs seuls trouvent des paragraphes « ressemblants », mais échouent dès qu'il faut **relier des faits dispersés** sur plusieurs documents (*multi-hop reasoning*).
+
+### La réponse Neo4j : **GraphRAG** 🕸️ + 🧠
+1. **Index Vectoriel HNSW natif (avec filtrage *in-index*)** : trouve le nœud point d'entrée par similarité sémantique + filtres métiers.
+2. **Traversée Cypher en 1 requête** : explore immédiatement le voisinage du graphe (`-[:MENTIONS]->(:Entity)-[:RELATES_TO]->`) pour fournir un contexte structuré et exact au LLM.
+3. **Cypher 25 & Serveur MCP Neo4j** : nouvelle clause `SEARCH` native et serveur MCP officiel pour brancher les agents IA au graphe.
+
+::right::
+
+### Requête Hybride GraphRAG (Vecteur + Graphe)
+```cypher
+// 1. Entrée sémantique via l'index vectoriel HNSW
+CALL db.index.vector.queryNodes('doc_embeddings', 5, $queryVector)
+YIELD node AS doc, score
+
+// 2. Expansion du contexte par traversée du graphe
+MATCH (doc)-[:MENTIONS]->(e:Entity)-[r:IMPACTS]->(target:Entity)
+RETURN doc.text, score,
+       collect(e.name + ' -> ' + target.name) AS graph_context
+ORDER BY score DESC
+```
+
+<div class="mt-4 p-3 bg-purple-900 rounded text-sm">
+
+🔥 **Résultat** : Le LLM reçoit à la fois le texte pertinent **et** la structure exacte des relations (divise les hallucinations par 3).
+
+</div>
