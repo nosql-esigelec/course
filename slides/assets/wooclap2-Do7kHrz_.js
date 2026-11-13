@@ -1,0 +1,1 @@
+var e=`/course/slides/images/wooclap2.png`;export{e as t};

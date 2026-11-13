@@ -1,0 +1,1666 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Module Bases de données NoSQL (MongoDB &amp; Neo4j) - 3A BDTN, ESIGELEC Rouen">
+      
+      
+        <meta name="author" content="Brice FOTZO">
+      
+      
+        <link rel="canonical" href="https://nosql-esigelec.github.io/course/smartcity/atelier-design/">
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../portfolio/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.1.0">
+    
+    
+      
+        <title>Atelier design - NoSQL - ESIGELEC Rouen</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.4ab2de0c.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Aller au contenu
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="NoSQL - ESIGELEC Rouen" class="md-header__button md-logo" aria-label="NoSQL - ESIGELEC Rouen" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NoSQL - ESIGELEC Rouen
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Atelier design
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Passer en mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer en mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Passer en mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer en mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Recherche</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/nosql-esigelec/course" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nosql-esigelec/course
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  Par où commencer ?
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../planning/" class="md-tabs__link">
+        
+  
+  Planning
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../demarrer/guide-etudiant/" class="md-tabs__link">
+          
+  
+  Démarrer
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+      
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  SmartCity
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../portfolio/" class="md-tabs__link">
+          
+  
+  Portfolio
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../exercices/" class="md-tabs__link">
+          
+  
+  Exercices
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../evaluation/" class="md-tabs__link">
+        
+  
+  Évaluation
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="NoSQL - ESIGELEC Rouen" class="md-nav__button md-logo" aria-label="NoSQL - ESIGELEC Rouen" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    NoSQL - ESIGELEC Rouen
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/nosql-esigelec/course" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nosql-esigelec/course
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Par où commencer ?
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../planning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Planning
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Démarrer
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Démarrer
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demarrer/guide-etudiant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Avant le premier cours
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../demarrer/aide-memoire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Aide-mémoire
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SmartCity
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  SmartCity
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Atelier design
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Atelier design
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concevoir-smartcity-explorer-mongodb-neo4j" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Concevoir <strong>SmartCity Explorer</strong> (MongoDB &amp; Neo4j)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectif-de-la-seance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        🎯 Objectif de la séance
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexte-reel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        🧠 Contexte réel
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-1-vos-requetes-dabord-query-first-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        🔑 Étape 1 - Vos Requêtes d'Abord (Query-First Design)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔑 Étape 1 - Vos Requêtes d&#x27;Abord (Query-First Design)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#categorie-a-catalogue-villes-scores-lecture-frequente-conjointe" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Catégorie A - Catalogue Villes &amp; Scores (Lecture fréquente, conjointe)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#categorie-b-avis-utilisateurs-ecriture-continue-volume-non-borne" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Catégorie B - Avis Utilisateurs (Écriture continue, volume non borné)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#categorie-c-relations-recommandations-traversee-de-graphe" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Catégorie C - Relations &amp; Recommandations (Traversée de graphe)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-2-arbitrage-mongodb-embedding-vs-referencing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        🧱 Étape 2 - Arbitrage MongoDB : Embedding vs Referencing
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧱 Étape 2 - Arbitrage MongoDB : Embedding vs Referencing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question-cle-que-met-on-dans-le-meme-document-et-que-separe-t-on-dans-deux-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Question clé : Que met-on dans le même document, et que sépare-t-on dans deux collections ?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-3-pourquoi-neo4j-pour-les-recommandations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        🕸️ Étape 3 - Pourquoi Neo4j pour les Recommandations ?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#livrable-attendu-1-fichier-markdown-par-equipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        📦 Livrable attendu (1 fichier Markdown par équipe)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../portfolio/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Portfolio
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Portfolio
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../portfolio/atelier-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Atelier design
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../portfolio/grille/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Grille d'évaluation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../exercices/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Exercices
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Exercices
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exercices/intro-nosql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction au NoSQL
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exercices/mongodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  MongoDB
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exercices/neo4j/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Neo4j
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Évaluation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concevoir-smartcity-explorer-mongodb-neo4j" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Concevoir <strong>SmartCity Explorer</strong> (MongoDB &amp; Neo4j)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objectif-de-la-seance" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        🎯 Objectif de la séance
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexte-reel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        🧠 Contexte réel
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-1-vos-requetes-dabord-query-first-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        🔑 Étape 1 - Vos Requêtes d'Abord (Query-First Design)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔑 Étape 1 - Vos Requêtes d&#x27;Abord (Query-First Design)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#categorie-a-catalogue-villes-scores-lecture-frequente-conjointe" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Catégorie A - Catalogue Villes &amp; Scores (Lecture fréquente, conjointe)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#categorie-b-avis-utilisateurs-ecriture-continue-volume-non-borne" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Catégorie B - Avis Utilisateurs (Écriture continue, volume non borné)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#categorie-c-relations-recommandations-traversee-de-graphe" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Catégorie C - Relations &amp; Recommandations (Traversée de graphe)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-2-arbitrage-mongodb-embedding-vs-referencing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        🧱 Étape 2 - Arbitrage MongoDB : Embedding vs Referencing
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧱 Étape 2 - Arbitrage MongoDB : Embedding vs Referencing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#question-cle-que-met-on-dans-le-meme-document-et-que-separe-t-on-dans-deux-collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Question clé : Que met-on dans le même document, et que sépare-t-on dans deux collections ?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etape-3-pourquoi-neo4j-pour-les-recommandations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        🕸️ Étape 3 - Pourquoi Neo4j pour les Recommandations ?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#livrable-attendu-1-fichier-markdown-par-equipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        📦 Livrable attendu (1 fichier Markdown par équipe)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Par où commencer ?
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    SmartCity
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+  
+    <a href="https://github.com/nosql-esigelec/course/edit/main/docs/smartcity/atelier-design.md" title="Editer cette page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-file-pen" viewBox="0 0 24 24"><path d="M12.659 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v9.34"/><path d="M14 2v5a1 1 0 0 0 1 1h5M10.378 12.622a1 1 0 0 1 3 3.003L8.36 20.637a2 2 0 0 1-.854.506l-2.867.837a.5.5 0 0 1-.62-.62l.836-2.869a2 2 0 0 1 .506-.853z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="atelier-design-parcours-100-nosql-bdtn-rouen">🧠 Atelier Design (Parcours 100% NoSQL - BDTN Rouen)<a class="headerlink" href="#atelier-design-parcours-100-nosql-bdtn-rouen" title="Permanent link">&para;</a></h1>
+<h2 id="concevoir-smartcity-explorer-mongodb-neo4j">Concevoir <strong>SmartCity Explorer</strong> (MongoDB &amp; Neo4j)<a class="headerlink" href="#concevoir-smartcity-explorer-mongodb-neo4j" title="Permanent link">&para;</a></h2>
+<p>Un complément data-driven à ville-ideale.fr</p>
+<p><strong>TD – Séance de design d'architecture NoSQL</strong></p>
+<blockquote>
+<p>Aujourd'hui : pas de code, on pense <strong>architecture et modélisation NoSQL</strong> (Document vs Graphe, Embedding vs Referencing).</p>
+</blockquote>
+<hr />
+<h2 id="objectif-de-la-seance">🎯 Objectif de la séance<a class="headerlink" href="#objectif-de-la-seance" title="Permanent link">&para;</a></h2>
+<p>À la fin de cet atelier, vous devez être capables de :</p>
+<ul>
+<li>formaliser un <strong>besoin produit</strong> (personas + scénarios)</li>
+<li>raisonner en <strong>requêtes (Access Patterns)</strong> avant de modéliser</li>
+<li>arbitrer entre <strong>Embedding (imbrication)</strong> et <strong>Referencing (référence)</strong> dans MongoDB</li>
+<li>répartir les données et responsabilités entre <strong>MongoDB</strong> (Document) et <strong>Neo4j</strong> (Graphe)</li>
+<li>établir un <strong>contrat de cohérence</strong> entre vos deux bases NoSQL</li>
+</ul>
+<p>👉 Vous construisez la <strong>spécification</strong> du projet fil rouge <strong>SmartCity Explorer</strong>.</p>
+<hr />
+<h2 id="contexte-reel">🧠 Contexte réel<a class="headerlink" href="#contexte-reel" title="Permanent link">&para;</a></h2>
+<p>Vous cherchez une ville où vivre ou investir en France. Vous voulez :</p>
+<ol>
+<li><strong>Rechercher et filtrer</strong> des villes (par région, département, population minimale) et les trier par note globale.</li>
+<li><strong>Consulter la fiche d'une ville</strong> avec ses <strong>scores détaillés par catégorie</strong> (environnement, sécurité, santé, transports…).</li>
+<li><strong>Lire et publier des avis utilisateurs</strong> (texte libre, note, tags, auteur, date) et calculer la note moyenne.</li>
+<li><strong>Obtenir des recommandations de villes similaires</strong> basées sur les <strong>points forts communs</strong> entre villes.</li>
+</ol>
+<hr />
+<h2 id="etape-1-vos-requetes-dabord-query-first-design">🔑 Étape 1 - Vos Requêtes d'Abord (Query-First Design)<a class="headerlink" href="#etape-1-vos-requetes-dabord-query-first-design" title="Permanent link">&para;</a></h2>
+<p>En NoSQL, <strong>le schéma découle des requêtes (Access Patterns)</strong> :</p>
+<h3 id="categorie-a-catalogue-villes-scores-lecture-frequente-conjointe">Catégorie A - Catalogue Villes &amp; Scores (Lecture fréquente, conjointe)<a class="headerlink" href="#categorie-a-catalogue-villes-scores-lecture-frequente-conjointe" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Q1</strong> : « Rechercher les villes d'Auvergne-Rhône-Alpes de plus de 100 000 habitants, triées par <code>overall_score</code> décroissant (paginé). »</li>
+<li><strong>Q2</strong> : « Afficher la fiche complète d'une ville (<code>id = 1</code>) <strong>avec ses 8 scores par catégorie</strong>. »</li>
+</ul>
+<h3 id="categorie-b-avis-utilisateurs-ecriture-continue-volume-non-borne">Catégorie B - Avis Utilisateurs (Écriture continue, volume non borné)<a class="headerlink" href="#categorie-b-avis-utilisateurs-ecriture-continue-volume-non-borne" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Q3</strong> : « Afficher les 10 derniers avis publiés sur une ville (<code>city_id = 1</code>), triés par date décroissante. »</li>
+<li><strong>Q4</strong> : « Ajouter un nouvel avis utilisateur sur une ville. »</li>
+<li><strong>Q5</strong> : « Calculer la note moyenne des avis d'une ville via un pipeline d'agrégation (<code>$match</code> + <code>$group</code>). »</li>
+</ul>
+<h3 id="categorie-c-relations-recommandations-traversee-de-graphe">Catégorie C - Relations &amp; Recommandations (Traversée de graphe)<a class="headerlink" href="#categorie-c-relations-recommandations-traversee-de-graphe" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Q6</strong> : « Quels sont les points forts (<code>score &gt;= 7.0</code>) d'une ville ? »</li>
+<li><strong>Q7</strong> : « Quelles sont les $K$ villes les plus similaires à Lyon et quels points forts partagent-elles ? »</li>
+</ul>
+<hr />
+<h2 id="etape-2-arbitrage-mongodb-embedding-vs-referencing">🧱 Étape 2 - Arbitrage MongoDB : Embedding vs Referencing<a class="headerlink" href="#etape-2-arbitrage-mongodb-embedding-vs-referencing" title="Permanent link">&para;</a></h2>
+<p>Dans MongoDB, nous devons stocker : <strong>les Villes (<code>City</code>)</strong>, <strong>les Scores par catégorie (<code>Score</code>)</strong>, et <strong>les Avis utilisateurs (<code>Review</code>)</strong>.</p>
+<h3 id="question-cle-que-met-on-dans-le-meme-document-et-que-separe-t-on-dans-deux-collections">Question clé : Que met-on dans le même document, et que sépare-t-on dans deux collections ?<a class="headerlink" href="#question-cle-que-met-on-dans-le-meme-document-et-que-separe-t-on-dans-deux-collections" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Relation</th>
+<th style="text-align: left;">Cardinalité</th>
+<th style="text-align: left;">Croissance</th>
+<th style="text-align: left;">Accès conjoint ?</th>
+<th style="text-align: left;">Décision MongoDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Ville ↔ Scores par catégorie</strong></td>
+<td style="text-align: left;"><code>1 : N</code> borné (~8 catégories fixes par ville)</td>
+<td style="text-align: left;">Statique / rare</td>
+<td style="text-align: left;">Oui (affichés sur la fiche ville)</td>
+<td style="text-align: left;">✅ <strong>Embedding</strong> : Tableau <code>scores: [...]</code> imbriqué directement dans chaque document de la collection <code>cities</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ville ↔ Avis utilisateurs</strong></td>
+<td style="text-align: left;"><code>1 : N</code> non borné (potentiellement des milliers d'avis)</td>
+<td style="text-align: left;">Continue (nouveaux avis fréquents)</td>
+<td style="text-align: left;">Non (paginé indépendamment)</td>
+<td style="text-align: left;">✅ <strong>Referencing</strong> : Collection <code>reviews</code> séparée avec clé <code>city_id</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="etape-3-pourquoi-neo4j-pour-les-recommandations">🕸️ Étape 3 - Pourquoi Neo4j pour les Recommandations ?<a class="headerlink" href="#etape-3-pourquoi-neo4j-pour-les-recommandations" title="Permanent link">&para;</a></h2>
+<p>Modèle de graphe cible :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>(:City {city_id, name})-[:STRONG_IN]-&gt;(:Criterion {name})
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>(:City)-[:SIMILAR_TO {score}]-&gt;(:City)
+</span></code></pre></div>
+<ul>
+<li>Une ville possède une relation <code>:STRONG_IN</code> vers chaque <code>:Criterion</code> où son score est $\ge 7.0$.</li>
+<li>Deux villes partageant des critères forts sont reliées par <code>:SIMILAR_TO</code> avec un score proportionnel au nombre de forces communes.</li>
+<li>En Cypher, trouver les villes similaires ET la liste exacte des critères partagés se fait en <strong>une seule traversée de graphe</strong>.</li>
+</ul>
+<hr />
+<h2 id="livrable-attendu-1-fichier-markdown-par-equipe">📦 Livrable attendu (1 fichier Markdown par équipe)<a class="headerlink" href="#livrable-attendu-1-fichier-markdown-par-equipe" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Modèle de document JSON</strong> d'une ville dans <code>db.cities</code> (avec <code>scores</code> imbriqués) et d'un avis dans <code>db.reviews</code>.</li>
+<li><strong>Justification Embedding vs Referencing</strong> (2 arguments techniques pour chaque choix).</li>
+<li><strong>Schéma du graphe Neo4j</strong> (nœuds, propriétés, relations).</li>
+<li><strong>Contrat de gouvernance</strong> : quel est l'identifiant pivot commun entre <code>db.cities</code>, <code>db.reviews</code> et <code>(:City)</code> dans Neo4j ?</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Précédent: SmartCity Explorer">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                SmartCity Explorer
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../portfolio/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Projet Portfolio Polyglotte">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Projet Portfolio Polyglotte
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      ESIGELEC Rouen - Brice FOTZO
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["announce.dismiss","content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.path","navigation.sections","navigation.tabs","navigation.top","navigation.tracking","search.highlight","toc.follow"],"redirect":null,"search":"../../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d31f0ffa.min.js"></script>
+      
+    
+  </body>
+</html>
