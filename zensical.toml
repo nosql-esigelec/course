@@ -30,6 +30,7 @@ nav = [
     { "MongoDB" = "exercices/mongodb.md" },
     { "Neo4j" = "exercices/neo4j.md" },
   ] },
+  { "Révision" = "revision.md" },
   { "Évaluation" = "evaluation.md" },
 ]
 
