@@ -1,0 +1,2287 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Module Bases de données NoSQL (MongoDB &amp; Neo4j) - 3A BDTN, ESIGELEC Rouen">
+      
+      
+        <meta name="author" content="Brice FOTZO">
+      
+      
+        <link rel="canonical" href="https://nosql-esigelec.github.io/course/revision/">
+      
+      
+      
+        <link rel="prev" href="../exercices/neo4j/">
+      
+      
+        <link rel="next" href="../evaluation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.1.0">
+    
+    
+      
+        <title>Révision - NoSQL - ESIGELEC Rouen</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ab2de0c.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Aller au contenu
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="./.." title="NoSQL - ESIGELEC Rouen" class="md-header__button md-logo" aria-label="NoSQL - ESIGELEC Rouen" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NoSQL - ESIGELEC Rouen
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Révision
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Passer en mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer en mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="teal"  aria-label="Passer en mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer en mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Recherche</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Recherche">
+  <button type="button" class="md-search__button">
+    Recherche
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/nosql-esigelec/course" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nosql-esigelec/course
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./.." class="md-tabs__link">
+        
+  
+  Par où commencer ?
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../planning/" class="md-tabs__link">
+        
+  
+  Planning
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../demarrer/guide-etudiant/" class="md-tabs__link">
+          
+  
+  Démarrer
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../smartcity/" class="md-tabs__link">
+          
+  
+  SmartCity
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../portfolio/" class="md-tabs__link">
+          
+  
+  Portfolio
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../exercices/" class="md-tabs__link">
+          
+  
+  Exercices
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="././" class="md-tabs__link">
+        
+  
+  Révision
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../evaluation/" class="md-tabs__link">
+        
+  
+  Évaluation
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="NoSQL - ESIGELEC Rouen" class="md-nav__button md-logo" aria-label="NoSQL - ESIGELEC Rouen" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    NoSQL - ESIGELEC Rouen
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/nosql-esigelec/course" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nosql-esigelec/course
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Par où commencer ?
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../planning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Planning
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Démarrer
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Démarrer
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demarrer/guide-etudiant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Avant le premier cours
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demarrer/aide-memoire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Aide-mémoire
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../smartcity/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SmartCity
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  SmartCity
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smartcity/atelier-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Atelier design
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../portfolio/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Portfolio
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Portfolio
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../portfolio/atelier-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Atelier design
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../portfolio/grille/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Grille d'évaluation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../exercices/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Exercices
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+            <label class="md-nav__title" for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Exercices
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercices/intro-nosql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Introduction au NoSQL
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercices/mongodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  MongoDB
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercices/neo4j/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Neo4j
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Révision
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Révision
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-les-notions-nosql" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Les notions NoSQL
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Les notions NoSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-theoreme-cap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Le théorème CAP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passer-a-lechelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Passer à l'échelle
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-4-familles-nosql" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Les 4 familles NoSQL
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-mongodb" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. MongoDB
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. MongoDB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vocabulaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Vocabulaire
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lire-find-et-ses-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Lire : <code>find</code> et ses options
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecrire" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Écrire
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Index
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modeliser-embedding-ou-referencing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modéliser : Embedding ou Referencing ?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-neo4j-et-cypher" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Neo4j et Cypher
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Neo4j et Cypher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-modele-graphe" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Le modèle graphe
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lire-match-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Lire : <code>MATCH … RETURN</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecrire-et-supprimer" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Écrire et supprimer
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performances" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Performances
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-architecture-polyglotte" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Architecture polyglotte
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-entrainement" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Entraînement
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Entraînement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Vrai ou faux
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lire-des-requetes-mongodb" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Lire des requêtes MongoDB
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lire-des-requetes-cypher" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Lire des requêtes Cypher
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choisir-la-bonne-modelisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Choisir la bonne modélisation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-aller-plus-loin" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Pour aller plus loin
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Évaluation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-les-notions-nosql" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Les notions NoSQL
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Les notions NoSQL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-theoreme-cap" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Le théorème CAP
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passer-a-lechelle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Passer à l'échelle
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-4-familles-nosql" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Les 4 familles NoSQL
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-mongodb" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. MongoDB
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. MongoDB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vocabulaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Vocabulaire
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lire-find-et-ses-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Lire : <code>find</code> et ses options
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecrire" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Écrire
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Index
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modeliser-embedding-ou-referencing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Modéliser : Embedding ou Referencing ?
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-neo4j-et-cypher" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Neo4j et Cypher
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Neo4j et Cypher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-modele-graphe" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Le modèle graphe
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lire-match-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Lire : <code>MATCH … RETURN</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ecrire-et-supprimer" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Écrire et supprimer
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performances" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Performances
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-architecture-polyglotte" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Architecture polyglotte
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-entrainement" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Entraînement
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Entraînement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vrai-ou-faux" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Vrai ou faux
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lire-des-requetes-mongodb" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Lire des requêtes MongoDB
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lire-des-requetes-cypher" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Lire des requêtes Cypher
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choisir-la-bonne-modelisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Choisir la bonne modélisation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pour-aller-plus-loin" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Pour aller plus loin
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+  
+    <a href="https://github.com/nosql-esigelec/course/edit/main/docs/revision.md" title="Editer cette page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-file-pen" viewBox="0 0 24 24"><path d="M12.659 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v9.34"/><path d="M14 2v5a1 1 0 0 0 1 1h5M10.378 12.622a1 1 0 0 1 3 3.003L8.36 20.637a2 2 0 0 1-.854.506l-2.867.837a.5.5 0 0 1-.62-.62l.836-2.869a2 2 0 0 1 .506-.853z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="reviser-lexamen-ecrit">📝 Réviser l'examen écrit<a class="headerlink" href="#reviser-lexamen-ecrit" title="Permanent link">&para;</a></h1>
+<p>Cette page rassemble <strong>tout ce qu'il faut savoir</strong> pour l'écrit, puis des <strong>exercices corrigés</strong> à faire sans ordinateur.
+On la parcourt ensemble en séance ; reprenez-la ensuite seuls, crayon en main.</p>
+<div class="admonition info">
+<p class="admonition-title">Comment se présente l'épreuve</p>
+<ul>
+<li>Écrit <strong>sans document</strong>, sur papier.</li>
+<li>Des <strong>QCM</strong> (une seule bonne réponse), des <strong>vrai ou faux</strong>, et des <strong>requêtes MongoDB et Cypher à lire</strong> : on vous donne les données, vous écrivez ce que la requête renvoie (une liste de valeurs ou un nombre).</li>
+<li>Vous reportez vos réponses sur une <strong>feuille de réponses</strong>. Pas de points négatifs.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Hors programme de l'écrit</p>
+<p>Le <strong>pipeline d'agrégation</strong> (<code>aggregate</code>, <code>$group</code>, <code>$match</code>…) et l'<strong>idempotence</strong> (<code>MERGE</code>, seed relançable) ne sont <strong>pas</strong> à l'écrit.
+Ils restent essentiels pour SmartCity et le Portfolio.</p>
+</div>
+<hr />
+<h2 id="1-les-notions-nosql">1. Les notions NoSQL<a class="headerlink" href="#1-les-notions-nosql" title="Permanent link">&para;</a></h2>
+<h3 id="le-theoreme-cap">Le théorème CAP<a class="headerlink" href="#le-theoreme-cap" title="Permanent link">&para;</a></h3>
+<p>Un système <strong>distribué</strong> ne peut garantir que <strong>deux</strong> de ces trois propriétés à la fois :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Lettre</th>
+<th style="text-align: left;">Propriété</th>
+<th style="text-align: left;">En une phrase</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>C</strong></td>
+<td style="text-align: left;">Cohérence (<em>Consistency</em>)</td>
+<td style="text-align: left;">Tous les nœuds voient la même donnée au même moment.</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>A</strong></td>
+<td style="text-align: left;">Disponibilité (<em>Availability</em>)</td>
+<td style="text-align: left;">Chaque requête reçoit une réponse, sans erreur (mais peut-être pas la plus récente).</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>P</strong></td>
+<td style="text-align: left;">Tolérance au partitionnement (<em>Partition tolerance</em>)</td>
+<td style="text-align: left;">Le système continue de fonctionner malgré une coupure réseau entre nœuds.</td>
+</tr>
+</tbody>
+</table>
+<p>Classement vu en cours :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Catégorie</th>
+<th style="text-align: left;">Exemples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>CA</strong></td>
+<td style="text-align: left;">SGBD relationnel sur un seul serveur (PostgreSQL)</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>CP</strong></td>
+<td style="text-align: left;">MongoDB, Redis, HBase</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>AP</strong></td>
+<td style="text-align: left;">Cassandra, DynamoDB</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">À ne pas confondre</p>
+<p>Le <strong>A</strong> de CAP est la <strong>disponibilité</strong>, pas l'atomicité. L'atomicité, c'est le <strong>A</strong> de ACID (transactions SQL).
+BASE (<em>Basically Available, Soft state, Eventually consistent</em>) est la philosophie de nombreuses bases NoSQL : disponibilité d'abord, cohérence « à terme ».</p>
+</div>
+<h3 id="passer-a-lechelle">Passer à l'échelle<a class="headerlink" href="#passer-a-lechelle" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Scalabilité horizontale</strong> : on <strong>ajoute des serveurs</strong> de même capacité. C'est l'approche privilégiée par le NoSQL.</li>
+<li><strong>Scalabilité verticale</strong> : on <strong>remplace</strong> le serveur par un plus puissant. Plus cher, et vite limité.</li>
+</ul>
+<h3 id="les-4-familles-nosql">Les 4 familles NoSQL<a class="headerlink" href="#les-4-familles-nosql" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Famille</th>
+<th style="text-align: left;">Exemple</th>
+<th style="text-align: left;">Idéale pour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Document</strong></td>
+<td style="text-align: left;">MongoDB</td>
+<td style="text-align: left;">Objets riches et variables : profils, catalogues, CV</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Clé-valeur</strong></td>
+<td style="text-align: left;">Redis</td>
+<td style="text-align: left;">Cache, sessions, compteurs : accès ultra-rapide par clé</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Colonnes</strong></td>
+<td style="text-align: left;">Cassandra</td>
+<td style="text-align: left;">Très gros volumes d'écritures, séries temporelles, historiques</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Graphe</strong></td>
+<td style="text-align: left;">Neo4j</td>
+<td style="text-align: left;">Relations : réseau social, « amis de mes amis », recommandation</td>
+</tr>
+</tbody>
+</table>
+<p>Caractéristiques communes : <strong>schéma flexible</strong>, <strong>scalabilité horizontale</strong>, <strong>haute disponibilité</strong> (réplication), <strong>hautes performances</strong>, dénormalisation acceptée.</p>
+<hr />
+<h2 id="2-mongodb">2. MongoDB<a class="headerlink" href="#2-mongodb" title="Permanent link">&para;</a></h2>
+<h3 id="vocabulaire">Vocabulaire<a class="headerlink" href="#vocabulaire" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">SQL</th>
+<th style="text-align: left;">MongoDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Base</td>
+<td style="text-align: left;">Base</td>
+</tr>
+<tr>
+<td style="text-align: left;">Table</td>
+<td style="text-align: left;"><strong>Collection</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">Ligne</td>
+<td style="text-align: left;"><strong>Document</strong> (format BSON)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Colonne</td>
+<td style="text-align: left;"><strong>Champ</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Une collection <strong>n'impose pas de schéma</strong> : deux documents peuvent avoir des champs différents, et un champ peut être <strong>absent</strong> d'un document.</p>
+<h3 id="lire-find-et-ses-options">Lire : <code>find</code> et ses options<a class="headerlink" href="#lire-find-et-ses-options" title="Permanent link">&para;</a></h3>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="w"> </span><span class="nx">annee</span><span class="o">:</span><span class="w"> </span><span class="mf">2010</span><span class="w"> </span><span class="p">})</span><span class="w">                          </span><span class="c1">// égalité</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="w"> </span><span class="nx">note</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$gt</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span><span class="w">                     </span><span class="c1">// &gt;   ($gte : &gt;=, $lt : &lt;, $lte : &lt;=)</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="w"> </span><span class="nx">note</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$gte</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="nx">$lte</span><span class="o">:</span><span class="w"> </span><span class="mf">9</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span><span class="w">           </span><span class="c1">// intervalle</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="w"> </span><span class="nx">genres</span><span class="o">:</span><span class="w"> </span><span class="s2">"SF"</span><span class="w"> </span><span class="p">})</span><span class="w">                         </span><span class="c1">// le TABLEAU genres CONTIENT "SF"</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="w"> </span><span class="nx">annee</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$in</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="mf">2010</span><span class="p">,</span><span class="w"> </span><span class="mf">2014</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span><span class="w">         </span><span class="c1">// valeur dans une liste</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="w"> </span><span class="nx">genres</span><span class="o">:</span><span class="w"> </span><span class="s2">"SF"</span><span class="p">,</span><span class="w"> </span><span class="nx">annee</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$gt</span><span class="o">:</span><span class="w"> </span><span class="mf">2012</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span><span class="w">   </span><span class="c1">// plusieurs critères = ET</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="w"> </span><span class="nx">$or</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">genres</span><span class="o">:</span><span class="w"> </span><span class="s2">"SF"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">note</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$gt</span><span class="o">:</span><span class="w"> </span><span class="mf">8.6</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">})</span><span class="w">  </span><span class="c1">// OU</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">countDocuments</span><span class="p">({</span><span class="w"> </span><span class="nx">genres</span><span class="o">:</span><span class="w"> </span><span class="s2">"SF"</span><span class="w"> </span><span class="p">})</span><span class="w">               </span><span class="c1">// renvoie un NOMBRE</span>
+</span></code></pre></div>
+<p>Projection, tri, limite :</p>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">find</span><span class="p">({},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">titre</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">_id</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="p">})</span><span class="w">    </span><span class="c1">// n'afficher que titre (et masquer _id)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="p">.</span><span class="nx">sort</span><span class="p">({</span><span class="w"> </span><span class="nx">note</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="w"> </span><span class="p">})</span><span class="w">                       </span><span class="c1">// -1 : décroissant, 1 : croissant</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="p">.</span><span class="nx">skip</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span><span class="w">                                  </span><span class="c1">// sauter N documents (pagination)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="p">.</span><span class="nx">limit</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span><span class="w">                                 </span><span class="c1">// garder les 3 premiers</span>
+</span></code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Le piège des champs absents</p>
+<ul>
+<li><code>{ oscar: { $ne: true } }</code> renvoie les documents où <code>oscar</code> vaut autre chose que <code>true</code> <strong>et ceux qui n'ont pas de champ <code>oscar</code></strong>.</li>
+<li><code>{ oscar: false }</code> ne renvoie <strong>que</strong> les documents où <code>oscar</code> vaut exactement <code>false</code>.</li>
+<li><code>{ oscar: null }</code> renvoie les documents où <code>oscar</code> vaut <code>null</code> <strong>ou est absent</strong>.</li>
+</ul>
+</div>
+<h3 id="ecrire">Écrire<a class="headerlink" href="#ecrire" title="Permanent link">&para;</a></h3>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">insertOne</span><span class="p">({</span><span class="w"> </span><span class="nx">titre</span><span class="o">:</span><span class="w"> </span><span class="s2">"Dune"</span><span class="p">,</span><span class="w"> </span><span class="nx">annee</span><span class="o">:</span><span class="w"> </span><span class="mf">2021</span><span class="w"> </span><span class="p">})</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">insertMany</span><span class="p">([</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">titre</span><span class="o">:</span><span class="w"> </span><span class="s2">"A"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">titre</span><span class="o">:</span><span class="w"> </span><span class="s2">"B"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">])</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">updateOne</span><span class="p">({</span><span class="w"> </span><span class="nx">titre</span><span class="o">:</span><span class="w"> </span><span class="s2">"Dune"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$set</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">note</span><span class="o">:</span><span class="w"> </span><span class="mf">8.0</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span><span class="w">      </span><span class="c1">// modifier un champ</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">updateMany</span><span class="p">({</span><span class="w"> </span><span class="nx">genres</span><span class="o">:</span><span class="w"> </span><span class="s2">"SF"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$inc</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">vues</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span><span class="w">        </span><span class="c1">// incrémenter, sur TOUS les documents filtrés</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">updateOne</span><span class="p">({</span><span class="w"> </span><span class="nx">titre</span><span class="o">:</span><span class="w"> </span><span class="s2">"Dune"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$push</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">genres</span><span class="o">:</span><span class="w"> </span><span class="s2">"Aventure"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span><span class="w">  </span><span class="c1">// ajouter à un tableau</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">deleteOne</span><span class="p">({</span><span class="w"> </span><span class="nx">titre</span><span class="o">:</span><span class="w"> </span><span class="s2">"Dune"</span><span class="w"> </span><span class="p">})</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">deleteMany</span><span class="p">({</span><span class="w"> </span><span class="nx">note</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$lt</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span>
+</span></code></pre></div>
+<p><code>updateOne</code> / <code>deleteOne</code> agissent sur <strong>le premier</strong> document trouvé ; <code>updateMany</code> / <code>deleteMany</code> sur <strong>tous</strong>.</p>
+<h3 id="index">Index<a class="headerlink" href="#index" title="Permanent link">&para;</a></h3>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">createIndex</span><span class="p">({</span><span class="w"> </span><span class="nx">titre</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">})</span><span class="w">                    </span><span class="c1">// accélère les recherches sur titre</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">createIndex</span><span class="p">({</span><span class="w"> </span><span class="nx">annee</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">note</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="w"> </span><span class="p">})</span><span class="w">          </span><span class="c1">// index composé : l'ordre des champs compte</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">createIndex</span><span class="p">({</span><span class="w"> </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">unique</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">})</span><span class="w">  </span><span class="c1">// interdit deux documents avec le même email</span>
+</span></code></pre></div>
+<p>Un index accélère les <strong>lectures</strong> mais ralentit un peu les <strong>écritures</strong> : on indexe les champs souvent filtrés ou triés, sans sur-indexer.</p>
+<h3 id="modeliser-embedding-ou-referencing">Modéliser : Embedding ou Referencing ?<a class="headerlink" href="#modeliser-embedding-ou-referencing" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"><strong>Embedding</strong> (imbriquer)</th>
+<th style="text-align: left;"><strong>Referencing</strong> (référencer)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Quoi</td>
+<td style="text-align: left;">Les sous-éléments sont <strong>dans</strong> le document parent</td>
+<td style="text-align: left;">Les sous-éléments sont dans <strong>une autre collection</strong>, avec l'identifiant du parent</td>
+</tr>
+<tr>
+<td style="text-align: left;">Quand</td>
+<td style="text-align: left;"><code>1:1</code> ou <code>1:N</code> <strong>borné</strong>, toujours lu <strong>avec</strong> le parent</td>
+<td style="text-align: left;"><code>1:N</code> <strong>non borné</strong> (qui grossit sans fin), <code>N:M</code>, ou paginé séparément</td>
+</tr>
+<tr>
+<td style="text-align: left;">Exemple</td>
+<td style="text-align: left;">Les 8 scores d'une ville ; les expériences d'un CV</td>
+<td style="text-align: left;">Les milliers d'avis d'une ville ; un projet partagé par plusieurs étudiants</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lecture</td>
+<td style="text-align: left;"><strong>1 seule lecture</strong>, pas de jointure</td>
+<td style="text-align: left;"><strong>2 lectures</strong> (ou une jointure explicite)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Deux règles à retenir</p>
+<ul>
+<li>Un document BSON est limité à <strong>16 Mo</strong> : jamais de tableau imbriqué qui grossit sans limite.</li>
+<li>MongoDB ne fait <strong>pas de jointure automatique</strong> : avec le Referencing, <code>find()</code> sur le parent ne renvoie <strong>pas</strong> les documents de l'autre collection.</li>
+</ul>
+</div>
+<hr />
+<h2 id="3-neo4j-et-cypher">3. Neo4j et Cypher<a class="headerlink" href="#3-neo4j-et-cypher" title="Permanent link">&para;</a></h2>
+<h3 id="le-modele-graphe">Le modèle graphe<a class="headerlink" href="#le-modele-graphe" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Nœud</strong> : une entité, avec un ou plusieurs <strong>labels</strong> (<code>:Acteur</code>, <code>:Film</code>) et des <strong>propriétés</strong> (<code>{nom: "Nolan"}</code>).</li>
+<li><strong>Relation</strong> : relie deux nœuds ; elle a <strong>toujours un type</strong> (<code>:JOUE_DANS</code>) et <strong>une direction</strong> (<code>-&gt;</code>), et peut porter des propriétés.</li>
+</ul>
+<h3 id="lire-match-return">Lire : <code>MATCH … RETURN</code><a class="headerlink" href="#lire-match-return" title="Permanent link">&para;</a></h3>
+<div class="language-cypher highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="n">Acteur</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">JOUE_DANS</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">:</span><span class="n">Film</span><span class="w"> </span><span class="p">{</span><span class="n">titre</span><span class="p">:</span><span class="w"> </span><span class="s">"Inception"</span><span class="p">})</span><span class="w">   </span><span class="c1">// motif à trouver</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">nom</span><span class="w"> </span><span class="p">&lt;&gt;</span><span class="w"> </span><span class="s">"Page"</span><span class="w">                                          </span><span class="c1">// filtre</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">nom</span><span class="w">                                                   </span><span class="c1">// ce qu'on renvoie</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">nom</span><span class="w"> </span><span class="k">DESC</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="m">10</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Écriture</th>
+<th style="text-align: left;">Sens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>(a)-[:R]-&gt;(b)</code></td>
+<td style="text-align: left;">relation de <code>a</code> vers <code>b</code> (la direction doit correspondre aux données)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>(a)&lt;-[:R]-(b)</code></td>
+<td style="text-align: left;">relation de <code>b</code> vers <code>a</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>(a)-[:R]-(b)</code></td>
+<td style="text-align: left;">relation dans <strong>n'importe quel sens</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>(a)-[:R]-&gt;(x)&lt;-[:R]-(b)</code></td>
+<td style="text-align: left;"><code>a</code> et <code>b</code> sont reliés au <strong>même</strong> nœud <code>x</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>RETURN DISTINCT x.nom</code></td>
+<td style="text-align: left;">supprime les doublons</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>RETURN f.titre, count(a) AS nb</code></td>
+<td style="text-align: left;">une ligne par <code>f.titre</code>, avec le nombre de <code>a</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition danger">
+<p class="admonition-title">Compter les lignes renvoyées</p>
+<p>Cypher renvoie <strong>une ligne par chemin trouvé</strong>. Si deux chemins mènent à la même valeur, elle apparaît <strong>deux fois</strong>, sauf avec <code>DISTINCT</code>.
+Méthode sûre : listez tous les chemins qui correspondent au motif, un par ligne, puis appliquez <code>RETURN</code> (et <code>DISTINCT</code> s'il y en a un).</p>
+</div>
+<h3 id="ecrire-et-supprimer">Écrire et supprimer<a class="headerlink" href="#ecrire-et-supprimer" title="Permanent link">&para;</a></h3>
+<div class="language-cypher highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="n">Acteur</span><span class="w"> </span><span class="p">{</span><span class="n">nom</span><span class="p">:</span><span class="w"> </span><span class="s">"Zendaya"</span><span class="p">})</span><span class="w">                          </span><span class="c1">// créer un nœud</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="n">Acteur</span><span class="w"> </span><span class="p">{</span><span class="n">nom</span><span class="p">:</span><span class="w"> </span><span class="s">"Zendaya"</span><span class="p">}),</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">:</span><span class="n">Film</span><span class="w"> </span><span class="p">{</span><span class="n">titre</span><span class="p">:</span><span class="w"> </span><span class="s">"Dune"</span><span class="p">})</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">CREATE</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">JOUE_DANS</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="w">                                </span><span class="c1">// créer une relation entre nœuds existants</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">:</span><span class="n">Film</span><span class="w"> </span><span class="p">{</span><span class="n">titre</span><span class="p">:</span><span class="w"> </span><span class="s">"Dune"</span><span class="p">})</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">annee</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="m">2021</span><span class="w">           </span><span class="c1">// modifier une propriété</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">:</span><span class="n">Film</span><span class="w"> </span><span class="p">{</span><span class="n">titre</span><span class="p">:</span><span class="w"> </span><span class="s">"Dune"</span><span class="p">})</span><span class="w"> </span><span class="n">DETACH</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="n">f</span><span class="w">              </span><span class="c1">// supprimer le nœud ET ses relations</span>
+</span></code></pre></div>
+<p><code>DELETE</code> seul sur un nœud qui a encore des relations provoque une <strong>erreur</strong> : il faut <code>DETACH DELETE</code>.</p>
+<h3 id="performances">Performances<a class="headerlink" href="#performances" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Toujours préciser le <strong>label</strong> : <code>MATCH (p:Personne {nom: "Alice"})</code> ne parcourt que les <code>Personne</code>, alors que <code>MATCH (p {nom: "Alice"})</code> parcourt <strong>tous</strong> les nœuds de la base.</li>
+<li>Index sur les propriétés filtrées : <code>CREATE INDEX FOR (p:Personne) ON (p.nom)</code>.</li>
+</ul>
+<hr />
+<h2 id="4-architecture-polyglotte">4. Architecture polyglotte<a class="headerlink" href="#4-architecture-polyglotte" title="Permanent link">&para;</a></h2>
+<p>Chaque besoin va au moteur le plus adapté, derrière <strong>une seule API</strong> (FastAPI) :</p>
+<ul>
+<li><strong>MongoDB</strong> pour les documents : fiches, profils, avis.</li>
+<li><strong>Neo4j</strong> pour les relations : similarité, recommandation, compétences partagées.</li>
+<li>Un <strong>identifiant pivot</strong> (<code>city_id</code> dans SmartCity, <code>slug</code> dans le Portfolio) désigne la même entité dans les deux bases : c'est lui qui permet de les relier.</li>
+<li>Découpage du backend : <strong>routes</strong> (<code>api/</code>) → <strong>services</strong> (logique métier, croisent les bases) → <strong>repositories</strong> (un par base, ne parlent qu'à une base).</li>
+</ul>
+<hr />
+<h2 id="5-entrainement">5. Entraînement<a class="headerlink" href="#5-entrainement" title="Permanent link">&para;</a></h2>
+<p>Faites chaque exercice <strong>sur papier</strong>, puis ouvrez la correction.</p>
+<h3 id="vrai-ou-faux">Vrai ou faux<a class="headerlink" href="#vrai-ou-faux" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Un système distribué peut garantir à la fois C, A et P.</li>
+<li>Redis est une base orientée document.</li>
+<li><code>db.films.find({ genres: "SF" })</code> renvoie aussi les films dont <code>genres</code> vaut <code>["SF", "Drame"]</code>.</li>
+<li><code>updateOne</code> modifie tous les documents qui correspondent au filtre.</li>
+<li>Dans Neo4j, une relation peut ne pas avoir de type.</li>
+<li>Stocker les commentaires d'un article très populaire dans un tableau imbriqué de l'article est une bonne idée.</li>
+</ol>
+<details class="success">
+<summary>Correction</summary>
+<ol>
+<li><strong>Faux</strong> : au plus deux sur trois.</li>
+<li><strong>Faux</strong> : clé-valeur.</li>
+<li><strong>Vrai</strong> : le filtre teste si le tableau <strong>contient</strong> la valeur.</li>
+<li><strong>Faux</strong> : seulement le premier ; c'est <code>updateMany</code> pour tous.</li>
+<li><strong>Faux</strong> : une relation a toujours un type et une direction.</li>
+<li><strong>Faux</strong> : tableau non borné → risque de dépasser 16 Mo ; on référence (collection <code>commentaires</code> avec l'identifiant de l'article).</li>
+</ol>
+</details>
+<h3 id="lire-des-requetes-mongodb">Lire des requêtes MongoDB<a class="headerlink" href="#lire-des-requetes-mongodb" title="Permanent link">&para;</a></h3>
+<p>La collection <code>films</code> contient exactement ces 5 documents :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><code>_id</code></th>
+<th style="text-align: left;"><code>titre</code></th>
+<th style="text-align: center;"><code>annee</code></th>
+<th style="text-align: left;"><code>genres</code></th>
+<th style="text-align: center;"><code>note</code></th>
+<th style="text-align: center;"><code>oscar</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;">"Inception"</td>
+<td style="text-align: center;">2010</td>
+<td style="text-align: left;">["SF", "Action"]</td>
+<td style="text-align: center;">8.8</td>
+<td style="text-align: center;">true</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: left;">"Intouchables"</td>
+<td style="text-align: center;">2011</td>
+<td style="text-align: left;">["Comédie", "Drame"]</td>
+<td style="text-align: center;">8.5</td>
+<td style="text-align: center;"><em>(champ absent)</em></td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;">"Interstellar"</td>
+<td style="text-align: center;">2014</td>
+<td style="text-align: left;">["SF", "Drame"]</td>
+<td style="text-align: center;">8.7</td>
+<td style="text-align: center;">true</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;">"Amélie"</td>
+<td style="text-align: center;">2001</td>
+<td style="text-align: left;">["Comédie", "Romance"]</td>
+<td style="text-align: center;">8.3</td>
+<td style="text-align: center;">false</td>
+</tr>
+<tr>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;">"Dune"</td>
+<td style="text-align: center;">2021</td>
+<td style="text-align: left;">["SF"]</td>
+<td style="text-align: center;">8.0</td>
+<td style="text-align: center;">true</td>
+</tr>
+</tbody>
+</table>
+<p>Que renvoie chaque requête ?</p>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// M1</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="w"> </span><span class="nx">genres</span><span class="o">:</span><span class="w"> </span><span class="s2">"SF"</span><span class="p">,</span><span class="w"> </span><span class="nx">annee</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$gte</span><span class="o">:</span><span class="w"> </span><span class="mf">2014</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1">// M2</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">countDocuments</span><span class="p">({</span><span class="w"> </span><span class="nx">$or</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">genres</span><span class="o">:</span><span class="w"> </span><span class="s2">"Comédie"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">note</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$gt</span><span class="o">:</span><span class="w"> </span><span class="mf">8.6</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">})</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1">// M3</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">countDocuments</span><span class="p">({</span><span class="w"> </span><span class="nx">oscar</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$ne</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1">// M4</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">countDocuments</span><span class="p">({</span><span class="w"> </span><span class="nx">oscar</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">})</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1">// M5 (dans l'ordre)</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">find</span><span class="p">({},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">titre</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">_id</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="p">}).</span><span class="nx">sort</span><span class="p">({</span><span class="w"> </span><span class="nx">note</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="w"> </span><span class="p">}).</span><span class="nx">limit</span><span class="p">(</span><span class="mf">3</span><span class="p">)</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="c1">// M6 : combien de documents sont modifiés ?</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="nx">db</span><span class="p">.</span><span class="nx">films</span><span class="p">.</span><span class="nx">updateMany</span><span class="p">({</span><span class="w"> </span><span class="nx">genres</span><span class="o">:</span><span class="w"> </span><span class="s2">"Drame"</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">$set</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kr">long</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span>
+</span></code></pre></div>
+<details class="success">
+<summary>Correction</summary>
+<ul>
+<li><strong>M1</strong> : Interstellar, Dune (SF <strong>et</strong> année ≥ 2014 ; Inception est de 2010).</li>
+<li><strong>M2</strong> : <strong>4</strong> : Intouchables et Amélie (Comédie), Inception (8.8) et Interstellar (8.7).</li>
+<li><strong>M3</strong> : <strong>2</strong> : Intouchables (champ absent) et Amélie (<code>false</code>).</li>
+<li><strong>M4</strong> : <strong>1</strong> : seulement Amélie. Le champ absent ne vaut pas <code>false</code>.</li>
+<li><strong>M5</strong> : Inception, Interstellar, Intouchables (notes 8.8, 8.7, 8.5).</li>
+<li><strong>M6</strong> : <strong>2</strong> : Intouchables et Interstellar.</li>
+</ul>
+</details>
+<h3 id="lire-des-requetes-cypher">Lire des requêtes Cypher<a class="headerlink" href="#lire-des-requetes-cypher" title="Permanent link">&para;</a></h3>
+<p>La base contient exactement ces relations (un même nom ou titre désigne toujours le même nœud) :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>(:Acteur {nom: "DiCaprio"})     -[:JOUE_DANS]-&gt;  (:Film {titre: "Inception"})
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>(:Acteur {nom: "Page"})         -[:JOUE_DANS]-&gt;  (:Film {titre: "Inception"})
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>(:Acteur {nom: "McConaughey"})  -[:JOUE_DANS]-&gt;  (:Film {titre: "Interstellar"})
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>(:Acteur {nom: "Chastain"})     -[:JOUE_DANS]-&gt;  (:Film {titre: "Interstellar"})
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>(:Acteur {nom: "Chalamet"})     -[:JOUE_DANS]-&gt;  (:Film {titre: "Interstellar"})
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>(:Acteur {nom: "Chalamet"})     -[:JOUE_DANS]-&gt;  (:Film {titre: "Dune"})
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>(:Realisateur {nom: "Nolan"})      -[:REALISE]-&gt;  (:Film {titre: "Inception"})
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>(:Realisateur {nom: "Nolan"})      -[:REALISE]-&gt;  (:Film {titre: "Interstellar"})
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>(:Realisateur {nom: "Villeneuve"}) -[:REALISE]-&gt;  (:Film {titre: "Dune"})
+</span></code></pre></div>
+<p>Que renvoie chaque requête ?</p>
+<div class="language-cypher highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// N1</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="n">Acteur</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">JOUE_DANS</span><span class="o">]-&gt;</span><span class="p">(:</span><span class="n">Film</span><span class="w"> </span><span class="p">{</span><span class="n">titre</span><span class="p">:</span><span class="w"> </span><span class="s">"Interstellar"</span><span class="p">})</span><span class="w"> </span><span class="k">RETURN</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">nom</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1">// N2 : combien de lignes ?</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(:</span><span class="n">Acteur</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">JOUE_DANS</span><span class="o">]-&gt;</span><span class="p">(:</span><span class="n">Film</span><span class="p">)</span><span class="o">&lt;-[</span><span class="p">:</span><span class="n">REALISE</span><span class="o">]-</span><span class="p">(</span><span class="n">r</span><span class="p">:</span><span class="n">Realisateur</span><span class="p">)</span><span class="w"> </span><span class="k">RETURN</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">nom</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1">// N3 : combien de lignes ?</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(:</span><span class="n">Acteur</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">JOUE_DANS</span><span class="o">]-&gt;</span><span class="p">(:</span><span class="n">Film</span><span class="p">)</span><span class="o">&lt;-[</span><span class="p">:</span><span class="n">REALISE</span><span class="o">]-</span><span class="p">(</span><span class="n">r</span><span class="p">:</span><span class="n">Realisateur</span><span class="p">)</span><span class="w"> </span><span class="k">RETURN</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">nom</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1">// N4</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(:</span><span class="n">Acteur</span><span class="w"> </span><span class="p">{</span><span class="n">nom</span><span class="p">:</span><span class="w"> </span><span class="s">"Chalamet"</span><span class="p">})</span><span class="o">-[</span><span class="p">:</span><span class="n">JOUE_DANS</span><span class="o">]-&gt;</span><span class="p">(:</span><span class="n">Film</span><span class="p">)</span><span class="o">&lt;-[</span><span class="p">:</span><span class="n">JOUE_DANS</span><span class="o">]-</span><span class="p">(</span><span class="n">co</span><span class="p">:</span><span class="n">Acteur</span><span class="p">)</span><span class="w"> </span><span class="k">RETURN</span><span class="w"> </span><span class="n">co</span><span class="p">.</span><span class="n">nom</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="c1">// N5</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">r</span><span class="p">:</span><span class="n">Realisateur</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">REALISE</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">f</span><span class="p">:</span><span class="n">Film</span><span class="p">)</span><span class="w"> </span><span class="k">RETURN</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">nom</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">nb</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">nb</span><span class="w"> </span><span class="k">DESC</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="c1">// N6 : combien de lignes ?</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">:</span><span class="n">Film</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">JOUE_DANS</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="n">Acteur</span><span class="p">)</span><span class="w"> </span><span class="k">RETURN</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">nom</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="c1">// N7 : que se passe-t-il ?</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="p">:</span><span class="n">Film</span><span class="w"> </span><span class="p">{</span><span class="n">titre</span><span class="p">:</span><span class="w"> </span><span class="s">"Dune"</span><span class="p">})</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="n">f</span>
+</span></code></pre></div>
+<details class="success">
+<summary>Correction</summary>
+<ul>
+<li><strong>N1</strong> : McConaughey, Chastain, Chalamet.</li>
+<li><strong>N2</strong> : <strong>6</strong> lignes : « Nolan » 5 fois (2 acteurs d'Inception + 3 d'Interstellar) et « Villeneuve » 1 fois.</li>
+<li><strong>N3</strong> : <strong>2</strong> lignes : Nolan, Villeneuve.</li>
+<li><strong>N4</strong> : McConaughey, Chastain (les autres acteurs d'Interstellar ; personne d'autre ne joue dans Dune).</li>
+<li><strong>N5</strong> : Nolan 2, puis Villeneuve 1.</li>
+<li><strong>N6</strong> : <strong>0</strong> ligne : la relation va de l'acteur vers le film, pas l'inverse.</li>
+<li><strong>N7</strong> : <strong>erreur</strong> : Dune a encore des relations. Il faut <code>DETACH DELETE</code>.</li>
+</ul>
+</details>
+<h3 id="choisir-la-bonne-modelisation">Choisir la bonne modélisation<a class="headerlink" href="#choisir-la-bonne-modelisation" title="Permanent link">&para;</a></h3>
+<p>Pour chaque besoin, Embedding ou Referencing ? Et quelle base (MongoDB ou Neo4j) ?</p>
+<ol>
+<li>Les 3 adresses de livraison d'un client, affichées sur sa fiche.</li>
+<li>Les millions de lignes de commande d'un site e-commerce.</li>
+<li>« Les clients qui ont acheté ce produit ont aussi acheté… ».</li>
+<li>Les étapes (5 maximum) d'une recette de cuisine.</li>
+</ol>
+<details class="success">
+<summary>Correction</summary>
+<ol>
+<li><strong>Embedding</strong> dans le document client (MongoDB) : peu nombreuses, lues avec le client.</li>
+<li><strong>Referencing</strong> (MongoDB) : collection séparée, volume non borné.</li>
+<li><strong>Neo4j</strong> : c'est un parcours de relations client → produit → client → produit.</li>
+<li><strong>Embedding</strong> (MongoDB) : liste bornée, toujours lue avec la recette.</li>
+</ol>
+</details>
+<hr />
+<h2 id="pour-aller-plus-loin">Pour aller plus loin<a class="headerlink" href="#pour-aller-plus-loin" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Refaire les <a href="../exercices/mongodb/">exercices MongoDB</a> et <a href="../exercices/neo4j/">Neo4j</a>, <strong>de tête</strong> puis en vérifiant.</li>
+<li>Relire le <a href="https://nosql-esigelec.github.io/course/slides/" target="_blank">support de cours</a> et l'<a href="../demarrer/aide-memoire/">aide-mémoire</a>.</li>
+<li>Relire <strong>votre propre code</strong> SmartCity et Portfolio : chaque <code>find</code>, <code>MATCH</code> et chaque choix Embedding / Referencing est une question d'examen potentielle.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../exercices/neo4j/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Neo4j">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Neo4j
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../evaluation/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Évaluation">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Évaluation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      ESIGELEC Rouen - Brice FOTZO
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.action.edit","content.code.annotate","content.code.copy","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.path","navigation.sections","navigation.tabs","navigation.top","navigation.tracking","search.highlight","toc.follow"],"redirect":null,"search":"../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copié dans le presse-papier","clipboard.copy":"Copier dans le presse-papier","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 de plus sur cette page","search.result.more.other":"# de plus sur cette page","search.result.none":"Aucun document trouvé","search.result.one":"1 document trouvé","search.result.other":"# documents trouvés","search.result.placeholder":"Taper pour démarrer la recherche","search.result.term.missing":"Non trouvé","select.version":"Sélectionner la version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d31f0ffa.min.js"></script>
+      
+    
+  </body>
+</html>
